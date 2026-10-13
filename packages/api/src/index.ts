@@ -39,6 +39,21 @@ app.route('/api/workspace', workspaceRouter);
 app.route('/api', testsRouter);
 app.route('/api/guest', guestRouter);
 app.route('/api', queryRouter);
+// Audio asset proxy from R2
+app.get('/api/audio/*', async (c) => {
+  const path = c.req.path.replace(/^\/api\/audio\//, '');
+  if (c.env.BUCKET) {
+    const object = await c.env.BUCKET.get(path);
+    if (object) {
+      const headers = new Headers();
+      object.writeHttpMetadata(headers);
+      headers.set('etag', object.httpEtag);
+      return new Response(object.body, { headers });
+    }
+  }
+  return c.text('Audio asset not found', 404);
+});
+
 
 // Fallback to static assets for SPA routing if ASSETS binding exists
 app.all('*', async (c) => {
