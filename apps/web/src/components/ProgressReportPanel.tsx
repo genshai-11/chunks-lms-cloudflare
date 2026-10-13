@@ -134,7 +134,7 @@ export function ProgressReportPanel({
   const courseReport = useMemo(() => {
     if (!window || learnerUserId) return null
     return buildCourseProgressReport(ledger, courseId, window, {
-      learnerIds: users.filter((u) => u.roles.includes('learner')).map((u) => u.id),
+      learnerIds: users.filter((u) => u.roles?.includes('learner') ?? false).map((u) => u.id),
     })
   }, [window, ledger, courseId, learnerUserId, users])
 

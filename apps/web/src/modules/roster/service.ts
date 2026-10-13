@@ -16,21 +16,21 @@ export { defaultCourseSchedule } from './schedule'
 export { formatScheduleLabel, formatWeekdaysLabel, normalizeCourseSchedule } from './schedule'
 
 export function listTeachers(state: RosterState): DomainUser[] {
-  return dedupeUsersByEmail(state.users.filter((u) => u.roles.includes('teacher')))
+  return dedupeUsersByEmail(state.users.filter((u) => u.roles?.includes('teacher') ?? false))
 }
 
 export function listLearners(state: RosterState): DomainUser[] {
-  return dedupeUsersByEmail(state.users.filter((u) => u.roles.includes('learner')))
+  return dedupeUsersByEmail(state.users.filter((u) => u.roles?.includes('learner') ?? false))
 }
 
 /** Raw teachers without email dedupe (admin cleanup / diagnostics). */
 export function listTeachersRaw(state: RosterState): DomainUser[] {
-  return state.users.filter((u) => u.roles.includes('teacher'))
+  return state.users.filter((u) => u.roles?.includes('teacher') ?? false)
 }
 
 /** Raw learners without email dedupe. */
 export function listLearnersRaw(state: RosterState): DomainUser[] {
-  return state.users.filter((u) => u.roles.includes('learner'))
+  return state.users.filter((u) => u.roles?.includes('learner') ?? false)
 }
 
 export function findLearnerByEmail(state: RosterState, email: string): DomainUser | null {

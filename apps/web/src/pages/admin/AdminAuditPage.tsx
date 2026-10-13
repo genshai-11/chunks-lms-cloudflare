@@ -46,7 +46,7 @@ export function AdminAuditPage() {
 
   const effective = useMemo(() => effectiveResults(ledger), [ledger])
   const classes = roster.classes
-  const learners = roster.users.filter((u) => u.roles.includes('learner'))
+  const learners = roster.users.filter((u) => u.roles?.includes('learner') ?? false)
 
   function nameOf(id: string | null) {
     if (!id) return '—'

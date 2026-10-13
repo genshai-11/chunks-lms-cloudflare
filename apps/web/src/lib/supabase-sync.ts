@@ -1,4 +1,4 @@
-import type { Course, Class, Enrollment, DomainUser, RosterState } from '../modules/roster/types'
+import type { RosterState } from '../modules/roster/types'
 import { apiClient } from '../api/client'
 import { createEmptyRoster, isUuid, newId, LOCAL_ORG_ID } from '../modules/roster/seed'
 import type { LearningSession, SchedulingState } from '../modules/scheduling/types'
@@ -120,10 +120,47 @@ export async function loadWorkspaceFromSupabase(options?: {
         data: {
           roster: {
             organization: { id: orgId, name: 'Chunks Workspace' },
-            courses: (courses as Course[]) ?? [],
-            classes: (classes as Class[]) ?? [],
-            enrollments: (enrollments as Enrollment[]) ?? [],
-            users: (users as DomainUser[]) ?? [],
+            courses: ((courses as unknown as Array<Record<string, unknown>>) ?? []).map((c) => ({
+              id: String(c.id ?? ''),
+              organizationId: String(c.organizationId ?? c.organization_id ?? orgId),
+              code: String(c.code ?? ''),
+              name: String(c.name ?? ''),
+              status: (c.status as 'active' | 'archived') ?? 'active',
+              startsOn: c.startsOn ? String(c.startsOn) : c.starts_on ? String(c.starts_on) : null,
+              endsOn: c.endsOn ? String(c.endsOn) : c.ends_on ? String(c.ends_on) : null,
+            })),
+            classes: ((classes as unknown as Array<Record<string, unknown>>) ?? []).map((cl) => ({
+              id: String(cl.id ?? ''),
+              courseId: String(cl.courseId ?? cl.course_id ?? ''),
+              name: String(cl.name ?? ''),
+              capacity: typeof cl.capacity === 'number' ? cl.capacity : 30,
+              teacherUserId: String(cl.teacherUserId ?? cl.teacher_user_id ?? ''),
+              status: (cl.status as 'active' | 'ended') === 'ended' ? 'ended' : 'active',
+              startsOn: cl.startsOn ? String(cl.startsOn) : cl.starts_on ? String(cl.starts_on) : null,
+              endsOn: cl.endsOn ? String(cl.endsOn) : cl.ends_on ? String(cl.ends_on) : null,
+              schedule: null,
+            })),
+            enrollments: ((enrollments as unknown as Array<Record<string, unknown>>) ?? []).map((e) => ({
+              id: String(e.id ?? ''),
+              classId: String(e.classId ?? e.class_id ?? ''),
+              learnerUserId: String(e.learnerUserId ?? e.learner_user_id ?? ''),
+              status: (e.status as 'active' | 'ended') ?? 'active',
+              startedAt: String(e.startedAt ?? e.started_at ?? e.enrolled_at ?? new Date().toISOString()),
+              endedAt: e.endedAt ? String(e.endedAt) : e.ended_at ? String(e.ended_at) : null,
+            })),
+            users: ((users as unknown as Array<Record<string, unknown>>) ?? []).map((u) => {
+              const rawRoles = Array.isArray(u.roles) ? (u.roles as ('admin' | 'teacher' | 'learner')[]) : []
+              return {
+                id: String(u.id ?? ''),
+                displayName: String(u.displayName ?? u.display_name ?? u.email ?? 'User'),
+                email: u.email ? String(u.email) : null,
+                username: u.username ? String(u.username) : null,
+                avatarUrl: u.avatarUrl ? String(u.avatarUrl) : null,
+                roles: rawRoles.length > 0 ? rawRoles : ['learner'],
+                accountStatus: (u.accountStatus ?? u.account_status) === 'inactive' ? 'inactive' : 'active',
+                allowMultiClass: Boolean(u.allowMultiClass ?? u.allow_multi_class),
+              }
+            }),
           },
           scheduling: {
             learningSessions: (learningSessions as LearningSession[]) ?? [],

@@ -112,7 +112,7 @@ export function TeacherAnalysisPage() {
         ledger={ledger}
         users={[
           ...learners.filter((u): u is NonNullable<typeof u> => Boolean(u)),
-          ...roster.users.filter((u) => u.roles.includes('teacher')),
+          ...roster.users.filter((u) => u.roles?.includes('teacher') ?? false),
         ]}
         learningSessions={scheduling.learningSessions
           .filter((s) => s.classId === classRow.id)

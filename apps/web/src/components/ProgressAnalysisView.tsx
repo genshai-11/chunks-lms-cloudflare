@@ -383,13 +383,13 @@ export function ProgressAnalysisView({
   )
   const [sessionId, setSessionId] = useState(learningSessions[0]?.id ?? '')
   const learners = useMemo(
-    () => users.filter((u) => u.roles.includes('learner')),
+    () => users.filter((u) => u.roles?.includes('learner') ?? false),
     [users],
   )
 
   const [selectedLearnerIds, setSelectedLearnerIds] = useState<string[]>(() => {
     if (learnerUserId) return [learnerUserId]
-    const firstLearner = users.find((u) => u.roles.includes('learner'))
+    const firstLearner = users.find((u) => u.roles?.includes('learner') ?? false)
     return firstLearner ? [firstLearner.id] : []
   })
   const [whoOpen, setWhoOpen] = useState(false)

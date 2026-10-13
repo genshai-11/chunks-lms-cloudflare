@@ -14,7 +14,7 @@ function participantIds(session: LearningSession): string[] {
 function activeLearnerIdsForClass(roster: RosterState, classId: string): Set<string> {
   const activeUserIds = new Set(
     roster.users
-      .filter((user) => user.roles.includes('learner') && (user.accountStatus ?? 'active') === 'active')
+      .filter((user) => (user.roles?.includes('learner') ?? false) && (user.accountStatus ?? 'active') === 'active')
       .map((user) => user.id),
   )
   return new Set(

@@ -30,9 +30,35 @@ workspaceRouter.get('/snapshot', async (c) => {
   // Enrollments
   const visibleEnrollments = await db.select().from(schema.enrollments);
 
-  // Users
-  const visibleUsers = await db.select().from(schema.users);
+  // Staff roles mapping
+  const allStaffRoles = await db.select().from(schema.staffRoles);
+  const staffRoleMap = new Map<string, string[]>();
+  for (const sr of allStaffRoles) {
+    const list = staffRoleMap.get(sr.userId) || [];
+    list.push(sr.role);
+    staffRoleMap.set(sr.userId, list);
+  }
 
+  const teacherUserIds = new Set(visibleClasses.map((c) => c.teacherUserId));
+
+  // Users with guaranteed roles array
+  const rawUsers = await db.select().from(schema.users);
+  const visibleUsers = rawUsers.map((u) => {
+    const roles = staffRoleMap.get(u.id) || [];
+    if (teacherUserIds.has(u.id) && !roles.includes('teacher')) {
+      roles.push('teacher');
+    }
+    if (roles.length === 0) {
+      roles.push('learner');
+    }
+    return {
+      ...u,
+      displayName: u.displayName || u.email || 'User',
+      roles,
+      accountStatus: u.accountStatus || 'active',
+      allowMultiClass: Boolean(u.allowMultiClass),
+    };
+  });
   // Sessions
   const visibleLearningSessions = await db.select().from(schema.learningSessions);
   return c.json({
