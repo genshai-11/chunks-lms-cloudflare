@@ -1,4 +1,4 @@
-name: CD (Deploy to Cloudflare)
+name: CD (Deploy to Cloudflare Pages)
 
 on:
   push:
@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   deploy:
-    name: Deploy to Cloudflare Edge (chunks-test)
+    name: Deploy to Cloudflare Pages (chunks-test)
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -32,8 +32,7 @@ jobs:
         working-directory: apps/web
         run: npm run build
 
-      - name: Deploy to Cloudflare Worker & Assets
-        working-directory: packages/api
+      - name: Deploy to Cloudflare (chunks-test.pages.dev)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -45,4 +44,7 @@ jobs:
             echo "  - CLOUDFLARE_ACCOUNT_ID (Find in Cloudflare Dashboard -> Workers & Pages overview)"
             exit 0
           fi
-          npx wrangler deploy
+          # Deploy Edge API Worker
+          cd packages/api && npx wrangler deploy && cd ../..
+          # Deploy Static Frontend to Cloudflare Pages (chunks-test.pages.dev)
+          npx wrangler pages deploy apps/web/dist --project-name=chunks-test
