@@ -81,6 +81,67 @@ function StaffSignInForm() {
           <span>{submitting ? 'Signing in…' : 'Sign in'}</span>
         </button>
       </form>
+      <div className="mt-4 pt-4 border-t border-slate-200">
+        <p className="text-xs font-bold text-slate-500 mb-2 uppercase tracking-wide">
+          Đăng nhập nhanh (Tài khoản mẫu Cloudflare D1):
+        </p>
+        <div className="grid grid-cols-3 gap-2">
+          <button
+            type="button"
+            onClick={() => {
+              setIdentifier('admin')
+              setPassword('admin123')
+              setSubmitting(true)
+              void session
+                .signInWithPassword('admin', 'admin123')
+                .then((res) => {
+                  if (res.ok) setMessage('Đăng nhập Quản trị viên thành công!')
+                  else setError(res.error)
+                })
+                .finally(() => setSubmitting(false))
+            }}
+            className="py-2 px-2.5 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 text-xs font-bold text-center border border-sky-200 transition"
+          >
+            👑 Admin
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setIdentifier('teacher')
+              setPassword('teacher123')
+              setSubmitting(true)
+              void session
+                .signInWithPassword('teacher', 'teacher123')
+                .then((res) => {
+                  if (res.ok) setMessage('Đăng nhập Giáo viên thành công!')
+                  else setError(res.error)
+                })
+                .finally(() => setSubmitting(false))
+            }}
+            className="py-2 px-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold text-center border border-emerald-200 transition"
+          >
+            🎓 Teacher
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setIdentifier('guess')
+              setPassword('guess123')
+              setSubmitting(true)
+              void session
+                .signInWithPassword('guess', 'guess123')
+                .then((res) => {
+                  if (res.ok) setMessage('Đăng nhập Giám khảo Guest thành công!')
+                  else setError(res.error)
+                })
+                .finally(() => setSubmitting(false))
+            }}
+            className="py-2 px-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs font-bold text-center border border-amber-200 transition"
+          >
+            🔍 Guess
+          </button>
+        </div>
+      </div>
 
       <p className="mt-4 rounded-2xl bg-slate-50 px-3 py-2 text-center text-xs font-semibold text-slate-500">
         Account access only. Magic links and public sign-up are disabled on this screen.

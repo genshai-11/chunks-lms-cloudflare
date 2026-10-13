@@ -5,7 +5,6 @@ import { PageHeader } from '../components/PageHeader'
 import type { StaffRole } from './staff-roles'
 import { StaffSignInForm } from './AuthProvider'
 import { useStaffSession } from './useStaffSession'
-import { Panel } from '../components/ui'
 
 type Props = {
   /** Required staff role for this workspace */
@@ -37,21 +36,7 @@ export function StaffGate({ role, children }: Props) {
           subtitle="Sign in with your Chunks account to continue."
         />
         <div style={{ maxWidth: 460, margin: '0 auto', width: '100%' }}>
-          {session.authEnabled ? (
-            <StaffSignInForm />
-          ) : (
-            <Panel
-              icon={Lock}
-              title="Account sign-in is not configured"
-              description="Configure Supabase Auth before signing in."
-              collapsible={false}
-            >
-              <p className="meta">
-                Set <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code>, or
-                enable <code>VITE_AUTH_BYPASS=true</code> for local demos.
-              </p>
-            </Panel>
-          )}
+          <StaffSignInForm />
         </div>
       </div>
     )

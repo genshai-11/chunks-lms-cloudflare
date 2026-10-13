@@ -2,9 +2,30 @@ import { Hono } from 'hono';
 
 export const queryRouter = new Hono<{ Bindings: { DB: D1Database } }>();
 
-// Universal Edge Query endpoint for D1
+// Helper to sanitize identifier
+function sanitizeId(id: string): string {
+  return id.replace(/[^a-zA-Z0-9_]/g, '');
+}
+function extractStringProp(obj: unknown, prop: string): string | null {
+  if (obj && typeof obj === 'object' && prop in obj) {
+    const val = (obj as Record<string, unknown>)[prop];
+    return typeof val === 'string' ? val : null;
+  }
+  return null;
+}
+
+function extractNumberProp(obj: unknown, prop: string): number | null {
+  if (obj && typeof obj === 'object' && prop in obj) {
+    const val = (obj as Record<string, unknown>)[prop];
+    return typeof val === 'number' ? val : null;
+  }
+  return null;
+}
+
+
+// Universal Edge Query endpoint for D1 (PostgREST-compatible)
 queryRouter.post('/query', async (c) => {
-  const body = await c.req.json();
+  const body = await c.req.json().catch(() => ({}));
   const {
     table,
     select = '*',
@@ -21,8 +42,7 @@ queryRouter.post('/query', async (c) => {
     return c.json({ data: null, error: { message: 'Bảng không hợp lệ' } }, 400);
   }
 
-  // Sanitize table name (only letters, numbers, underscores)
-  const cleanTable = table.replace(/[^a-zA-Z0-9_]/g, '');
+  const cleanTable = sanitizeId(table);
 
   try {
     if (action === 'delete') {
@@ -30,8 +50,16 @@ queryRouter.post('/query', async (c) => {
       const params: unknown[] = [];
 
       for (const [col, val] of Object.entries(eq)) {
-        whereClauses.push(`"${col.replace(/"/g, '')}" = ?`);
+        whereClauses.push(`"${sanitizeId(col)}" = ?`);
         params.push(val);
+      }
+
+      for (const [col, list] of Object.entries(inFilter as Record<string, unknown[]>)) {
+        if (Array.isArray(list) && list.length > 0) {
+          const placeholders = list.map(() => '?').join(', ');
+          whereClauses.push(`"${sanitizeId(col)}" IN (${placeholders})`);
+          params.push(...list);
+        }
       }
 
       if (whereClauses.length === 0) {
@@ -48,13 +76,13 @@ queryRouter.post('/query', async (c) => {
       const params: unknown[] = [];
 
       for (const [col, val] of Object.entries(values as Record<string, unknown>)) {
-        setClauses.push(`"${col.replace(/"/g, '')}" = ?`);
+        setClauses.push(`"${sanitizeId(col)}" = ?`);
         params.push(typeof val === 'object' && val !== null ? JSON.stringify(val) : val);
       }
 
       const whereClauses: string[] = [];
       for (const [col, val] of Object.entries(eq)) {
-        whereClauses.push(`"${col.replace(/"/g, '')}" = ?`);
+        whereClauses.push(`"${sanitizeId(col)}" = ?`);
         params.push(val);
       }
 
@@ -69,7 +97,7 @@ queryRouter.post('/query', async (c) => {
 
       for (const row of rowList) {
         const cols = Object.keys(row);
-        const colNames = cols.map((k) => `"${k.replace(/"/g, '')}"`).join(', ');
+        const colNames = cols.map((k) => `"${sanitizeId(k)}"`).join(', ');
         const placeholders = cols.map(() => '?').join(', ');
         const params = cols.map((k) => {
           const v = row[k];
@@ -89,9 +117,9 @@ queryRouter.post('/query', async (c) => {
     // eq filters
     for (const [col, val] of Object.entries(eq)) {
       if (val === null || val === undefined) {
-        whereClauses.push(`"${col.replace(/"/g, '')}" IS NULL`);
+        whereClauses.push(`"${sanitizeId(col)}" IS NULL`);
       } else {
-        whereClauses.push(`"${col.replace(/"/g, '')}" = ?`);
+        whereClauses.push(`"${sanitizeId(col)}" = ?`);
         params.push(val);
       }
     }
@@ -100,21 +128,39 @@ queryRouter.post('/query', async (c) => {
     for (const [col, list] of Object.entries(inFilter as Record<string, unknown[]>)) {
       if (Array.isArray(list) && list.length > 0) {
         const placeholders = list.map(() => '?').join(', ');
-        whereClauses.push(`"${col.replace(/"/g, '')}" IN (${placeholders})`);
+        whereClauses.push(`"${sanitizeId(col)}" IN (${placeholders})`);
         params.push(...list);
       }
     }
 
-    let sql = `SELECT ${select === '*' ? '*' : select} FROM "${cleanTable}"`;
+    // Parse relation joins from select string e.g. "*, standalone_test_attempt_snapshots(*)"
+    let cleanSelect = String(select);
+    const relationsToFetch: string[] = [];
+    const relRegex = /([a-zA-Z0-9_]+)\s*\(\s*([\*\w\s,]*)\s*\)/g;
+    let match;
+    while ((match = relRegex.exec(cleanSelect)) !== null) {
+      relationsToFetch.push(match[1]);
+      cleanSelect = cleanSelect.replace(match[0], '');
+    }
+
+    cleanSelect = cleanSelect.replace(/,\s*,/g, ',').replace(/^,\s*|\s*,\s*$/g, '').trim();
+    if (!cleanSelect || cleanSelect === '') cleanSelect = '*';
+
+    // Handle count query
+    const isCountQuery = select === 'count' || select === 'id, count';
+    let sql = isCountQuery
+      ? `SELECT count(*) as count FROM "${cleanTable}"`
+      : `SELECT ${cleanSelect} FROM "${cleanTable}"`;
+
     if (whereClauses.length > 0) {
       sql += ` WHERE ${whereClauses.join(' AND ')}`;
     }
 
     // Order by
-    if (order) {
+    if (order && !isCountQuery) {
       const orderList = Array.isArray(order) ? order : [order];
       const orderClauses = orderList.map((o: { column?: string; ascending?: boolean }) => {
-        const col = String(o.column || 'id').replace(/[^a-zA-Z0-9_]/g, '');
+        const col = sanitizeId(String(o.column || 'id'));
         return `"${col}" ${o.ascending === false ? 'DESC' : 'ASC'}`;
       });
       sql += ` ORDER BY ${orderClauses.join(', ')}`;
@@ -126,6 +172,86 @@ queryRouter.post('/query', async (c) => {
 
     const { results } = await c.env.DB.prepare(sql).bind(...params).all();
 
+    if (isCountQuery) {
+      const countVal = extractNumberProp(results[0], 'count') ?? 0;
+      return c.json({ data: countVal, count: countVal, error: null });
+    }
+
+    // Join related tables if requested in PostgREST relation syntax
+    if (relationsToFetch.length > 0 && results.length > 0) {
+      const parentIds = results
+        .map((r) => extractStringProp(r, 'id'))
+        .filter((id): id is string => id !== null);
+
+      for (const relTable of relationsToFetch) {
+        if (relTable === 'standalone_test_attempt_snapshots' && cleanTable === 'standalone_test_attempts') {
+          if (parentIds.length > 0) {
+            const placeholders = parentIds.map(() => '?').join(', ');
+            const { results: snapshots } = await c.env.DB.prepare(
+              `SELECT * FROM standalone_test_attempt_snapshots WHERE attempt_id IN (${placeholders})`,
+            ).bind(...parentIds).all();
+
+            const snapMap = new Map<string, unknown>();
+            for (const s of snapshots) {
+              const attId = extractStringProp(s, 'attempt_id');
+              if (attId) snapMap.set(attId, s);
+            }
+
+            for (const row of results) {
+              const r = row as Record<string, unknown>;
+              const rowId = extractStringProp(row, 'id');
+              const snap = rowId ? snapMap.get(rowId) : null;
+              r.standalone_test_attempt_snapshots = snap ? [snap] : [];
+            }
+          }
+        } else if (relTable === 'standalone_test_attempts' && cleanTable === 'standalone_test_run_items') {
+          if (parentIds.length > 0) {
+            const placeholders = parentIds.map(() => '?').join(', ');
+            const { results: attempts } = await c.env.DB.prepare(
+              `SELECT * FROM standalone_test_attempts WHERE run_item_id IN (${placeholders})`,
+            ).bind(...parentIds).all();
+
+            const attemptIds = attempts
+              .map((a) => extractStringProp(a, 'id'))
+              .filter((id): id is string => id !== null);
+
+            const snapMap = new Map<string, unknown>();
+            if (attemptIds.length > 0) {
+              const snapPlaceholders = attemptIds.map(() => '?').join(', ');
+              const { results: snapshots } = await c.env.DB.prepare(
+                `SELECT * FROM standalone_test_attempt_snapshots WHERE attempt_id IN (${snapPlaceholders})`,
+              ).bind(...attemptIds).all();
+
+              for (const s of snapshots) {
+                const attId = extractStringProp(s, 'attempt_id');
+                if (attId) snapMap.set(attId, s);
+              }
+            }
+
+            const attemptMap = new Map<string, unknown[]>();
+            for (const a of attempts) {
+              const att = a as Record<string, unknown>;
+              const attId = extractStringProp(a, 'id');
+              const snap = attId ? snapMap.get(attId) : null;
+              att.standalone_test_attempt_snapshots = snap ? [snap] : [];
+              const runItemId = extractStringProp(a, 'run_item_id');
+              if (runItemId) {
+                const list = attemptMap.get(runItemId) || [];
+                list.push(att);
+                attemptMap.set(runItemId, list);
+              }
+            }
+
+            for (const row of results) {
+              const r = row as Record<string, unknown>;
+              const rowId = extractStringProp(row, 'id');
+              r.standalone_test_attempts = rowId ? attemptMap.get(rowId) || [] : [];
+            }
+          }
+        }
+      }
+    }
+
     if (single) {
       return c.json({ data: results[0] ?? null, error: null });
     }
@@ -133,6 +259,7 @@ queryRouter.post('/query', async (c) => {
     return c.json({ data: results, error: null });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
+    console.error('D1 Query Error:', message);
     return c.json({ data: null, error: { message } }, 500);
   }
 });
@@ -148,7 +275,7 @@ queryRouter.post('/rpc/:name', async (c) => {
       const runId = body.p_run_id as string;
       const assignmentId = body.p_assignment_id as string;
 
-      let run = null;
+      let run: unknown = null;
       if (runId) {
         const { results } = await c.env.DB.prepare(
           'SELECT * FROM standalone_test_runs WHERE id = ?',
@@ -156,7 +283,7 @@ queryRouter.post('/rpc/:name', async (c) => {
         run = results[0] ?? null;
       }
 
-      const effectiveAssignmentId = assignmentId || (run as any)?.assignment_id;
+      const effectiveAssignmentId = assignmentId || extractStringProp(run, 'assignment_id');
       let allRuns: unknown[] = [];
       if (effectiveAssignmentId) {
         const { results } = await c.env.DB.prepare(

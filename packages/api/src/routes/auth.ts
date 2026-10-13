@@ -73,3 +73,8 @@ authRouter.get('/me', async (c) => {
     authenticated: true,
   });
 });
+
+// POST /api/auth/logout
+authRouter.post('/logout', (c) => {
+  return c.json({ ok: true });
+});

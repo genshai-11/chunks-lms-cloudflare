@@ -109,41 +109,96 @@ async function loadStaffRolesByAuthUserId(authUserId: string | null): Promise<St
   return resolveActiveStaffRoles(grants)
 }
 
-const noopSignIn: StaffSession['signInWithEmail'] = async () => ({
-  ok: false,
-  error: 'Supabase Auth is not configured',
-})
-const noopSignInPassword: StaffSession['signInWithPassword'] = async () => ({
-  ok: false,
-  error: 'Supabase Auth is not configured',
-})
-const noopSignUpPassword: StaffSession['signUpWithPassword'] = async () => ({
-  ok: false,
-  error: 'Supabase Auth is not configured',
-})
-const noopSignOut: StaffSession['signOut'] = async () => {}
 
-const BYPASS_SESSION = buildSession({
-  ready: true,
-  signedIn: true,
-  authBypass: true,
-  authEnabled: false,
-  userId: 'bypass-staff',
-  email: null,
-  displayName: 'Local staff',
-  staffRoles: ['admin', 'teacher'],
-  signInWithEmail: noopSignIn,
-  signInWithPassword: noopSignInPassword,
-  signUpWithPassword: noopSignUpPassword,
-  signOut: noopSignOut,
-})
 
-/** Local/CI: no hosted Supabase Auth required. */
-export function BypassStaffSessionProvider({ children }: { children: ReactNode }) {
-  return (
-    <StaffSessionContext.Provider value={BYPASS_SESSION}>{children}</StaffSessionContext.Provider>
-  )
+export type EdgeUser = {
+  id: string
+  email: string | null
+  username: string | null
+  displayName: string
+  roles: StaffRole[]
 }
+
+export function EdgeStaffSessionProvider({ children }: { children: ReactNode }) {
+  const [ready, setReady] = useState(false)
+  const [user, setUser] = useState<EdgeUser | null>(() => {
+    try {
+      const stored = localStorage.getItem('chunks_auth_user')
+      if (stored) {
+        return JSON.parse(stored) as EdgeUser
+      }
+    } catch {
+      // ignore
+    }
+    return null
+  })
+
+  useEffect(() => {
+    setReady(true)
+  }, [])
+
+  const signInWithPassword = useCallback<StaffSession['signInWithPassword']>(
+    async (identifier, password) => {
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ identifier, password }),
+        })
+        const data = (await res.json()) as { ok: boolean; token?: string; user?: EdgeUser; error?: string }
+        if (data.ok && data.user && data.token) {
+          localStorage.setItem('chunks_auth_token', data.token)
+          localStorage.setItem('chunks_auth_user', JSON.stringify(data.user))
+          setUser(data.user)
+          clearRequestCache('standalone')
+          return { ok: true }
+        }
+        return { ok: false, error: data.error || 'Tài khoản hoặc mật khẩu không chính xác' }
+      } catch (err) {
+        return { ok: false, error: err instanceof Error ? err.message : 'Lỗi kết nối máy chủ' }
+      }
+    },
+    [],
+  )
+
+  const signOut = useCallback<StaffSession['signOut']>(async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' }).catch(() => {})
+    } catch {
+      // ignore
+    }
+    localStorage.removeItem('chunks_auth_token')
+    localStorage.removeItem('chunks_auth_user')
+    setUser(null)
+    clearRequestCache('standalone')
+  }, [])
+
+  const staffRoles = user?.roles ?? []
+  const signedIn = Boolean(user)
+
+  const value = useMemo<StaffSession>(
+    () =>
+      buildSession({
+        ready,
+        signedIn,
+        authBypass: false,
+        authEnabled: true,
+        userId: user?.id ?? null,
+        email: user?.email ?? null,
+        displayName: user?.displayName ?? null,
+        staffRoles,
+        signInWithEmail: async () => ({ ok: false, error: 'Vui lòng đăng nhập bằng Email/Username và Mật khẩu' }),
+        signInWithPassword,
+        signUpWithPassword: async () => ({ ok: false, error: 'Đăng ký bị khóa' }),
+        signOut,
+      }),
+    [ready, signedIn, user, staffRoles, signInWithPassword, signOut],
+  )
+
+  return <StaffSessionContext.Provider value={value}>{children}</StaffSessionContext.Provider>
+}
+
+export const BypassStaffSessionProvider = EdgeStaffSessionProvider
 
 function displayNameFor(user: User | null): string | null {
   if (!user) return null

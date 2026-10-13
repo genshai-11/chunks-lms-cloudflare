@@ -11,11 +11,8 @@ export function HomePage() {
   const courseCode = roster.courses[0]?.code
   const people = roster.users.length
 
-  if (session.ready && !session.authBypass) {
-    if (session.signedIn) {
-      return <Navigate to={session.canAccess('admin') ? '/admin' : '/teacher'} replace />
-    }
-    return <Navigate to="/admin" replace />
+  if (session.ready && session.signedIn) {
+    return <Navigate to={session.canAccess('admin') ? '/admin' : '/teacher'} replace />
   }
 
   const chips: Array<{
@@ -25,7 +22,7 @@ export function HomePage() {
     icon: typeof Shield
   }> = []
 
-  if (session.canAccess('admin')) {
+  if (!session.signedIn || session.canAccess('admin')) {
     chips.push({
       to: '/admin',
       title: 'Admin',
@@ -33,7 +30,7 @@ export function HomePage() {
       icon: Shield,
     })
   }
-  if (session.canAccess('teacher')) {
+  if (!session.signedIn || session.canAccess('teacher')) {
     chips.push({
       to: '/teacher',
       title: 'Teacher',
