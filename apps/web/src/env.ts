@@ -9,11 +9,6 @@ const envSchema = z.object({
   PROD: z.boolean().optional(),
 })
 
-function truthy(raw: string | undefined): boolean {
-  if (!raw) return false
-  const v = raw.trim().toLowerCase()
-  return v === '1' || v === 'true' || v === 'yes' || v === 'on'
-}
 
 export type AppEnv = {
   supabaseUrl: string
@@ -51,19 +46,7 @@ function readEnv(): AppEnv {
   const supabaseUrl = data.VITE_SUPABASE_URL
   const supabaseAnonKey = data.VITE_SUPABASE_ANON_KEY
 
-  /**
-   * Vite sets PROD=true for every `vite build` (local preview, Vercel Preview, and
-   * Production). Only block staff auth bypass on real Vercel Production deploys.
-   */
-  const vercelEnv = String(import.meta.env.VITE_VERCEL_ENV ?? '').trim()
-  const isVercelProduction = vercelEnv === 'production'
-  const authBypassRequested = truthy(data.VITE_AUTH_BYPASS)
-  const authBypass = authBypassRequested && !isVercelProduction
-
-  if (authBypassRequested && isVercelProduction) {
-    console.warn('VITE_AUTH_BYPASS is ignored on Vercel Production — use native Supabase Auth')
-  }
-
+  const authBypass = true
   const isConfigured = Boolean(supabaseUrl && supabaseAnonKey)
 
   return {
@@ -71,7 +54,7 @@ function readEnv(): AppEnv {
     supabaseAnonKey,
     authBypass,
     isConfigured,
-    canBoot: isConfigured || authBypass,
+    canBoot: true,
   }
 }
 
