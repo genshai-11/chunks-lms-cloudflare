@@ -1,6 +1,5 @@
 -- Complete Seed for Cloudflare D1
 PRAGMA foreign_keys = OFF;
-BEGIN TRANSACTION;
 INSERT OR REPLACE INTO organizations (id, name, clerk_org_id, created_at) VALUES ('9d61d048-cbda-4600-8141-4cfd2745cc59', 'Lucy Nguyễn Workspace', 'personal:user_3GLlk3rfIycqrubWZOghxw0WoSS', '2026-07-12T05:14:40.283095+00:00');
 INSERT OR REPLACE INTO organizations (id, name, clerk_org_id, created_at) VALUES ('48d094a8-2bc7-41aa-a1cc-d35efe9f9950', 'Bach Pham Workspace', 'personal:user_3GPKBqY3uwx7cXjS2xcuuzI5OCe', '2026-07-12T15:23:31.033405+00:00');
 INSERT OR REPLACE INTO organizations (id, name, clerk_org_id, created_at) VALUES ('a0000000-0000-4000-8000-000000000001', 'My organization', NULL, '2026-07-13T01:55:06.687255+00:00');
@@ -22445,5 +22444,4 @@ INSERT OR REPLACE INTO standalone_test_events (id, attempt_id, event_sequence, e
 INSERT OR REPLACE INTO standalone_test_events (id, attempt_id, event_sequence, event_type, payload, actor_user_id, created_at) VALUES ('0a664725-8848-42ea-8439-5249a3c1d736', 'e4cdcb4b-90d5-45a8-a700-635bc4d25974', 2, 'provisional_recorded', '{"color":"red","previous_color":null}', 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', '2026-09-27T12:59:42.186121+00:00');
 INSERT OR REPLACE INTO standalone_test_events (id, attempt_id, event_sequence, event_type, payload, actor_user_id, created_at) VALUES ('3653175c-8faf-4251-bb47-1e7707ac7d31', 'e4cdcb4b-90d5-45a8-a700-635bc4d25974', 3, 'result_finalized', '{"color":"red"}', 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', '2026-09-27T12:59:42.186121+00:00');
 INSERT OR REPLACE INTO standalone_test_events (id, attempt_id, event_sequence, event_type, payload, actor_user_id, created_at) VALUES ('aaf1e95a-3dab-4dcb-ab2c-54a4abcaf16c', 'e361d508-a4de-4f40-95ad-dd040fd27623', 3, 'probe_continued', '{"color":"blue","probe_count":1}', 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', '2026-10-08T14:47:27.449983+00:00');
-COMMIT;
 PRAGMA foreign_keys = ON;

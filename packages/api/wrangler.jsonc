@@ -11,7 +11,7 @@
     {
       "binding": "DB",
       "database_name": "chunks-lms-d1",
-      "database_id": "chunks-lms-d1"
+      "database_id": "51c484a9-17fe-4f62-af76-53a4139a43b3"
     }
   ],
   "r2_buckets": [
