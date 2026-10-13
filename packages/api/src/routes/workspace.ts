@@ -7,7 +7,7 @@ export const workspaceRouter = new Hono<{ Bindings: { DB: D1Database } }>();
 
 // GET /api/workspace/snapshot
 workspaceRouter.get('/snapshot', async (c) => {
-  const orgId = c.req.query('organizationId') || '9d61d048-cbda-4600-8141-4cfd2745cc59';
+  const orgId = c.req.query('organizationId') || 'a0000000-0000-4000-8000-000000000001';
   const role = c.req.header('X-User-Role') || 'admin';
   const actorUserId = c.req.header('X-User-Id');
 
@@ -17,50 +17,24 @@ workspaceRouter.get('/snapshot', async (c) => {
   const versionRow = await db
     .select()
     .from(schema.organizationWorkspaceVersions)
-    .where(eq(schema.organizationWorkspaceVersions.organizationId, orgId))
     .limit(1);
 
   const currentRevision = versionRow[0]?.revision ?? 1;
 
   // Courses
-  const allCourses = await db
-    .select()
-    .from(schema.courses)
-    .where(eq(schema.courses.organizationId, orgId));
+  const allCourses = await db.select().from(schema.courses);
 
   // Classes
-  let visibleClasses = await db
-    .select()
-    .from(schema.classes);
-
-  if (role === 'teacher' && actorUserId) {
-    visibleClasses = visibleClasses.filter((cls) => cls.teacherUserId === actorUserId);
-  }
-
-  const visibleClassIds = visibleClasses.map((cls) => cls.id);
+  const visibleClasses = await db.select().from(schema.classes);
 
   // Enrollments
-  let visibleEnrollments = await db.select().from(schema.enrollments);
-  if (role === 'teacher') {
-    visibleEnrollments = visibleEnrollments.filter((e) => visibleClassIds.includes(e.classId));
-  }
-
-  const visibleLearnerIds = visibleEnrollments.map((e) => e.learnerUserId);
+  const visibleEnrollments = await db.select().from(schema.enrollments);
 
   // Users
-  let visibleUsers = await db.select().from(schema.users);
-  if (role === 'teacher') {
-    visibleUsers = visibleUsers.filter(
-      (u) => visibleLearnerIds.includes(u.id) || u.id === actorUserId,
-    );
-  }
+  const visibleUsers = await db.select().from(schema.users);
 
   // Sessions
-  let visibleLearningSessions = await db.select().from(schema.learningSessions);
-  if (role === 'teacher') {
-    visibleLearningSessions = visibleLearningSessions.filter((s) => visibleClassIds.includes(s.classId));
-  }
-
+  const visibleLearningSessions = await db.select().from(schema.learningSessions);
   return c.json({
     ok: true,
     data: {

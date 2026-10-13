@@ -90,10 +90,10 @@ function StaffSignInForm() {
             type="button"
             onClick={() => {
               setIdentifier('admin')
-              setPassword('admin123')
+              setPassword('chunker123')
               setSubmitting(true)
               void session
-                .signInWithPassword('admin', 'admin123')
+                .signInWithPassword('admin', 'chunker123')
                 .then((res) => {
                   if (res.ok) setMessage('Đăng nhập Quản trị viên thành công!')
                   else setError(res.error)
@@ -108,10 +108,10 @@ function StaffSignInForm() {
             type="button"
             onClick={() => {
               setIdentifier('teacher')
-              setPassword('teacher123')
+              setPassword('chunker123')
               setSubmitting(true)
               void session
-                .signInWithPassword('teacher', 'teacher123')
+                .signInWithPassword('teacher', 'chunker123')
                 .then((res) => {
                   if (res.ok) setMessage('Đăng nhập Giáo viên thành công!')
                   else setError(res.error)
@@ -126,10 +126,10 @@ function StaffSignInForm() {
             type="button"
             onClick={() => {
               setIdentifier('guess')
-              setPassword('guess123')
+              setPassword('chunker123')
               setSubmitting(true)
               void session
-                .signInWithPassword('guess', 'guess123')
+                .signInWithPassword('guess', 'chunker123')
                 .then((res) => {
                   if (res.ok) setMessage('Đăng nhập Giám khảo Guest thành công!')
                   else setError(res.error)
