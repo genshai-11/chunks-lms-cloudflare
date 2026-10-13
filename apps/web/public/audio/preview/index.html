@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duyệt âm thanh Chunks-LMS</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 3rem 1rem;
+    }
+    .container {
+      background: #1e293b;
+      padding: 2.5rem;
+      border-radius: 2rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      max-width: 900px;
+      width: 100%;
+      border: 1px solid #334155;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #c084fc;
+      text-align: center;
+      font-weight: 800;
+    }
+    .subtitle {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 2rem;
+    }
+    .section:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    @media (min-width: 600px) {
+      .btn-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    button {
+      padding: 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.3rem;
+      width: 100%;
+    }
+    button:active {
+      transform: scale(0.96);
+    }
+    .desc {
+      font-size: 0.75rem;
+      opacity: 0.85;
+      font-weight: 500;
+      text-align: left;
+      line-height: 1.3;
+    }
+    .red-title { color: #f87171; }
+    .btn-red { background: #ef4444; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15); }
+    .btn-red:hover { background: #dc2626; box-shadow: 0 6px 16px rgba(239, 68, 68, 0.3); }
+    
+    .yellow-title { color: #facc15; }
+    .btn-yellow { background: #eab308; box-shadow: 0 4px 12px rgba(234, 179, 8, 0.15); color: #0f172a; }
+    .btn-yellow:hover { background: #ca8a04; box-shadow: 0 6px 16px rgba(234, 179, 8, 0.3); }
+
+    .green-title { color: #4ade80; }
+    .btn-green { background: #22c55e; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15); }
+    .btn-green:hover { background: #16a34a; box-shadow: 0 6px 16px rgba(34, 197, 94, 0.3); }
+
+    .purple-title { color: #c084fc; }
+    .btn-purple { background: #a855f7; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.15); }
+    .btn-purple:hover { background: #9333ea; box-shadow: 0 6px 16px rgba(168, 85, 247, 0.3); }
+
+    .tag-funny {
+      background: #fef08a;
+      color: #854d0e;
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.25rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-top: 0.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Duyệt âm thanh Chunks-LMS</h1>
+    <p class="subtitle">Nghe thử và lựa chọn âm thanh ưng ý nhất cho các kết quả. Mình đã thêm các tùy chọn hài hước/buồn cười (tèo buồn) cho Đỏ và Vàng, và đủ 5 tùy chọn cho Xanh và Tím.</p>
+    
+    <!-- RED SECTION -->
+    <div class="section">
+      <div class="section-title red-title">🔴 Red Options (Lỗi / Cảnh báo / Thấp)</div>
+      <div class="btn-grid">
+        <button class="btn-red" onclick="play('red_option1.wav')">
+          <span>Option 1: Soft Warning Thud</span>
+          <span class="desc">Double buzz trầm thấp, rung nhẹ (Mặc định)</span>
+        </button>
+        <button class="btn-red" onclick="play('red_option2.wav')">
+          <span>Option 2: Bubble Pop</span>
+          <span class="desc">Bọt vỡ trầm dứt khoát, không chói</span>
+        </button>
+        <button class="btn-red" onclick="play('red_option3.wav')">
+          <span>Option 3: Gentle Error Bell</span>
+          <span class="desc">Chuông báo lỗi phẳng, trầm và đục</span>
+        </button>
+        <button class="btn-red" onclick="play('red_option4.wav')">
+          <span>Option 4: Downwards Swoop</span>
+          <span class="desc">Tiếng huýt sáo trượt xuống nhanh</span>
+        </button>
+        <button class="btn-red" onclick="play('red_option5.wav')">
+          <span>Option 5: Analog Beep-Beep</span>
+          <span class="desc">Bíp kép mỏng nhẹ kiểu cổ điển</span>
+        </button>
+        <button class="btn-red" onclick="play('red_option6.wav')">
+          <span>Option 6: Cartoon Wah-Wah <span class="tag-funny">Tèo buồn cười</span></span>
+          <span class="desc">Trombone "tèo tèo teo..." trượt xuống hài hước</span>
+        </button>
+        <button class="btn-red" onclick="play('red_option7.wav')">
+          <span>Option 7: 8-Bit Game Over <span class="tag-funny">Tèo cổ điển</span></span>
+          <span class="desc">Nhạc tèo game 8-bit giảm dần kiểu Mario chết</span>
+        </button>
+        <button class="btn-red" onclick="play('red_option8.wav')">
+          <span>Option 8: Sad Spring Boing <span class="tag-funny">Tèo lò xo</span></span>
+          <span class="desc">Tiếng lò xo nảy xuống trầm buồn ngộ nghĩnh</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- YELLOW SECTION -->
+    <div class="section">
+      <div class="section-title yellow-title">🟡 Yellow Options (Tạm ổn / Tiếp tục)</div>
+      <div class="btn-grid">
+        <button class="btn-yellow" onclick="play('yellow_option1.wav')">
+          <span>Option 1: Wood Block Click</span>
+          <span class="desc">Tiếng gõ mõ khô, gọn dứt khoát (Mặc định)</span>
+        </button>
+        <button class="btn-yellow" onclick="play('yellow_option2.wav')">
+          <span>Option 2: Water Drop</span>
+          <span class="desc">Tiếng giọt nước thánh thót vút lên</span>
+        </button>
+        <button class="btn-yellow" onclick="play('yellow_option3.wav')">
+          <span>Option 3: Acoustic Guitar Pluck</span>
+          <span class="desc">Gẩy nhẹ dây đàn E4 ngân tự nhiên</span>
+        </button>
+        <button class="btn-yellow" onclick="play('yellow_option4.wav')">
+          <span>Option 4: Shaker Tap</span>
+          <span class="desc">Tiếng xập xèng, sột soạt lọc cao</span>
+        </button>
+        <button class="btn-yellow" onclick="play('yellow_option5.wav')">
+          <span>Option 5: Muted Marimba Hit</span>
+          <span class="desc">Tiếng gõ marimba ấm áp, tròn âm</span>
+        </button>
+        <button class="btn-yellow" onclick="play('yellow_option6.wav')">
+          <span>Option 6: Comical Plink Down <span class="tag-funny">Plink hài hước</span></span>
+          <span class="desc">Tiếng tưng mỏng trượt xuống vui nhộn</span>
+        </button>
+        <button class="btn-yellow" onclick="play('yellow_option7.wav')">
+          <span>Option 7: 8-Bit Jump Fail <span class="tag-funny">Nhảy hụt</span></span>
+          <span class="desc">Tiếng rơi xuống hụt của nhân vật game 8-bit</span>
+        </button>
+        <button class="btn-yellow" onclick="play('yellow_option8.wav')">
+          <span>Option 8: Double Sad Blip <span class="tag-funny">Còi buồn đôi</span></span>
+          <span class="desc">Còi báo buồn kép tone trầm nhẹ</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- GREEN SECTION -->
+    <div class="section">
+      <div class="section-title green-title">🟢 Green Options (Đạt / Tốt)</div>
+      <div class="btn-grid">
+        <button class="btn-green" onclick="play('green_option1.wav')">
+          <span>Option 1: Standard Chime</span>
+          <span class="desc">Chuông ngân cao tích cực (Mặc định)</span>
+        </button>
+        <button class="btn-green" onclick="play('green_option2.wav')">
+          <span>Option 2: Retro Level Up</span>
+          <span class="desc">Chuỗi nốt 8-bit vút lên báo hiệu thành công</span>
+        </button>
+        <button class="btn-green" onclick="play('green_option3.wav')">
+          <span>Option 3: Guitar Harmonic</span>
+          <span class="desc">Bồi âm dây đàn thùng A5 thanh thoát</span>
+        </button>
+        <button class="btn-green" onclick="play('green_option4.wav')">
+          <span>Option 4: Gentle Bell Strike</span>
+          <span class="desc">Tiếng gõ chuông đồng nhẹ nhàng, ngân dài</span>
+        </button>
+        <button class="btn-green" onclick="play('green_option5.wav')">
+          <span>Option 5: Synth Success Beep</span>
+          <span class="desc">Tiếng bíp dày kèm hiệu ứng vang nhẹ (delay)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PURPLE SECTION -->
+    <div class="section">
+      <div class="section-title purple-title">🟣 Purple Options (Xuất sắc / Đỉnh cao)</div>
+      <div class="btn-grid">
+        <button class="btn-purple" onclick="play('purple_option1.wav')">
+          <span>Option 1: Magical Sparkle</span>
+          <span class="desc">Hợp âm rải ma thuật đi lên (Mặc định)</span>
+        </button>
+        <button class="btn-purple" onclick="play('purple_option2.wav')">
+          <span>Option 2: Retro Fanfare</span>
+          <span class="desc">Khúc nhạc thắng lợi 8-bit hoành tráng</span>
+        </button>
+        <button class="btn-purple" onclick="play('purple_option3.wav')">
+          <span>Option 3: Heavenly Harp Swell</span>
+          <span class="desc">Hợp âm rải đàn Harp lên nhanh bay bổng</span>
+        </button>
+        <button class="btn-purple" onclick="play('purple_option4.wav')">
+          <span>Option 4: Triumphant Chord</span>
+          <span class="desc">Hợp âm Đô Trưởng vang rền cùng lúc</span>
+        </button>
+        <button class="btn-purple" onclick="play('purple_option5.wav')">
+          <span>Option 5: Cosmic Warp (Rise)</span>
+          <span class="desc">Tiếng synth quét tần số đi lên cuốn hút</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function play(file) {
+      const audio = new Audio(file);
+      audio.play().catch(err => {
+        alert("Không thể phát tự động: Hãy chạy 'npm run dev' và truy cập qua http://localhost:5173/audio/preview/index.html hoặc kéo thả file WAV vào trình duyệt.");
+      });
+    }
+  </script>
+</body>
+</html>

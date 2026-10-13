@@ -1,0 +1,362 @@
+[
+  {
+    "id": "4dca7ff6-86a6-49a3-9b2c-1b84ba8a60e9",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "6c0068f2-4e6f-4ae4-81c3-32c344598b6b",
+    "status": "active",
+    "started_at": "2026-10-11T04:58:02.107403+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "299072de-b862-44e2-b02e-bb6410246fc8",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "618e9def-8e17-4845-a47d-00d70dd79868",
+    "status": "active",
+    "started_at": "2026-10-11T05:02:51.062204+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "99a19c60-1a42-4771-893b-54539216d833",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "06a33d1f-8690-44ae-944c-4682815e0d15",
+    "status": "ended",
+    "started_at": "2026-10-10T09:40:10.123332+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "2800124e-d18d-4009-b02c-23d9bd593147",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "d33912bc-95e6-4d62-87da-77667ad2cd76",
+    "status": "active",
+    "started_at": "2026-10-11T15:33:37.768574+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "3b17ab0f-8426-40ce-90b1-19d1a2388c39",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "e7c9c7e0-c81d-4aa1-b9bd-9a447f08e491",
+    "status": "active",
+    "started_at": "2026-10-11T15:34:59.025054+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "1af908ff-552c-44b4-88a5-74f5fe9cc919",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "8a87587a-3d3f-4f17-99cc-4ebc798986c3",
+    "status": "active",
+    "started_at": "2026-10-11T15:35:57.025918+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "18fa6981-438d-4fc7-8002-2f94a44371e1",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "70ccff1b-ab79-4882-87b5-3c54063dfbbf",
+    "status": "active",
+    "started_at": "2026-10-11T15:36:46.232018+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "59b61d63-fb41-45d6-9265-44d395e80a55",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "fae86786-b5fa-43f2-8007-6a10e4b903ef",
+    "status": "active",
+    "started_at": "2026-10-11T15:36:54.958767+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "29bdf66e-1b91-406d-9326-f563dce6d4f4",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "b277a0fb-8cae-43c2-942a-2c307ba1959c",
+    "status": "active",
+    "started_at": "2026-10-11T15:39:53.140158+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "a25d1ff2-d9bc-4599-a695-13b6fcf408f5",
+    "class_id": "0fbdaf49-9ddc-45c1-a92a-a104827d4e3a",
+    "learner_user_id": "cba37f20-7073-46a5-9d54-2c31f38e4aa4",
+    "status": "active",
+    "started_at": "2026-09-19T06:19:58.768998+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "f9ecd35e-487b-4c86-b7fe-80b5f62e05f6",
+    "class_id": "0fbdaf49-9ddc-45c1-a92a-a104827d4e3a",
+    "learner_user_id": "54c3f206-6555-4a9f-8b49-7a9f06e31a2b",
+    "status": "active",
+    "started_at": "2026-09-12T07:54:18.225698+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "62806638-0bf8-4319-b001-c2a18b828269",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "35461e69-61d9-4c8a-97ef-f0948b9927ee",
+    "status": "active",
+    "started_at": "2026-08-05T09:46:34.324+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "356d6af0-1fb5-4811-bb59-e0d33d383656",
+    "class_id": "372e81a3-07b2-4aa6-8cbb-1d2a95584b8c",
+    "learner_user_id": "3ff89074-edb1-4256-8791-87338bc78eef",
+    "status": "active",
+    "started_at": "2026-07-31T08:00:24.951+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "ab616d75-9327-4552-9969-da8fbb4f6423",
+    "class_id": "372e81a3-07b2-4aa6-8cbb-1d2a95584b8c",
+    "learner_user_id": "7ae9e6f9-602d-49bb-a4cc-ccac4d9b96bf",
+    "status": "active",
+    "started_at": "2026-07-31T08:00:38.525+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "8a4526d6-b6e5-4ab0-9aec-812b56d9d221",
+    "class_id": "372e81a3-07b2-4aa6-8cbb-1d2a95584b8c",
+    "learner_user_id": "c93af6a8-0dd3-490c-b8f7-14601b344fb1",
+    "status": "active",
+    "started_at": "2026-07-31T08:00:51.313+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "fa33c584-3644-4e2f-89c9-8744beedcd80",
+    "class_id": "254ae635-35f1-4106-a648-511882a51307",
+    "learner_user_id": "df4070ed-065f-4133-a05c-2a895bf1d7c3",
+    "status": "active",
+    "started_at": "2026-07-21T07:26:05.419+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "cc534e34-1140-428a-8b07-f43287dd3e2a",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "f45b7bd6-f7ae-430d-b9f3-8ded97d40558",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "4f300978-d9b4-44cd-9f26-d074c94f76f0",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "ba0abf64-9cb3-48d1-a9d7-d27c95975e6a",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "d36bd294-0d01-4661-b351-d766e88240e9",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "bdc9e151-95e1-4b52-869d-e18e9c57cb40",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "5b606ded-8afb-4ee2-9545-780b48b11041",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "2021e96d-314e-4813-874d-c0fa79e4e900",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "4dbb712a-5085-4fe2-bcbe-753315a62076",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "dc8b6f54-b318-4b3f-b6b2-7da69e46610b",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "ce6af959-2a0f-4f64-896c-7c7a52db11f0",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "1771edae-ea27-4bf0-9f0d-6b5d58962258",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "2bd09ba0-a54c-4267-a2df-a3ea95a55bd6",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "074bff09-4298-4d51-bada-c17130437209",
+    "status": "active",
+    "started_at": "2026-08-10T13:17:54.666+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "086ded28-e471-435c-90cb-7efee28ca201",
+    "class_id": "0fbdaf49-9ddc-45c1-a92a-a104827d4e3a",
+    "learner_user_id": "1bb6ebf4-f98e-450c-b69f-694051b17bd3",
+    "status": "active",
+    "started_at": "2026-08-20T04:11:24.872+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "82df01d9-43dd-4687-b23f-a4096063952c",
+    "class_id": "0fbdaf49-9ddc-45c1-a92a-a104827d4e3a",
+    "learner_user_id": "945b024d-db83-4b03-bc9e-faab010f3f05",
+    "status": "active",
+    "started_at": "2026-09-23T13:31:47.518+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "bd03f118-d232-492a-8bab-9346effcf877",
+    "class_id": "0fbdaf49-9ddc-45c1-a92a-a104827d4e3a",
+    "learner_user_id": "7addf49c-872b-459f-a606-c5ed15f088b2",
+    "status": "active",
+    "started_at": "2026-10-11T15:17:16.501013+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "e59c05e8-94bd-4c36-a092-fc1d294def65",
+    "class_id": "0fbdaf49-9ddc-45c1-a92a-a104827d4e3a",
+    "learner_user_id": "d2eef2c8-7f21-4a68-88a8-e9df61a1c85c",
+    "status": "active",
+    "started_at": "2026-09-24T04:10:26.314+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "449617a9-d094-4797-8ace-59e90d3f5baf",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "1c164d29-63bd-4018-981b-077304824812",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "d3784df3-de5d-4031-8c71-26142f9824b4",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "278acbe4-4a42-4efe-9d0a-5c730c642144",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "b52af337-f3b1-4d2f-b87f-9a3a52c91562",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "e5a203c9-02a6-46aa-aaef-e629220ad933",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "e863b598-4ae3-4b4f-a58e-be74218d2175",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "64c42beb-6509-4d83-9607-938224a5e853",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "1313c2c9-00e1-423f-807b-14cfcef733f5",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "361bce9f-736e-4bd8-af0b-b82a5968afd9",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "c18a8d4a-ffaf-4eff-b3bb-a9bed207e92e",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "f059980c-d1a0-4270-ad5d-7ddfca7c9095",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "5e271d56-3cbe-41e7-8b6d-c74b3c232334",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "690aacba-1795-439b-9ef8-658623c82bdb",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "acf86476-c9a2-4d53-a594-ed013b35fa55",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "027052af-d54a-4f51-9972-eaf07dd49695",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "175fd4c8-2b33-4860-a010-b4c5bb6f1a47",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "9076cba4-2858-4bef-a8af-056769a60b3a",
+    "status": "active",
+    "started_at": "2026-07-22T10:34:43.133025+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "5928de73-c07b-4313-bc0e-e96f56d807d9",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "d6283d6d-ee6a-4b03-8ad6-249658ea7cd4",
+    "status": "active",
+    "started_at": "2026-07-26T11:15:09.327+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "c447fc8f-fd72-4849-a5d2-e53405ae8129",
+    "class_id": "372e81a3-07b2-4aa6-8cbb-1d2a95584b8c",
+    "learner_user_id": "2cfb4f0e-98d0-4fab-bc51-b616d357cc40",
+    "status": "active",
+    "started_at": "2026-07-31T07:57:36.512+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "e18446ea-54dc-4734-9e75-dad35d1a06ff",
+    "class_id": "372e81a3-07b2-4aa6-8cbb-1d2a95584b8c",
+    "learner_user_id": "ff510a83-a655-4508-9ab0-d0253646b28a",
+    "status": "active",
+    "started_at": "2026-07-31T08:00:32.404+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "58a3855b-c8ef-4511-bd93-30a314ac18d1",
+    "class_id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "learner_user_id": "8ebba7e5-8d41-4519-b192-1490707b542b",
+    "status": "active",
+    "started_at": "2026-08-10T13:17:56.938+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "a82056a8-5ed9-4a1a-ba0c-55d58d4997c4",
+    "class_id": "0fbdaf49-9ddc-45c1-a92a-a104827d4e3a",
+    "learner_user_id": "b2a4ac16-4c6e-4f65-8fa1-61c4ab1bd9d4",
+    "status": "active",
+    "started_at": "2026-09-16T10:19:07.717934+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "890bda5e-187f-4b4e-b182-d2a094b9e542",
+    "class_id": "254ae635-35f1-4106-a648-511882a51307",
+    "learner_user_id": "7addf49c-872b-459f-a606-c5ed15f088b2",
+    "status": "ended",
+    "started_at": "2026-09-24T00:57:57.358+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "4bf97505-a84f-4264-a732-f00a20627ec2",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "5790856a-1b8f-45ab-a205-c862c6f58102",
+    "status": "active",
+    "started_at": "2026-10-11T13:59:35.136756+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "e5fe08e4-91a6-444f-8f3d-1ada32f64376",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "37fa55dc-34b5-4072-b4c2-ad56e0ee53ce",
+    "status": "active",
+    "started_at": "2026-10-11T15:36:41.965135+00:00",
+    "ended_at": null
+  },
+  {
+    "id": "a786d693-f699-4c96-9915-ab4c4cb810d8",
+    "class_id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "learner_user_id": "49f634f5-f3bc-41d0-9fb4-4accfe118e29",
+    "status": "active",
+    "started_at": "2026-10-11T15:36:50.916736+00:00",
+    "ended_at": null
+  }
+]

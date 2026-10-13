@@ -1,0 +1,28 @@
+{
+  "name": "@chunks-lms/api",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate:local": "wrangler d1 migrations apply chunks-lms-d1 --local",
+    "db:migrate:remote": "wrangler d1 migrations apply chunks-lms-d1 --remote",
+    "seed:local": "node scripts/seed-d1.mjs --local",
+    "seed:remote": "node scripts/seed-d1.mjs --remote"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.4.3",
+    "drizzle-orm": "^0.38.4",
+    "hono": "^4.7.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "drizzle-kit": "^0.30.4",
+    "typescript": "^5.7.3",
+    "wrangler": "^4.149.0"
+  }
+}

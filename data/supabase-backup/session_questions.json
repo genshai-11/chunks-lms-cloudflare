@@ -1,0 +1,2830 @@
+[
+  {
+    "id": "b0522e93-a1ac-4df9-b6f6-aa7822d2d814",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:25:26.993253+00:00"
+  },
+  {
+    "id": "5a8495f7-310a-4a94-bc9a-c2b5f999dbe6",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:53:00.946942+00:00"
+  },
+  {
+    "id": "fe9bc280-1e05-45e4-a692-eefddd6d1711",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 14,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:57:31.842088+00:00"
+  },
+  {
+    "id": "1080b65d-e964-4e98-bbe6-878ea5c45a1d",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 15,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:58:23.191517+00:00"
+  },
+  {
+    "id": "7c00e9ee-b6c2-4b18-8093-033fa6fb6fa0",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 21,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:03:24.361528+00:00"
+  },
+  {
+    "id": "2df52c2c-c945-4818-a045-d0e217989567",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 28,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:08:58.922475+00:00"
+  },
+  {
+    "id": "d10cd761-89ee-41f8-ba31-ad53be4c8fb9",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 34,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:19:51.393124+00:00"
+  },
+  {
+    "id": "fa29e9c4-667b-42af-8b32-ea3a298a2175",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 35,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:20:11.491463+00:00"
+  },
+  {
+    "id": "ee897ef9-2255-46d4-884c-d7ae27041214",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 37,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:20:50.499697+00:00"
+  },
+  {
+    "id": "68ce59d1-6a93-44f1-a7d0-6b9dac1256bf",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:20:23.805136+00:00"
+  },
+  {
+    "id": "3b3aa25d-260d-4e83-b33d-aabd4543a054",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:20:56.49015+00:00"
+  },
+  {
+    "id": "f5a8d86f-208c-4739-9114-0803217d81d5",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:02.854042+00:00"
+  },
+  {
+    "id": "5d4749af-34b3-41b7-9ea6-ce4ea854e52d",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:07.133816+00:00"
+  },
+  {
+    "id": "8b805624-91d6-4219-8fb8-654053c68f9a",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:10.368909+00:00"
+  },
+  {
+    "id": "ec4193a7-c9d0-497f-b589-7eb3574b86c1",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:11.900609+00:00"
+  },
+  {
+    "id": "c1167141-0fa0-4dd4-b596-c01635b67c47",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:12.95641+00:00"
+  },
+  {
+    "id": "e76aef9e-dfdf-4e2e-942b-bc50591d1392",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:18.806748+00:00"
+  },
+  {
+    "id": "7c42efeb-6dc6-4ddc-9fd1-06c357a924ef",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:23.290124+00:00"
+  },
+  {
+    "id": "cc786ec3-d6d3-431b-a522-634764b1447a",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:27.860055+00:00"
+  },
+  {
+    "id": "5edfb3de-1ccf-467e-8fe9-d90805022fb0",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:34.419095+00:00"
+  },
+  {
+    "id": "dceed86d-a4a6-4b5c-bc29-98a7410fb221",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:35.539357+00:00"
+  },
+  {
+    "id": "ae19d210-a789-41a3-89a3-9eddc1ed962f",
+    "learning_session_id": "57387f19-3b44-4acd-bb33-8817b899dba7",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-09-01T02:21:37.143875+00:00"
+  },
+  {
+    "id": "e404281a-f242-4f72-8946-585ca02cd72f",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:29.051793+00:00"
+  },
+  {
+    "id": "83cfba8b-0022-4d68-a5af-2e11ee762b43",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:33.27382+00:00"
+  },
+  {
+    "id": "82939c47-0e25-4747-b6af-075175c280be",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:34.858346+00:00"
+  },
+  {
+    "id": "006ff3f5-c55f-41df-bd57-6e471b596295",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:48.834775+00:00"
+  },
+  {
+    "id": "2b92a215-a0fe-4e73-adf7-f098a05a0178",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:43:35.569908+00:00"
+  },
+  {
+    "id": "628f3bf6-dbd2-425d-9a84-b1650fa10471",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:43:40.59874+00:00"
+  },
+  {
+    "id": "5bc2c785-ef7c-4943-95e2-3818947e5bdc",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 42,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:24:00.305257+00:00"
+  },
+  {
+    "id": "c56c3a40-4139-4462-9d0b-23bb373715b6",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:43:46.104823+00:00"
+  },
+  {
+    "id": "951bbeb0-3915-47c1-b8a7-253b6a1a2ea4",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:43:48.587454+00:00"
+  },
+  {
+    "id": "01410f4a-badc-4a82-8d99-3a5b1eaa272e",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:03.817329+00:00"
+  },
+  {
+    "id": "cc8d31d1-bd42-4044-9430-bd459b15f42e",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:05.124344+00:00"
+  },
+  {
+    "id": "f507b631-276d-4e79-8ea4-2a4c9ae41796",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:08.899289+00:00"
+  },
+  {
+    "id": "3d16cc52-1002-4514-b704-c18197373585",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 17,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:17.543102+00:00"
+  },
+  {
+    "id": "b29d1427-95b3-46b8-ae87-a5e101195eb3",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 19,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:21.283676+00:00"
+  },
+  {
+    "id": "7c7def41-e7f0-4cae-b047-e003873eb58a",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 46,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:27:15.789344+00:00"
+  },
+  {
+    "id": "9f71c6fc-ddd3-497a-8dcd-73790a529172",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 47,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:27:30.193561+00:00"
+  },
+  {
+    "id": "a6194a4b-c028-45f1-ab92-ccda573c1398",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 59,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:34:56.883518+00:00"
+  },
+  {
+    "id": "189729f6-2269-427d-9a0e-ec4b0861c78b",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 67,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:40:06.255349+00:00"
+  },
+  {
+    "id": "7c140462-408c-4754-89ff-af6efe385b09",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 71,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:45:34.261287+00:00"
+  },
+  {
+    "id": "b0f52eee-8458-4f61-922c-42cd32b3a5db",
+    "learning_session_id": "d15096fa-1d51-41d2-93c0-0735763df3ad",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:58:18.250415+00:00"
+  },
+  {
+    "id": "de250500-f2fe-47bf-bf2d-c005efc928bc",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:32.485844+00:00"
+  },
+  {
+    "id": "8d0e6d92-1070-4f77-aaea-a5647346dd4a",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:35.735998+00:00"
+  },
+  {
+    "id": "36afef84-98f8-4dad-86de-0d70714a34fe",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:36.483993+00:00"
+  },
+  {
+    "id": "35e5da4f-b643-47a8-baaa-4afee1ecbc5b",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:37.51069+00:00"
+  },
+  {
+    "id": "8fa676c9-31a3-4e03-8b60-cd1608ef2984",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:43.889584+00:00"
+  },
+  {
+    "id": "17aa2c2b-29a3-4709-8293-80c1f34bd761",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:45.427785+00:00"
+  },
+  {
+    "id": "13a68e35-8965-4e64-bcb5-9a64b7bb7496",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 15,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:57.681325+00:00"
+  },
+  {
+    "id": "d33ebfe2-26de-49b5-999e-320e3bebab98",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 17,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:02.303702+00:00"
+  },
+  {
+    "id": "1eaa60c6-b0d5-4d8b-a2ef-61ae6d246ad4",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 18,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:03.144326+00:00"
+  },
+  {
+    "id": "cf0cad28-0038-4baa-99da-997c40afd3c8",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 20,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:08.287528+00:00"
+  },
+  {
+    "id": "1017d995-a5e1-4efb-b962-a4bf9ae92129",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 23,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:09.489583+00:00"
+  },
+  {
+    "id": "38c02e87-30c1-46f1-afd2-dec1d9b899a1",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 25,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:10.067046+00:00"
+  },
+  {
+    "id": "c529c16c-b744-444e-9603-5b1d1f1b0725",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 28,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:19.550423+00:00"
+  },
+  {
+    "id": "921a6965-ac5d-427a-9b0e-01896edfa239",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 30,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:29.504209+00:00"
+  },
+  {
+    "id": "c7bebb17-4d54-41e3-9e92-1c4978fa47d5",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 32,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:31.320725+00:00"
+  },
+  {
+    "id": "2379b3fa-fe60-485a-a25e-e6e408c6f738",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 34,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:31.92342+00:00"
+  },
+  {
+    "id": "2e51c7bc-d8fc-4301-9135-8ccfbef2005d",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 36,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:34.701041+00:00"
+  },
+  {
+    "id": "ac022b50-455c-4eed-a70c-29988ad3f613",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 40,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:37.167196+00:00"
+  },
+  {
+    "id": "e9ed529d-e3ab-4695-a803-d65ec299fd2b",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 41,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:38.025861+00:00"
+  },
+  {
+    "id": "a108525d-48c1-405c-bcab-9dd7bf96c52a",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 43,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:38.757992+00:00"
+  },
+  {
+    "id": "db2005ab-c38e-47ce-b180-20a8c232fbe0",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 75,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:49:10.759709+00:00"
+  },
+  {
+    "id": "53c57bea-3675-4c7d-8ebb-00d7c81dbaaf",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 79,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:54:47.914046+00:00"
+  },
+  {
+    "id": "24242a5f-f4f1-458e-9ddd-a268adb8481c",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 83,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:59:40.56934+00:00"
+  },
+  {
+    "id": "1e00d3db-b2a1-4ce2-a9af-864be6dfa9d0",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 88,
+    "external_ref": null,
+    "created_at": "2026-09-29T14:04:47.271232+00:00"
+  },
+  {
+    "id": "e80093a9-3bcc-4d4f-9a7d-e9ac81b3b073",
+    "learning_session_id": "815e6d37-0dc7-4404-b0f2-0d8c8db3183f",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:23:18.739155+00:00"
+  },
+  {
+    "id": "fa123fee-e9b0-4271-816e-1dcbdac14f20",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 44,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:41.559452+00:00"
+  },
+  {
+    "id": "0ca465e7-0fe4-44e0-8e24-571dfed8c7bb",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 48,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:45.401583+00:00"
+  },
+  {
+    "id": "fe8ea2f4-0045-414c-b9f1-403d440581a0",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 49,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:45.913863+00:00"
+  },
+  {
+    "id": "d8ab35e1-dadf-40f8-8b80-c97c025eff22",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:50.663799+00:00"
+  },
+  {
+    "id": "db20237b-2773-4f88-880f-6249aa1b7148",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:03:01.278043+00:00"
+  },
+  {
+    "id": "3695e81b-7980-45c1-9ad0-6cd8801881db",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:03:03.669138+00:00"
+  },
+  {
+    "id": "deed21a6-cf46-4a18-8abd-86e8244aa24e",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:57:39.381185+00:00"
+  },
+  {
+    "id": "2e9548f9-ce5e-44c2-bc75-59bcd4fcd4e1",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:57:45.274583+00:00"
+  },
+  {
+    "id": "90914828-b18a-4f62-92fe-b1eec68a48ab",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:57:49.609988+00:00"
+  },
+  {
+    "id": "0d703ce8-c07d-4805-a0ca-57dc4dadec73",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:57:50.699726+00:00"
+  },
+  {
+    "id": "59e6c2c5-7cb4-434c-9bbd-072bf0a73c9e",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:57:51.775369+00:00"
+  },
+  {
+    "id": "d7ae2aa5-14bc-486f-bf60-233c8b0244d4",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:57:54.015585+00:00"
+  },
+  {
+    "id": "859a77c5-c853-40b3-8d45-7b2b5f3bdfdc",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:57:57.865448+00:00"
+  },
+  {
+    "id": "b38003cd-6a56-45e0-bf99-888a85eb72ff",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:58:00.016011+00:00"
+  },
+  {
+    "id": "3e42dd92-393d-4965-9e2e-83ecd04c277c",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:58:01.172462+00:00"
+  },
+  {
+    "id": "7a2f3b36-e708-4a33-b2e5-6da9028ab0f3",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:39:04.242892+00:00"
+  },
+  {
+    "id": "026fe676-aa33-4e51-84e4-a78a18e57f69",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:39:27.237859+00:00"
+  },
+  {
+    "id": "a06c500e-e461-47ac-8e85-e16faa647e93",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:42:40.33732+00:00"
+  },
+  {
+    "id": "f5bacc12-bf4e-4c2d-80ba-b0892ef8c7a1",
+    "learning_session_id": "21121fa1-df23-4a5b-9706-c82aab49499c",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:52:21.08683+00:00"
+  },
+  {
+    "id": "b03192ed-1a24-4ee8-b5a3-2e029cb4d375",
+    "learning_session_id": "21121fa1-df23-4a5b-9706-c82aab49499c",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:55:28.067253+00:00"
+  },
+  {
+    "id": "e7bcf78a-1870-4ae4-b388-161ab03a52e8",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:53:13.409991+00:00"
+  },
+  {
+    "id": "dbf889a1-1c25-4c53-bde7-b72f0efb18ba",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:56:21.012594+00:00"
+  },
+  {
+    "id": "32274cae-378a-4c19-86f1-ef2a4cb08e4f",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:59:12.619658+00:00"
+  },
+  {
+    "id": "25e1e4fe-0a70-47a9-b7c5-769594c49410",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:00:25.5688+00:00"
+  },
+  {
+    "id": "ec4d2494-7922-43f7-8911-03764c5ec760",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:43:39.035674+00:00"
+  },
+  {
+    "id": "519a5375-a60c-4e00-9457-74b40092f208",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:43:41.472614+00:00"
+  },
+  {
+    "id": "7353659e-a10a-4cfc-baf3-ca84089d581a",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:43:47.652867+00:00"
+  },
+  {
+    "id": "355b321a-4f9a-430f-9090-07f4e399422e",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:43:54.26427+00:00"
+  },
+  {
+    "id": "5ca54223-023d-4802-85d5-fbb6f9a1f674",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:06.702077+00:00"
+  },
+  {
+    "id": "31e0f8bd-15c0-45b5-aa23-8efbc9673081",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:08.036106+00:00"
+  },
+  {
+    "id": "a020a1d7-d53f-434c-a9b5-4d0960083ce0",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 14,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:12.346274+00:00"
+  },
+  {
+    "id": "1a8076cb-5dd9-4b45-baca-453099e93b14",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 15,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:13.62863+00:00"
+  },
+  {
+    "id": "79d09cf9-77c7-4ffc-9143-c50ad6b5b26a",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:41.616171+00:00"
+  },
+  {
+    "id": "fb323a1c-92a6-4a7c-842c-40e7255ce508",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:51.707469+00:00"
+  },
+  {
+    "id": "5493d164-0763-4f90-847b-a63ba947c927",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:03:00.055284+00:00"
+  },
+  {
+    "id": "2f99a38a-2530-4784-a8ad-d329c2b8353a",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:31.088095+00:00"
+  },
+  {
+    "id": "4c939d04-cb42-4f18-b535-0cd96c162a72",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:37.719215+00:00"
+  },
+  {
+    "id": "3727a28f-fe23-4f17-836a-15376a8dfdf2",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:39.509939+00:00"
+  },
+  {
+    "id": "8bd979d9-8793-4e0a-9b1c-ae70b92c1c12",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:40.422531+00:00"
+  },
+  {
+    "id": "c5596da6-7bab-492e-8d4b-ac1d0d40e5ad",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:46.511991+00:00"
+  },
+  {
+    "id": "3c05658a-e3d9-4d2b-b8cc-d3c559f0c8f9",
+    "learning_session_id": "815e6d37-0dc7-4404-b0f2-0d8c8db3183f",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:23:35.439527+00:00"
+  },
+  {
+    "id": "c195e9f3-fec5-4f55-8051-978f95f129fb",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:11.548698+00:00"
+  },
+  {
+    "id": "65dac220-3b13-41fe-96e3-223b64db0c70",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:22.314208+00:00"
+  },
+  {
+    "id": "4a603ff3-d921-4a47-87bc-5c008e696340",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:25.87987+00:00"
+  },
+  {
+    "id": "16091308-0f13-48a9-853e-d480b795f369",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:29.552763+00:00"
+  },
+  {
+    "id": "46ba3be3-d3ba-48e5-b5f2-90ca7e9eb81a",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:31.226047+00:00"
+  },
+  {
+    "id": "1a2c48a4-8b35-48ad-a13e-7c2819c2e4bb",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:32.376445+00:00"
+  },
+  {
+    "id": "14afbabf-beec-4b22-99ee-11c1c1c11374",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:33.724141+00:00"
+  },
+  {
+    "id": "629a92e6-93fa-4e90-abce-528fea9a02be",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:36.691184+00:00"
+  },
+  {
+    "id": "bdee5959-0427-4993-b90e-2d45675ee797",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:37.961941+00:00"
+  },
+  {
+    "id": "53d08394-15a0-458b-a48c-85a22ea4c05e",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:40.385745+00:00"
+  },
+  {
+    "id": "080dfb20-e143-4f8b-b69d-95961ed3e100",
+    "learning_session_id": "70448373-abe8-4ff1-a00d-4571b59a8c20",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-09-22T02:33:44.085556+00:00"
+  },
+  {
+    "id": "5a3902ba-0746-41e7-a19e-d60e15240376",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 16,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:16.000395+00:00"
+  },
+  {
+    "id": "dfe925b5-da66-4c6a-9678-15eca3d7fd51",
+    "learning_session_id": "ecd4d148-a535-4ccb-8c3f-0a3fc6f372fe",
+    "sequence_number": 18,
+    "external_ref": null,
+    "created_at": "2026-09-23T15:44:18.434571+00:00"
+  },
+  {
+    "id": "5cbedd57-f13c-4c32-a9c6-db3898ec939c",
+    "learning_session_id": "d15096fa-1d51-41d2-93c0-0735763df3ad",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:58:18.122995+00:00"
+  },
+  {
+    "id": "ce770d16-c4f1-489c-8d45-14dfe18fb454",
+    "learning_session_id": "d15096fa-1d51-41d2-93c0-0735763df3ad",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:58:39.30255+00:00"
+  },
+  {
+    "id": "6bd9e819-af07-48cd-a586-a18baeddb888",
+    "learning_session_id": "d15096fa-1d51-41d2-93c0-0735763df3ad",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:58:41.418865+00:00"
+  },
+  {
+    "id": "b015351e-5785-45e3-9cfb-78ae25333831",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:24.426098+00:00"
+  },
+  {
+    "id": "0bd02c9c-3bed-49f6-a9a7-a52eb5276cd3",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:33.879874+00:00"
+  },
+  {
+    "id": "599c347a-a0d8-4255-8746-0c0a87b10a8c",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:34.899056+00:00"
+  },
+  {
+    "id": "bf2c0c4c-4bc5-4ad9-8eee-3d4e5107371c",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:38.295413+00:00"
+  },
+  {
+    "id": "79f41981-ab27-4106-b250-e784974c3942",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:40.133828+00:00"
+  },
+  {
+    "id": "a5c7d6ee-944c-4083-85d6-a8f78be0c011",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:47.506894+00:00"
+  },
+  {
+    "id": "b0d60287-1489-4fc0-b56c-557746eb003b",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:52.91677+00:00"
+  },
+  {
+    "id": "b9de93db-dea2-4f93-8fb5-fc66768180b0",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 14,
+    "external_ref": null,
+    "created_at": "2026-09-24T00:59:54.361262+00:00"
+  },
+  {
+    "id": "a9910531-00cb-46c3-a341-9a0fbf1e18a2",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 16,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:01.268503+00:00"
+  },
+  {
+    "id": "2dc203c8-4ecb-4fe0-b18a-b949b001f174",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 19,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:06.585094+00:00"
+  },
+  {
+    "id": "afa5185d-e9fd-417c-8052-529e58e2a39a",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 21,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:08.853235+00:00"
+  },
+  {
+    "id": "d45d8210-ee35-4d24-9b69-b47b3cbadf29",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 22,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:09.156391+00:00"
+  },
+  {
+    "id": "538bba90-fcf2-4cb6-b650-1cf32469cb5c",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 24,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:09.805997+00:00"
+  },
+  {
+    "id": "79284466-38e6-48f4-9294-8181f20b8a16",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 26,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:10.521971+00:00"
+  },
+  {
+    "id": "23f49df6-2a71-41dc-966e-97fe7bcd08f9",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 27,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:11.854868+00:00"
+  },
+  {
+    "id": "b19c7276-c7f2-48dc-985b-886278a0aeec",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 29,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:28.141607+00:00"
+  },
+  {
+    "id": "769c6a0d-6ff9-48d8-974c-89d776a735c2",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 31,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:31.007902+00:00"
+  },
+  {
+    "id": "56a31669-07b0-454e-85ba-379d7098c5d1",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 33,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:31.645741+00:00"
+  },
+  {
+    "id": "137f0147-6c4d-48e8-837b-9760d2e85350",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 35,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:32.214951+00:00"
+  },
+  {
+    "id": "01b2bf1d-7aec-49be-bec5-6c2265266d66",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 37,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:35.584507+00:00"
+  },
+  {
+    "id": "40a84ebf-4f0c-4eb0-80c0-594789992dca",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 38,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:36.166315+00:00"
+  },
+  {
+    "id": "b2ba4a34-d4a1-471d-9958-2d2c2a25ba89",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 39,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:36.509843+00:00"
+  },
+  {
+    "id": "1e0b4fa9-fc4f-470d-b17e-32dd3875dbf5",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 42,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:38.410876+00:00"
+  },
+  {
+    "id": "818d0295-34fa-4c11-b73c-80199ee17480",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 45,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:42.475777+00:00"
+  },
+  {
+    "id": "fbcc252a-4c98-43e7-8cf2-2f7994167a19",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 46,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:42.973002+00:00"
+  },
+  {
+    "id": "b2af910b-de94-4e34-b426-90bdf6ddf096",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 47,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:44.263298+00:00"
+  },
+  {
+    "id": "17ea6103-9084-4fec-8743-a6981ad3b033",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 50,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:46.159543+00:00"
+  },
+  {
+    "id": "3654236d-54ab-4828-91c9-667e2eb2dc9f",
+    "learning_session_id": "78fb3d24-e815-4666-a1d3-c12f8d405d2f",
+    "sequence_number": 51,
+    "external_ref": null,
+    "created_at": "2026-09-24T01:00:46.723462+00:00"
+  },
+  {
+    "id": "9b1d3c7c-8692-4f59-9ade-6b2c39c54a8c",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:40:32.573982+00:00"
+  },
+  {
+    "id": "ce7ff99d-2000-462e-b016-d19bb60d406d",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:27:41.691021+00:00"
+  },
+  {
+    "id": "f367f9ee-4307-4c05-8489-7a6d7fdc7243",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:54:45.563001+00:00"
+  },
+  {
+    "id": "eb9c68ec-a95f-4ab8-a85b-126412d7a5f7",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:55:53.530799+00:00"
+  },
+  {
+    "id": "4d4c10cf-dbfd-4ddb-87bf-54ab5dfb1324",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 16,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:59:23.798537+00:00"
+  },
+  {
+    "id": "ca93bdc7-40f3-4e04-a400-ac1a6dabc3cc",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 22,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:04:25.691706+00:00"
+  },
+  {
+    "id": "64d29ee5-5772-4d04-8abf-5d3fe694c701",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 24,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:05:34.750311+00:00"
+  },
+  {
+    "id": "e245c5c5-d358-4f96-a82e-dcda2698e082",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 29,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:10:39.471919+00:00"
+  },
+  {
+    "id": "d44258e9-8e97-4d60-99cd-e5c607620aec",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 30,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:11:07.86349+00:00"
+  },
+  {
+    "id": "ff573edb-4d85-4ee5-bc28-2805306a28b3",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 38,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:21:26.438108+00:00"
+  },
+  {
+    "id": "03525098-f09c-4de9-bcb0-b48446e47411",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 43,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:25:02.007911+00:00"
+  },
+  {
+    "id": "3fd0292b-d4f7-4235-848e-0b52768c328f",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 48,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:28:12.850764+00:00"
+  },
+  {
+    "id": "98c05be9-70a3-4bdc-958c-cf4131b7cbca",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 49,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:28:24.740677+00:00"
+  },
+  {
+    "id": "2f87193a-4bcc-4662-872e-c0e6173a349e",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 50,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:28:55.539911+00:00"
+  },
+  {
+    "id": "0b87a41b-2ac6-46c6-a8e2-7d2139f771df",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 51,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:29:22.966104+00:00"
+  },
+  {
+    "id": "05a36420-d53d-49c6-8090-de6aec53a476",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 52,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:30:05.216555+00:00"
+  },
+  {
+    "id": "3ee47988-11b7-4673-83bb-b031bfe79cf3",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 53,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:30:22.669905+00:00"
+  },
+  {
+    "id": "f866c9c7-3000-4f4e-9491-7eece9b56a55",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 54,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:30:57.72937+00:00"
+  },
+  {
+    "id": "f274f838-d7c5-40c6-9844-cf40bcd73051",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 55,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:31:41.842077+00:00"
+  },
+  {
+    "id": "bb06f988-2770-418c-8e5c-e9b61b94a6a1",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 62,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:37:01.856301+00:00"
+  },
+  {
+    "id": "079cd1ca-93a0-4449-8ff3-7a8a0d4fd476",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 63,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:37:18.757532+00:00"
+  },
+  {
+    "id": "88863ebb-471a-4ca4-9c4b-f1714178eedf",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 68,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:42:53.72022+00:00"
+  },
+  {
+    "id": "ac956f11-f8e5-4499-ac74-670d0704299d",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 72,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:46:42.09362+00:00"
+  },
+  {
+    "id": "cc751af2-ff92-4a9e-9314-e81f8d4d55de",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 76,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:49:42.048725+00:00"
+  },
+  {
+    "id": "dbafdf97-b1db-4ef6-98fd-15d8a3abcc11",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 80,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:55:30.250796+00:00"
+  },
+  {
+    "id": "11626f93-89d8-4367-a7f5-e708e0b00088",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:05.465778+00:00"
+  },
+  {
+    "id": "2d42e51a-c3e9-4e67-be73-aad307b1df92",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:14.933504+00:00"
+  },
+  {
+    "id": "2257f732-8fcb-44a1-861b-8cc829621d38",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:17.45981+00:00"
+  },
+  {
+    "id": "b2f293f0-654e-4035-ae17-d180b5fbf12b",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:41:38.19562+00:00"
+  },
+  {
+    "id": "50f2dc22-385b-4be1-b705-56f24f811eb0",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:42:38.109225+00:00"
+  },
+  {
+    "id": "0faf6cf3-e0a0-4ff3-9786-7b89721fef13",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:42:52.276709+00:00"
+  },
+  {
+    "id": "88d8e1b9-e961-4c6e-8483-2cfd39398d7c",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:47:05.544215+00:00"
+  },
+  {
+    "id": "1a71050c-b511-447c-9249-0eb4c58a3768",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:55:01.446821+00:00"
+  },
+  {
+    "id": "94317b72-c7a9-47d3-af4c-21c5de3484ec",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:56:50.569457+00:00"
+  },
+  {
+    "id": "81c6b587-9518-49c5-b588-4da9fb78d5c1",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:58:03.110129+00:00"
+  },
+  {
+    "id": "0dd6b843-e329-43df-9e0a-27678ec0f45f",
+    "learning_session_id": "d6659bc0-8ab0-4f51-b7ac-0d6935766e27",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-09-24T03:58:04.150234+00:00"
+  },
+  {
+    "id": "2e2a2315-0682-46a2-8bb7-0a2ea7a817b1",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:32.309571+00:00"
+  },
+  {
+    "id": "977d52e9-073d-49fb-84b0-e9d7171dde71",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:47.894794+00:00"
+  },
+  {
+    "id": "f3c59def-a921-4f6e-84e5-ceaec87244f3",
+    "learning_session_id": "815e6d37-0dc7-4404-b0f2-0d8c8db3183f",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:26:24.165294+00:00"
+  },
+  {
+    "id": "7577821f-efa8-4c40-aed2-7187298783f3",
+    "learning_session_id": "815e6d37-0dc7-4404-b0f2-0d8c8db3183f",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:26:51.511618+00:00"
+  },
+  {
+    "id": "52a73058-d8de-4dbc-91bc-b3194b25b8cc",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:39:17.743263+00:00"
+  },
+  {
+    "id": "c708ffb5-359f-4d2f-88c7-a3a25bd8d468",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:40:57.195991+00:00"
+  },
+  {
+    "id": "e829982f-14a5-42c1-bba4-f8a361b00674",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:43:27.369374+00:00"
+  },
+  {
+    "id": "4339df3e-af47-45a8-b9c0-f3316e0f48f6",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:36.990816+00:00"
+  },
+  {
+    "id": "a9d111fd-76e6-41d8-80a1-4d744c40ff55",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:43.585088+00:00"
+  },
+  {
+    "id": "a439406c-43e5-410e-bc0d-c53a64dd1407",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:59.045321+00:00"
+  },
+  {
+    "id": "0adaefcd-d055-4626-a8e0-74397b96136e",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:03:02.484347+00:00"
+  },
+  {
+    "id": "62fa5fb0-4bc5-493f-80fe-7c735dc32dc2",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:34.141631+00:00"
+  },
+  {
+    "id": "2eeb8184-be5c-4487-9ff8-71f3ac81866d",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:37.287987+00:00"
+  },
+  {
+    "id": "e04ba8ad-a1f8-4db9-a85c-4c642ac26839",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:37.981959+00:00"
+  },
+  {
+    "id": "f455015c-421d-44f0-a7d5-350e30dff3c0",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:38.447923+00:00"
+  },
+  {
+    "id": "6ee742f6-338e-43c5-b638-1227d05e4161",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:39.052817+00:00"
+  },
+  {
+    "id": "4f62f432-b2d7-48dc-99b5-430430cda595",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:39.874084+00:00"
+  },
+  {
+    "id": "3688f756-17af-40b3-8772-2ab90f545ec6",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:42.613826+00:00"
+  },
+  {
+    "id": "96fb2b8f-2fc7-4600-818d-ff10783ca07f",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:46.023579+00:00"
+  },
+  {
+    "id": "e37231f4-445b-4123-84a4-8b3688e38c07",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:48.068404+00:00"
+  },
+  {
+    "id": "13bc4676-8801-48ec-8e10-5c37e0a7d47d",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:49.009828+00:00"
+  },
+  {
+    "id": "a6699ae7-b3c8-464b-b183-86ab870ac755",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:49.551393+00:00"
+  },
+  {
+    "id": "731e71a8-cd2e-4391-acdd-ae9c4e34dbf5",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:52.054736+00:00"
+  },
+  {
+    "id": "1f05ba14-d664-4499-87eb-1994cffb98d5",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:53.351154+00:00"
+  },
+  {
+    "id": "43654733-b5ec-4704-a84e-496ac0c834d9",
+    "learning_session_id": "c84f2dc5-1b37-4ee3-afc1-b623a3b596e9",
+    "sequence_number": 14,
+    "external_ref": null,
+    "created_at": "2026-09-25T08:56:54.217481+00:00"
+  },
+  {
+    "id": "aeb4a55d-1c2c-47d5-9792-05c8194a4014",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:48:22.105761+00:00"
+  },
+  {
+    "id": "7dfff8ab-0c50-414a-8224-de9176e40274",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:52:34.80705+00:00"
+  },
+  {
+    "id": "9d2e6af1-1aae-4a9b-be24-c49048498292",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:54:18.213926+00:00"
+  },
+  {
+    "id": "b77ec943-951a-452a-95e2-b8bd84bfe126",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:55:27.261294+00:00"
+  },
+  {
+    "id": "8b255cc4-6c32-4599-8912-65559de60442",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 17,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:00:40.81638+00:00"
+  },
+  {
+    "id": "55b9ffee-4c1c-4aaf-b55f-80700a92233a",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 19,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:01:35.614304+00:00"
+  },
+  {
+    "id": "5cbc8868-7df7-4597-a8f1-4cc247828884",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 23,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:05:13.985854+00:00"
+  },
+  {
+    "id": "737fb5d3-e90e-4b09-ba15-0214bc70d3ad",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 31,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:18:32.29673+00:00"
+  },
+  {
+    "id": "1bc6e04b-d855-4a4c-8f66-15525759ce9a",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 39,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:22:21.128754+00:00"
+  },
+  {
+    "id": "fb2dcdec-f9dd-432e-ab51-302d7cd19d40",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 41,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:23:33.774711+00:00"
+  },
+  {
+    "id": "dab188f6-417a-42d6-948c-be197811e0c9",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 44,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:25:34.92016+00:00"
+  },
+  {
+    "id": "e2d7e698-aa57-424f-a663-e4fd6a5a544f",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 56,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:32:03.784324+00:00"
+  },
+  {
+    "id": "c9e80c78-def5-4904-9742-0cbf63c9bbd5",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 57,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:32:19.312421+00:00"
+  },
+  {
+    "id": "b24b3b15-6414-4dfd-949e-f33e8276013f",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 64,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:37:35.912296+00:00"
+  },
+  {
+    "id": "a5c5f7d0-0bbb-422f-81fd-f540672a7221",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 69,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:43:53.515525+00:00"
+  },
+  {
+    "id": "ced3c071-c7fa-4900-88d8-d71f266f2f09",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 73,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:47:53.120409+00:00"
+  },
+  {
+    "id": "5c18d770-3d8d-41b3-a025-a090ecc67a8c",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 77,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:51:03.203083+00:00"
+  },
+  {
+    "id": "922e72d2-7ae9-456f-bcdd-99a023055c8b",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 81,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:56:58.698705+00:00"
+  },
+  {
+    "id": "dec8da04-5e14-496a-8624-f608a9a6d2c8",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 84,
+    "external_ref": null,
+    "created_at": "2026-09-29T14:01:29.416348+00:00"
+  },
+  {
+    "id": "0446cbad-fba1-4a44-9073-f60135c60cdd",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 85,
+    "external_ref": null,
+    "created_at": "2026-09-29T14:01:56.158094+00:00"
+  },
+  {
+    "id": "88f92d2e-d678-4f56-b1df-6954b0298c4c",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 86,
+    "external_ref": null,
+    "created_at": "2026-09-29T14:03:37.274865+00:00"
+  },
+  {
+    "id": "e495ebcd-8b9f-4503-935c-9f0b50d09dfc",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 89,
+    "external_ref": null,
+    "created_at": "2026-09-29T14:05:51.805203+00:00"
+  },
+  {
+    "id": "2ecdd6e9-6e83-4ea4-b38b-2b61d3b6c546",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:03.174177+00:00"
+  },
+  {
+    "id": "c9f1b3d7-f804-4407-9890-ac3a8271692e",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:11.317831+00:00"
+  },
+  {
+    "id": "69846ac1-b451-4607-acbc-f303d3b6583d",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:11:49.669516+00:00"
+  },
+  {
+    "id": "51c8e009-7c16-4a1d-bba3-e622d8819d22",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:13:31.451282+00:00"
+  },
+  {
+    "id": "35b89ada-ccac-4c4a-b1f5-7fa7679a1bde",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:14:15.953752+00:00"
+  },
+  {
+    "id": "9ccd4ede-164f-4f76-b867-b8f094cb363e",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:14:38.080356+00:00"
+  },
+  {
+    "id": "3696ea78-3c33-41b4-8c90-0e15545bddaa",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:15:13.784953+00:00"
+  },
+  {
+    "id": "f1cd525c-26de-4441-ac19-2a9e7cd86148",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:15:35.975734+00:00"
+  },
+  {
+    "id": "ed69cf6a-aa23-49ea-a1b4-aee69873a16d",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:15:57.065441+00:00"
+  },
+  {
+    "id": "696ea96e-3972-44ed-b63e-1d69e4cb6e0f",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:16:08.00434+00:00"
+  },
+  {
+    "id": "e3e9df89-ce51-48ac-90aa-5b45c964bb96",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:16:29.317665+00:00"
+  },
+  {
+    "id": "ac7b2a2c-52bf-4e4e-b83e-802ba2fb2fc9",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:17:07.681877+00:00"
+  },
+  {
+    "id": "4c0df1c7-1143-4b91-92e6-d0514826f72c",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:17:28.843201+00:00"
+  },
+  {
+    "id": "23eeb49c-ec16-4183-9929-936db8e99fbc",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:19:40.126427+00:00"
+  },
+  {
+    "id": "71acb3b3-f182-43b7-a0ab-4395735b3de4",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:20:13.640867+00:00"
+  },
+  {
+    "id": "980ca6b1-1d4d-467a-9fec-c195cd0572e1",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 14,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:20:27.980093+00:00"
+  },
+  {
+    "id": "0c3b575a-382d-4628-b093-e14268c83fd4",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:12.976174+00:00"
+  },
+  {
+    "id": "473b1186-61b9-4275-a7b8-04e1a8354212",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:22.722677+00:00"
+  },
+  {
+    "id": "c63907f2-3db3-4a54-be69-ed290d1b8788",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:28.657493+00:00"
+  },
+  {
+    "id": "b168a437-f548-4271-9960-626ed25c3f8d",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:35.403586+00:00"
+  },
+  {
+    "id": "1308f202-6e8c-4467-afdf-6461e5b73d36",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:03:04.59173+00:00"
+  },
+  {
+    "id": "0a10362b-d8f5-4cdf-87ad-63a2d2632d3b",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:03:05.837525+00:00"
+  },
+  {
+    "id": "131a9fed-6808-4727-abcc-db37697782d0",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 15,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:45:10.37946+00:00"
+  },
+  {
+    "id": "45e3afbd-d5ef-42eb-a8fe-057fca0967f1",
+    "learning_session_id": "21121fa1-df23-4a5b-9706-c82aab49499c",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:50:59.9361+00:00"
+  },
+  {
+    "id": "6985af58-e889-47b1-be2a-46fc14cff8e8",
+    "learning_session_id": "21121fa1-df23-4a5b-9706-c82aab49499c",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:52:50.549761+00:00"
+  },
+  {
+    "id": "7ad9e0fe-8900-4ccc-bb13-61aac975c66f",
+    "learning_session_id": "21121fa1-df23-4a5b-9706-c82aab49499c",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:54:19.81477+00:00"
+  },
+  {
+    "id": "76304729-8ea0-4276-b5a2-98ccf13c55e4",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:58:43.44538+00:00"
+  },
+  {
+    "id": "74cd9f63-364c-4eda-a1e2-fd51a17d3ce4",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:02:08.092318+00:00"
+  },
+  {
+    "id": "d4a1e55e-e533-4c35-b932-778abedbd917",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:02:43.636643+00:00"
+  },
+  {
+    "id": "fd552e1f-bdb7-4052-bf54-7a1fc0e7d92c",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:03:29.339077+00:00"
+  },
+  {
+    "id": "155f60d3-53f4-4c7c-a52f-96c106ec545e",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:04:38.276436+00:00"
+  },
+  {
+    "id": "edf4e2a3-4874-4271-ab6c-408e491c34ea",
+    "learning_session_id": "7bef3070-0348-40ba-82f9-c85ef18fe225",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:07:46.849798+00:00"
+  },
+  {
+    "id": "9f30e7ff-d870-4d23-b601-0b782540e59b",
+    "learning_session_id": "7bef3070-0348-40ba-82f9-c85ef18fe225",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:11:29.466664+00:00"
+  },
+  {
+    "id": "a35076d4-6544-405c-ab6e-7ef9581e3e65",
+    "learning_session_id": "7bef3070-0348-40ba-82f9-c85ef18fe225",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:13:40.651159+00:00"
+  },
+  {
+    "id": "308cc7af-c512-41b2-b5b7-8355b883f617",
+    "learning_session_id": "7bef3070-0348-40ba-82f9-c85ef18fe225",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:14:17.967568+00:00"
+  },
+  {
+    "id": "02053459-7a83-4c01-a509-299924470205",
+    "learning_session_id": "7bef3070-0348-40ba-82f9-c85ef18fe225",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:14:35.357965+00:00"
+  },
+  {
+    "id": "f3e11eb7-6df9-4fa2-b545-2526e9653785",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:11:09.063987+00:00"
+  },
+  {
+    "id": "a06d0f04-5922-4890-811d-0087f80a0e34",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:12:09.283818+00:00"
+  },
+  {
+    "id": "c97abfc9-d809-456b-b574-8af2a3080dc8",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:15:16.559845+00:00"
+  },
+  {
+    "id": "b2295bc0-d5c6-42ff-a57a-bd8a313f2dae",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:15:57.463334+00:00"
+  },
+  {
+    "id": "569a7a54-0946-49bb-bb16-1b62941da70c",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:16:46.524232+00:00"
+  },
+  {
+    "id": "ca4eacd7-9e7f-488f-a2ef-60a1d7c26f5f",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:17:47.353335+00:00"
+  },
+  {
+    "id": "347c4e2d-8246-4f4a-87cd-ba82ab6511ec",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:18:55.029164+00:00"
+  },
+  {
+    "id": "40cfc2d5-fa4b-4374-9a44-b01e7903ce9d",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:19:35.219213+00:00"
+  },
+  {
+    "id": "c28653a1-575e-4033-bea8-24c63122b149",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 15,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:21:22.891862+00:00"
+  },
+  {
+    "id": "3ca54181-9110-41fe-9e1f-5f2f6d144454",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 16,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:21:55.980273+00:00"
+  },
+  {
+    "id": "90e9b093-a0b9-4d81-9e75-41e9921891cc",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 17,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:22:10.11826+00:00"
+  },
+  {
+    "id": "5003f088-fef3-49a7-a6ff-71feaf4e0f95",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 18,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:22:29.283207+00:00"
+  },
+  {
+    "id": "c79363a8-0599-4559-b73f-2134192afc6c",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 19,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:22:48.856284+00:00"
+  },
+  {
+    "id": "94cf1bc5-e7a8-43e2-ad58-10c6f16a65d2",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 20,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:24:10.98223+00:00"
+  },
+  {
+    "id": "5d24e86a-bfa3-40e9-94aa-fe95dc7859f6",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 21,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:24:26.30761+00:00"
+  },
+  {
+    "id": "934266ba-e570-4c29-9645-ef91551f8466",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 22,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:24:49.937339+00:00"
+  },
+  {
+    "id": "0fa95af5-4498-436a-bc96-fb1c3b630484",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 23,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:25:58.003991+00:00"
+  },
+  {
+    "id": "c9b2163d-d87a-4d49-96de-3fa17302ae54",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 24,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:26:29.467288+00:00"
+  },
+  {
+    "id": "a54ae6bf-ed3a-4f36-9d7f-dceceea29ed0",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 25,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:26:51.890794+00:00"
+  },
+  {
+    "id": "263dd05c-740d-45a0-b17d-10fb7ed9db0a",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 26,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:27:08.336439+00:00"
+  },
+  {
+    "id": "445680dc-ecb5-4818-a8ce-40b28df3b83c",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 27,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:28:41.73101+00:00"
+  },
+  {
+    "id": "7f9d28f9-0245-4d30-b13a-d713f911a548",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 28,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:29:01.398578+00:00"
+  },
+  {
+    "id": "8146d8ba-ea44-4adc-8e40-16c3263ccd30",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 29,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:29:39.370668+00:00"
+  },
+  {
+    "id": "e8944121-7ba3-45f6-bb8d-eaf8ce50a22d",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 30,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:29:57.625039+00:00"
+  },
+  {
+    "id": "a8ab8195-c421-4aa9-91c9-aa1485a86ebd",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 31,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:31:00.182107+00:00"
+  },
+  {
+    "id": "9382e818-749b-4cbc-a241-f8ea209c86fe",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 32,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:31:12.813793+00:00"
+  },
+  {
+    "id": "0ea7245e-cceb-4e2f-9194-65730ab7c533",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 33,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:31:21.584071+00:00"
+  },
+  {
+    "id": "4845e2be-ae73-4457-8ad5-cad14e7406b9",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 34,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:31:36.363682+00:00"
+  },
+  {
+    "id": "0639a851-325e-4f37-a773-c964eb20ddb0",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 35,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:31:58.081687+00:00"
+  },
+  {
+    "id": "53628d6d-6600-4f61-89c0-b55a2ec3c1f4",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 36,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:32:34.353823+00:00"
+  },
+  {
+    "id": "cea32fbf-0f9a-4dd8-8144-a95bc20d2a58",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 37,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:33:13.654157+00:00"
+  },
+  {
+    "id": "9dd318c6-c86f-4c03-8fa2-ebd72cf1ddfd",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 38,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:33:30.153153+00:00"
+  },
+  {
+    "id": "4ae99064-6921-4da8-bb16-5f4058a269f4",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 39,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:33:55.689433+00:00"
+  },
+  {
+    "id": "54819561-3973-4b3a-8ba4-25ffbc1403c1",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 40,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:34:13.205763+00:00"
+  },
+  {
+    "id": "28601cda-90a7-4192-ac24-bad305ffc634",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 41,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:34:27.667924+00:00"
+  },
+  {
+    "id": "b22280f0-ad2e-4795-83ee-be27bcf24369",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 42,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:36:30.084527+00:00"
+  },
+  {
+    "id": "c8977813-5f25-4799-9a4a-c3a92a3026e4",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 43,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:37:02.710613+00:00"
+  },
+  {
+    "id": "49455992-ed4d-4b1b-b54f-4bcdd1136e47",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 44,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:38:53.422555+00:00"
+  },
+  {
+    "id": "1b6ea948-1888-41a6-b734-8401cdcc1196",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 45,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:39:27.683263+00:00"
+  },
+  {
+    "id": "666e4d17-3616-4f1a-8df7-82c7cc109406",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 46,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:41:22.300055+00:00"
+  },
+  {
+    "id": "91036b9f-3f47-4440-89d5-eb497ff5d2f3",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 47,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:42:49.94612+00:00"
+  },
+  {
+    "id": "07ee8668-a9be-4999-a7b0-40467ab31d9b",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 48,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:43:56.77039+00:00"
+  },
+  {
+    "id": "c8d266be-8449-42b5-8554-adbe00840625",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 49,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:44:02.964693+00:00"
+  },
+  {
+    "id": "4d08d8f2-e4b4-4b31-9962-feca7e9ec040",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 50,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:45:09.000528+00:00"
+  },
+  {
+    "id": "10d3d036-f062-4b4c-aa0d-8b51aca8dc39",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 51,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:46:36.443527+00:00"
+  },
+  {
+    "id": "c549d023-9010-4abc-81e5-e4fccd98e0b3",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 52,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:47:20.411382+00:00"
+  },
+  {
+    "id": "e3820d46-fef3-414d-9e87-adf3f2199467",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 53,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:47:51.98799+00:00"
+  },
+  {
+    "id": "dcf078bd-cdd5-4e3a-80e6-72518fea2429",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 54,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:48:53.088708+00:00"
+  },
+  {
+    "id": "72c33755-9bba-406c-b99a-6101e1cffc96",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 55,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:50:29.155942+00:00"
+  },
+  {
+    "id": "d6c008da-13d0-4e54-a643-1b8fcf1bcf8a",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 56,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:51:11.060951+00:00"
+  },
+  {
+    "id": "976ada79-8131-4edc-ad66-711fd141a19f",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 57,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:52:14.98111+00:00"
+  },
+  {
+    "id": "f2d26998-14a7-416e-9627-9140e894e619",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 58,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:53:00.35788+00:00"
+  },
+  {
+    "id": "d98af3f8-abe0-4bf6-88ef-2c13acf6bb90",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 59,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:53:47.395423+00:00"
+  },
+  {
+    "id": "0394c24e-136d-4f32-80f0-366634819981",
+    "learning_session_id": "83b30dad-6e80-475c-8d35-cef8d8cd46ad",
+    "sequence_number": 60,
+    "external_ref": null,
+    "created_at": "2026-09-26T13:54:51.824313+00:00"
+  },
+  {
+    "id": "6bf63d11-d1cb-49be-bc13-f497d6f49e2b",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:52:30.136996+00:00"
+  },
+  {
+    "id": "3609153c-6484-45e9-b5f6-ddcd5869333c",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:52:52.894615+00:00"
+  },
+  {
+    "id": "81eaf012-77e6-40a3-ac6c-d339f2f0aad2",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:53:35.387105+00:00"
+  },
+  {
+    "id": "1da761d2-38df-4510-93dc-29976441b88e",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-09-29T12:57:06.621851+00:00"
+  },
+  {
+    "id": "7321505d-dbff-45a2-a581-de713261cbc0",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 18,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:01:06.006529+00:00"
+  },
+  {
+    "id": "0877bd10-9409-40db-87a2-b91cc98083b8",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 20,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:02:57.239225+00:00"
+  },
+  {
+    "id": "9eadb19a-9fcb-4dd1-a327-7b00e718ded2",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 25,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:06:52.958241+00:00"
+  },
+  {
+    "id": "8cc4b89d-5a67-495f-900b-8539a847f61d",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 26,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:07:15.37841+00:00"
+  },
+  {
+    "id": "061185fb-f79d-4f4e-9644-238a0d59e8c0",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 27,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:07:31.703937+00:00"
+  },
+  {
+    "id": "ad687565-7ff5-47fb-9ce8-807bab34c782",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 32,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:19:15.290118+00:00"
+  },
+  {
+    "id": "b7daaac9-ed00-4909-ad28-73ed7ad21586",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 33,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:19:33.893604+00:00"
+  },
+  {
+    "id": "0e0f2a84-d395-4d97-82b5-004347795983",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 36,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:20:26.419924+00:00"
+  },
+  {
+    "id": "30c6433b-c2b8-4b42-9ad8-beeb82e0303a",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 40,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:22:57.273024+00:00"
+  },
+  {
+    "id": "a2fcbf7d-a924-4c4e-88b5-424cd0c6389b",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 45,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:26:35.801406+00:00"
+  },
+  {
+    "id": "c3625140-2ad1-491c-b095-5bf2be50a87a",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 58,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:34:23.231044+00:00"
+  },
+  {
+    "id": "1d94a208-bf74-4ced-86bb-6b146ef4b312",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 60,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:35:37.434831+00:00"
+  },
+  {
+    "id": "ec931010-e88d-474c-b5ba-7a76bb989cc1",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 61,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:36:18.197124+00:00"
+  },
+  {
+    "id": "2a9c83b2-411d-4cfb-9781-0125fb1b155d",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 65,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:38:40.434861+00:00"
+  },
+  {
+    "id": "1293cef4-eec8-48af-bd79-5a0c2038282b",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 66,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:38:56.145229+00:00"
+  },
+  {
+    "id": "2968b3d3-63c2-40fa-b4f1-3b3c0afcd31b",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 70,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:44:30.934855+00:00"
+  },
+  {
+    "id": "47e34a9a-f1ff-48fe-877e-5c0aa2a51d2e",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 74,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:48:28.079376+00:00"
+  },
+  {
+    "id": "23ac0a95-bbe4-4cd7-a9df-842f298538e8",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 78,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:52:52.522834+00:00"
+  },
+  {
+    "id": "07ae9d46-d3d0-4aa1-b403-b7fb5aff9276",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 82,
+    "external_ref": null,
+    "created_at": "2026-09-29T13:57:53.857078+00:00"
+  },
+  {
+    "id": "90c2ceac-281f-475e-bdad-c6f7a6f32d29",
+    "learning_session_id": "4feb77f6-400a-4a03-a95e-5fbc4a7c4381",
+    "sequence_number": 87,
+    "external_ref": null,
+    "created_at": "2026-09-29T14:04:36.04591+00:00"
+  },
+  {
+    "id": "928cedd0-4081-4500-b628-9aaefc054ee4",
+    "learning_session_id": "d519ff36-e835-4ade-8ef5-c5f5abb9561c",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:09:34.20695+00:00"
+  },
+  {
+    "id": "f4a14556-7843-4601-bd7a-41e8f0abf923",
+    "learning_session_id": "815e6d37-0dc7-4404-b0f2-0d8c8db3183f",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T09:49:51.260272+00:00"
+  },
+  {
+    "id": "b6236be7-fc2d-4743-a7c5-e657664eff96",
+    "learning_session_id": "815e6d37-0dc7-4404-b0f2-0d8c8db3183f",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:27:00.315823+00:00"
+  },
+  {
+    "id": "d51663c5-e639-4bbd-9cef-7a08c1a3f66e",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:38:08.021545+00:00"
+  },
+  {
+    "id": "b27e2254-4558-4e51-8758-b67ea1b1b04b",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:41:55.178866+00:00"
+  },
+  {
+    "id": "48cd0dad-7b8e-48d0-a272-9e577ca58bfd",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:42:22.998145+00:00"
+  },
+  {
+    "id": "3787b943-8e23-456a-b374-10eb5a891bbc",
+    "learning_session_id": "64192967-1a09-4e2b-a10b-ba69383d9fe1",
+    "sequence_number": 14,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:44:22.618777+00:00"
+  },
+  {
+    "id": "403bafd7-5604-486f-987f-e12ca83564ad",
+    "learning_session_id": "21121fa1-df23-4a5b-9706-c82aab49499c",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:51:16.724721+00:00"
+  },
+  {
+    "id": "7d36dbcb-f11a-41cf-81c1-fca7f44bdd5e",
+    "learning_session_id": "21121fa1-df23-4a5b-9706-c82aab49499c",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:53:27.862574+00:00"
+  },
+  {
+    "id": "28081728-0d21-47e1-867f-ec829232f2a6",
+    "learning_session_id": "21121fa1-df23-4a5b-9706-c82aab49499c",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:54:01.599645+00:00"
+  },
+  {
+    "id": "a4debd3c-fe70-4248-98a1-ffc083012c3f",
+    "learning_session_id": "21121fa1-df23-4a5b-9706-c82aab49499c",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T11:56:41.091039+00:00"
+  },
+  {
+    "id": "d15ec62e-d772-41e8-bf0e-4d1a5502361b",
+    "learning_session_id": "8308130d-9263-45c9-aaba-39a03e68d103",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:00:46.362823+00:00"
+  },
+  {
+    "id": "1ab23e94-d72e-436a-a9cc-b35c97f40d72",
+    "learning_session_id": "7bef3070-0348-40ba-82f9-c85ef18fe225",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:10:30.440379+00:00"
+  },
+  {
+    "id": "d8c3e2b7-70bb-4fec-b766-6976066981d2",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:01:51.120794+00:00"
+  },
+  {
+    "id": "643908cb-e683-4e8b-81c4-48b82cbce8e7",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:01:59.560344+00:00"
+  },
+  {
+    "id": "69158963-77d9-4cfb-9207-895ae9b0c7c9",
+    "learning_session_id": "f7fca47b-a494-4f33-9fab-6da0ffed16fd",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:01.313948+00:00"
+  },
+  {
+    "id": "943e9119-908b-460c-bc0d-f2fbf647867b",
+    "learning_session_id": "f81115fc-b758-42ee-b93d-50adcb60a9e5",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T08:02:45.799587+00:00"
+  },
+  {
+    "id": "d3258826-20a6-4a64-803f-98bf995860db",
+    "learning_session_id": "7bef3070-0348-40ba-82f9-c85ef18fe225",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:14:04.809013+00:00"
+  },
+  {
+    "id": "87074a77-11cc-4e73-b98b-cb84c2600a9a",
+    "learning_session_id": "7bef3070-0348-40ba-82f9-c85ef18fe225",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:15:35.930966+00:00"
+  },
+  {
+    "id": "94c7d1f4-f675-4ed5-b924-3ca51eba0a6c",
+    "learning_session_id": "7bef3070-0348-40ba-82f9-c85ef18fe225",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:15:48.120692+00:00"
+  },
+  {
+    "id": "f756644b-e4a1-48f6-8929-a9d46f21a4ba",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:06:50.081131+00:00"
+  },
+  {
+    "id": "d93bdf6c-d622-44f4-af95-b8362c0d0f46",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:10:50.523181+00:00"
+  },
+  {
+    "id": "ce20eddd-4b38-4fdf-861f-5bfa9799c10b",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:13:07.285338+00:00"
+  },
+  {
+    "id": "0985370d-a74c-458c-91f9-e160b6ec2f11",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:13:46.465663+00:00"
+  },
+  {
+    "id": "244aec63-e412-4282-9635-a56b2dc7b53f",
+    "learning_session_id": "5d13947b-ec09-4358-8baf-3d6b969c3429",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:14:08.781349+00:00"
+  },
+  {
+    "id": "b505f07f-a651-4fbe-8754-2f4016248559",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:22:58.767248+00:00"
+  },
+  {
+    "id": "2a18d72c-1d65-4d03-a004-00f338fabc29",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:25:43.950669+00:00"
+  },
+  {
+    "id": "743224af-37b5-47a0-81d2-60aadebe6aae",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:28:01.685788+00:00"
+  },
+  {
+    "id": "a02f336d-0b19-425c-a753-b8a5ae257bfe",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:28:53.89459+00:00"
+  },
+  {
+    "id": "f6c81afe-b84f-4ea5-ba16-af3940bfd600",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:29:46.802138+00:00"
+  },
+  {
+    "id": "4918f39c-a96c-478a-bcfd-366b5b3332eb",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:30:06.65281+00:00"
+  },
+  {
+    "id": "9a231ddd-8698-4a01-8c86-ba31dc686195",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:34:18.82281+00:00"
+  },
+  {
+    "id": "cf126fcd-15b5-4370-ab89-021ae8dc54a0",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:34:29.702804+00:00"
+  },
+  {
+    "id": "2348483b-e316-40fb-9f5f-d32816d52fff",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:35:50.533537+00:00"
+  },
+  {
+    "id": "7392e20b-ba88-430c-b54a-741f66b73ec6",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:36:44.175875+00:00"
+  },
+  {
+    "id": "07cc7a6c-157b-46e2-b2be-9d3aee97d586",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:38:39.543408+00:00"
+  },
+  {
+    "id": "f5719e63-a8c3-49c3-9fca-a4ae2a0c05a0",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:39:43.082081+00:00"
+  },
+  {
+    "id": "3a08da52-ba38-411e-be99-1a001a7b8fc5",
+    "learning_session_id": "57c38043-d3b8-4505-869b-f16c1a949729",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:40:57.938995+00:00"
+  },
+  {
+    "id": "d68f745c-ca1f-412c-a6ce-439ec1b79b10",
+    "learning_session_id": "40dabb11-51f0-4fd4-8d93-67796049647d",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:54:13.82027+00:00"
+  },
+  {
+    "id": "16b98cfc-2639-4b86-a767-ead5ee7a69ff",
+    "learning_session_id": "40dabb11-51f0-4fd4-8d93-67796049647d",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:54:13.82027+00:00"
+  },
+  {
+    "id": "855a162b-2913-4ea4-8087-09bd28bacd08",
+    "learning_session_id": "40dabb11-51f0-4fd4-8d93-67796049647d",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:54:13.82027+00:00"
+  },
+  {
+    "id": "4bcfe0f3-c4e5-4fa5-b898-0de1207d180a",
+    "learning_session_id": "40dabb11-51f0-4fd4-8d93-67796049647d",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T12:54:13.82027+00:00"
+  },
+  {
+    "id": "72c30e11-625a-476a-b1e3-a872e691a082",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 1,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:04:06.06899+00:00"
+  },
+  {
+    "id": "9364361c-67a0-479b-b42f-771e0c556d24",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 2,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:09:11.433252+00:00"
+  },
+  {
+    "id": "e7338d8b-4c27-4671-adb3-0a7e8b5f38b6",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 3,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:10:56.061034+00:00"
+  },
+  {
+    "id": "06879de2-dbf8-46f6-a278-5a645ce7559a",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 4,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:11:11.118052+00:00"
+  },
+  {
+    "id": "8d153517-15d5-4ad2-b88c-6d2c7b1aa731",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 5,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:12:11.715236+00:00"
+  },
+  {
+    "id": "e1a986ab-c33e-420c-a1ff-03b6fc1c944c",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 6,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:14:21.173124+00:00"
+  },
+  {
+    "id": "11258512-e32c-4bdf-b387-34da3c007cfe",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 7,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:15:57.043619+00:00"
+  },
+  {
+    "id": "a2f5a439-5e25-43cd-83ec-828a108d0f00",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 8,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:16:41.890547+00:00"
+  },
+  {
+    "id": "ac2887a5-7e61-4a72-8d37-98d13b3c5506",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 9,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:21:25.41615+00:00"
+  },
+  {
+    "id": "35217760-f341-4b6b-832e-eb04e5bb9625",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 10,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:23:09.892647+00:00"
+  },
+  {
+    "id": "796c0835-a198-4be7-9f09-e7c6a0c2b4b0",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 11,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:24:08.66866+00:00"
+  },
+  {
+    "id": "e7943f15-2ee6-40d4-ac20-931f22355330",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 12,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:25:48.334208+00:00"
+  },
+  {
+    "id": "4f7b0a1e-f43a-4dbf-b6f3-efdc35844dce",
+    "learning_session_id": "cb20c84f-9f61-4abb-9312-09857997744d",
+    "sequence_number": 13,
+    "external_ref": null,
+    "created_at": "2026-10-12T13:29:29.602543+00:00"
+  }
+]

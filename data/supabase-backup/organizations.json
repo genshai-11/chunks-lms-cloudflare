@@ -1,0 +1,32 @@
+[
+  {
+    "id": "9d61d048-cbda-4600-8141-4cfd2745cc59",
+    "name": "Lucy Nguyễn Workspace",
+    "clerk_org_id": "personal:user_3GLlk3rfIycqrubWZOghxw0WoSS",
+    "created_at": "2026-07-12T05:14:40.283095+00:00"
+  },
+  {
+    "id": "48d094a8-2bc7-41aa-a1cc-d35efe9f9950",
+    "name": "Bach Pham Workspace",
+    "clerk_org_id": "personal:user_3GPKBqY3uwx7cXjS2xcuuzI5OCe",
+    "created_at": "2026-07-12T15:23:31.033405+00:00"
+  },
+  {
+    "id": "a0000000-0000-4000-8000-000000000001",
+    "name": "My organization",
+    "clerk_org_id": null,
+    "created_at": "2026-07-13T01:55:06.687255+00:00"
+  },
+  {
+    "id": "faeb240d-b284-4a6d-8494-745da8617685",
+    "name": "Le Nguyen Workspace",
+    "clerk_org_id": "personal:user_3GNryGEE53dbd4I2LPojoEZba0j",
+    "created_at": "2026-07-12T02:25:22.635017+00:00"
+  },
+  {
+    "id": "408fcb2e-64ea-4443-af5b-b7878ddb7316",
+    "name": "Local staff Workspace",
+    "clerk_org_id": "personal:bypass-staff",
+    "created_at": "2026-07-12T05:14:39.737142+00:00"
+  }
+]

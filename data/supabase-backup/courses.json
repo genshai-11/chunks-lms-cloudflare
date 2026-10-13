@@ -1,0 +1,26 @@
+[
+  {
+    "id": "74c53e1c-ad89-4112-b358-fd6ca8143718",
+    "organization_id": "a0000000-0000-4000-8000-000000000001",
+    "code": "ERE",
+    "name": "LEVEL A",
+    "status": "active",
+    "created_at": "2026-07-21T07:25:35.786422+00:00"
+  },
+  {
+    "id": "b02b48f5-1428-47d9-a289-ba762c4c502b",
+    "organization_id": "a0000000-0000-4000-8000-000000000001",
+    "code": "EE",
+    "name": "LEVEL B",
+    "status": "active",
+    "created_at": "2026-07-22T09:42:34.269176+00:00"
+  },
+  {
+    "id": "da77fd89-a438-4625-a0b3-5289910d0c8f",
+    "organization_id": "a0000000-0000-4000-8000-000000000001",
+    "code": "ERE-01",
+    "name": "ERE level A",
+    "status": "active",
+    "created_at": "2026-10-10T08:43:47.125313+00:00"
+  }
+]

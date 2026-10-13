@@ -1,0 +1,74 @@
+[
+  {
+    "id": "f5836f2f-7873-48e6-b484-7e91babee194",
+    "course_id": "da77fd89-a438-4625-a0b3-5289910d0c8f",
+    "name": "ERE level A",
+    "capacity": 15,
+    "teacher_user_id": "278acbe4-4a42-4efe-9d0a-5c730c642144",
+    "status": "active",
+    "created_at": "2026-10-10T08:43:47.280208+00:00",
+    "starts_on": null,
+    "ends_on": null,
+    "schedule": null
+  },
+  {
+    "id": "0fbdaf49-9ddc-45c1-a92a-a104827d4e3a",
+    "course_id": "74c53e1c-ad89-4112-b358-fd6ca8143718",
+    "name": "RANDOM",
+    "capacity": 50,
+    "teacher_user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+    "status": "active",
+    "created_at": "2026-08-20T04:11:26.416291+00:00",
+    "starts_on": null,
+    "ends_on": null,
+    "schedule": null
+  },
+  {
+    "id": "963316ea-b80a-4126-ac79-df9badcb4380",
+    "course_id": "da77fd89-a438-4625-a0b3-5289910d0c8f",
+    "name": "ERE level A",
+    "capacity": 10,
+    "teacher_user_id": "f45b7bd6-f7ae-430d-b9f3-8ded97d40558",
+    "status": "active",
+    "created_at": "2026-10-10T09:26:21.747183+00:00",
+    "starts_on": null,
+    "ends_on": null,
+    "schedule": null
+  },
+  {
+    "id": "254ae635-35f1-4106-a648-511882a51307",
+    "course_id": "74c53e1c-ad89-4112-b358-fd6ca8143718",
+    "name": "CLASS 1",
+    "capacity": 5,
+    "teacher_user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+    "status": "active",
+    "created_at": "2026-07-21T07:25:44.882436+00:00",
+    "starts_on": null,
+    "ends_on": null,
+    "schedule": null
+  },
+  {
+    "id": "c3ca9eb5-080d-4f2a-88ee-40e14cb81b45",
+    "course_id": "b02b48f5-1428-47d9-a289-ba762c4c502b",
+    "name": "EE-65",
+    "capacity": 21,
+    "teacher_user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+    "status": "active",
+    "created_at": "2026-07-22T09:42:34.475553+00:00",
+    "starts_on": null,
+    "ends_on": null,
+    "schedule": null
+  },
+  {
+    "id": "372e81a3-07b2-4aa6-8cbb-1d2a95584b8c",
+    "course_id": "b02b48f5-1428-47d9-a289-ba762c4c502b",
+    "name": "LEVEL A",
+    "capacity": 6,
+    "teacher_user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+    "status": "active",
+    "created_at": "2026-07-31T07:57:37.081851+00:00",
+    "starts_on": null,
+    "ends_on": null,
+    "schedule": null
+  }
+]

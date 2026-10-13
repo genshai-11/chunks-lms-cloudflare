@@ -1,0 +1,645 @@
+[
+  {
+    "organization_id": "faeb240d-b284-4a6d-8494-745da8617685",
+    "default_max_probe_count": 2,
+    "metric_settings": [
+      {
+        "key": "rfc",
+        "label": "RFC",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "(Red + Yellow) / finalized N"
+      },
+      {
+        "key": "rac",
+        "label": "RAC",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "(Green + Purple) / finalized N"
+      },
+      {
+        "key": "average_performance",
+        "label": "Average performance",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "mean color score 0..3 over finalized N"
+      },
+      {
+        "key": "purple_mastery_rate",
+        "label": "Purple mastery",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "Purple / finalized N"
+      },
+      {
+        "key": "clarification_rate",
+        "label": "Clarification rate",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "attempts entering probe flow / finalized N"
+      },
+      {
+        "key": "clarification_depth",
+        "label": "Clarification depth",
+        "status": "experimental",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "probe-event count / probed attempts"
+      },
+      {
+        "key": "n_count",
+        "label": "n count",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "count of finalized attempts where teacher selected Green (2) / entered probe"
+      },
+      {
+        "key": "n_depth_max",
+        "label": "n depth max",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "max probeCount among probed attempts (peak n depth; not session maxProbeCount)"
+      },
+      {
+        "key": "n_depth_avg",
+        "label": "n depth avg",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "mean probeCount among probed attempts (n depth avg)"
+      },
+      {
+        "key": "awareness_recovery",
+        "label": "Awareness recovery",
+        "status": "experimental",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "probed attempts ending Green or Purple / probed attempts"
+      },
+      {
+        "key": "focus_stability",
+        "label": "Focus stability",
+        "status": "experimental",
+        "enabled": true,
+        "minSample": 2,
+        "definition": "normalized inverse of adjacent score movement per learner"
+      }
+    ],
+    "updated_at": "2026-07-12T15:20:59.793+00:00"
+  },
+  {
+    "organization_id": "408fcb2e-64ea-4443-af5b-b7878ddb7316",
+    "default_max_probe_count": 2,
+    "metric_settings": {
+      "metrics": [
+        {
+          "key": "rfc",
+          "label": "RFC",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "(Red + Yellow) / finalized N"
+        },
+        {
+          "key": "rac",
+          "label": "RAC",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "(Green + Purple) / finalized N"
+        },
+        {
+          "key": "average_performance",
+          "label": "Average performance",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "mean color score 0..3 over finalized N"
+        },
+        {
+          "key": "purple_mastery_rate",
+          "label": "Purple mastery",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "Purple / finalized N"
+        },
+        {
+          "key": "clarification_rate",
+          "label": "Clarification rate",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "attempts entering probe flow / finalized N"
+        },
+        {
+          "key": "clarification_depth",
+          "label": "Clarification depth (legacy)",
+          "status": "experimental",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "probe-event count / probed attempts (legacy alias of n depth avg)"
+        },
+        {
+          "key": "n_count",
+          "label": "n count",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "count of finalized attempts where teacher selected Green (2) / entered probe"
+        },
+        {
+          "key": "n_depth_max",
+          "label": "n depth max",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "max probeCount among probed attempts (peak n depth; not session maxProbeCount)"
+        },
+        {
+          "key": "n_depth_avg",
+          "label": "n depth avg",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "mean probeCount among probed attempts (n depth avg)"
+        },
+        {
+          "key": "awareness_recovery",
+          "label": "Awareness recovery",
+          "status": "experimental",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "probed attempts ending Green or Purple / probed attempts"
+        },
+        {
+          "key": "focus_stability",
+          "label": "Focus stability",
+          "status": "experimental",
+          "enabled": true,
+          "minSample": 2,
+          "definition": "normalized inverse of adjacent score movement per learner"
+        }
+      ],
+      "standaloneTestMetrics": [
+        {
+          "key": "rfc",
+          "unit": "percent",
+          "label": "RFC",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "rfc",
+          "definition": "Warm spectrum records / N_total, shown as a percentage."
+        },
+        {
+          "key": "package_percent",
+          "unit": "percent",
+          "label": "%c/%r",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "avgPercentX",
+          "definition": "Package main %c/%r value. Uses Avg %x: mean normalized 7-color spectrum factor over N_total."
+        },
+        {
+          "key": "legacy_rac",
+          "unit": "percent",
+          "label": "RAC legacy",
+          "custom": false,
+          "status": "operational",
+          "enabled": false,
+          "formula": "legacyRac",
+          "definition": "Legacy cool spectrum records / N_total. This equals 100 - RFC when N_total is greater than zero."
+        },
+        {
+          "key": "avg_cvr",
+          "unit": "ohm",
+          "label": "Avg CVR",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "avgCvr",
+          "definition": "Average CVR across finalized questions in the current filter."
+        },
+        {
+          "key": "avg_cci",
+          "unit": "amp",
+          "label": "Avg CCI",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "avgCci",
+          "definition": "Average CCI across finalized questions in the current filter."
+        },
+        {
+          "key": "avg_cpd",
+          "unit": "volt",
+          "label": "Avg Final CPD",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "avgCpd",
+          "definition": "Average final CPD: mean(CVR x CCI x color factor) across finalized questions."
+        },
+        {
+          "key": "acn",
+          "unit": "number",
+          "label": "ACN",
+          "custom": false,
+          "status": "experimental",
+          "enabled": true,
+          "formula": "acn",
+          "definition": "Configured ACN value from the standalone Tests 1-1 analysis formula."
+        },
+        {
+          "key": "n_total",
+          "unit": "count",
+          "label": "N_total",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "nTotal",
+          "definition": "Primary records + probe records in the current filter."
+        }
+      ]
+    },
+    "updated_at": "2026-10-10T08:43:54.361+00:00"
+  },
+  {
+    "organization_id": "48d094a8-2bc7-41aa-a1cc-d35efe9f9950",
+    "default_max_probe_count": 2,
+    "metric_settings": [
+      {
+        "key": "rfc",
+        "label": "RFC",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "(Red + Yellow) / finalized N"
+      },
+      {
+        "key": "rac",
+        "label": "RAC",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "(Green + Purple) / finalized N"
+      },
+      {
+        "key": "average_performance",
+        "label": "Average performance",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "mean color score 0..3 over finalized N"
+      },
+      {
+        "key": "purple_mastery_rate",
+        "label": "Purple mastery",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "Purple / finalized N"
+      },
+      {
+        "key": "clarification_rate",
+        "label": "Clarification rate",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "attempts entering probe flow / finalized N"
+      },
+      {
+        "key": "clarification_depth",
+        "label": "Clarification depth (legacy)",
+        "status": "experimental",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "probe-event count / probed attempts (legacy alias of n depth avg)"
+      },
+      {
+        "key": "n_count",
+        "label": "n count",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "count of finalized attempts where teacher selected Green (2) / entered probe"
+      },
+      {
+        "key": "n_depth_max",
+        "label": "n depth max",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "max probeCount among probed attempts (peak n depth; not session maxProbeCount)"
+      },
+      {
+        "key": "n_depth_avg",
+        "label": "n depth avg",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "mean probeCount among probed attempts (n depth avg)"
+      },
+      {
+        "key": "awareness_recovery",
+        "label": "Awareness recovery",
+        "status": "experimental",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "probed attempts ending Green or Purple / probed attempts"
+      },
+      {
+        "key": "focus_stability",
+        "label": "Focus stability",
+        "status": "experimental",
+        "enabled": true,
+        "minSample": 2,
+        "definition": "normalized inverse of adjacent score movement per learner"
+      }
+    ],
+    "updated_at": "2026-07-18T10:00:31.628+00:00"
+  },
+  {
+    "organization_id": "9d61d048-cbda-4600-8141-4cfd2745cc59",
+    "default_max_probe_count": 2,
+    "metric_settings": [
+      {
+        "key": "rfc",
+        "label": "RFC",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "(Red + Yellow) / finalized N"
+      },
+      {
+        "key": "rac",
+        "label": "RAC",
+        "status": "operational",
+        "enabled": true,
+        "minSample": 1,
+        "definition": "(Green + Purple) / finalized N"
+      },
+      {
+        "key": "average_performance",
+        "label": "Average performance",
+        "status": "operational",
+        "enabled": false,
+        "minSample": 1,
+        "definition": "mean color score 0..3 over finalized N"
+      },
+      {
+        "key": "purple_mastery_rate",
+        "label": "Purple mastery",
+        "status": "operational",
+        "enabled": false,
+        "minSample": 1,
+        "definition": "Purple / finalized N"
+      },
+      {
+        "key": "clarification_rate",
+        "label": "Clarification rate",
+        "status": "operational",
+        "enabled": false,
+        "minSample": 1,
+        "definition": "attempts entering probe flow / finalized N"
+      },
+      {
+        "key": "clarification_depth",
+        "label": "Clarification depth (legacy)",
+        "status": "experimental",
+        "enabled": false,
+        "minSample": 1,
+        "definition": "probe-event count / probed attempts (legacy alias of n depth avg)"
+      },
+      {
+        "key": "n_count",
+        "label": "n count",
+        "status": "operational",
+        "enabled": false,
+        "minSample": 1,
+        "definition": "count of finalized attempts where teacher selected Green (2) / entered probe"
+      },
+      {
+        "key": "n_depth_max",
+        "label": "n depth max",
+        "status": "operational",
+        "enabled": false,
+        "minSample": 1,
+        "definition": "max probeCount among probed attempts (peak n depth; not session maxProbeCount)"
+      },
+      {
+        "key": "n_depth_avg",
+        "label": "n depth avg",
+        "status": "operational",
+        "enabled": false,
+        "minSample": 1,
+        "definition": "mean probeCount among probed attempts (n depth avg)"
+      },
+      {
+        "key": "awareness_recovery",
+        "label": "Awareness recovery",
+        "status": "experimental",
+        "enabled": false,
+        "minSample": 1,
+        "definition": "probed attempts ending Green or Purple / probed attempts"
+      },
+      {
+        "key": "focus_stability",
+        "label": "Focus stability",
+        "status": "experimental",
+        "enabled": false,
+        "minSample": 2,
+        "definition": "normalized inverse of adjacent score movement per learner"
+      }
+    ],
+    "updated_at": "2026-07-16T03:56:18.911+00:00"
+  },
+  {
+    "organization_id": "a0000000-0000-4000-8000-000000000001",
+    "default_max_probe_count": 2,
+    "metric_settings": {
+      "metrics": [
+        {
+          "key": "rfc",
+          "label": "RFC",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "(Red + Yellow) / finalized N"
+        },
+        {
+          "key": "rac",
+          "label": "RAC",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "(Green + Purple) / finalized N"
+        },
+        {
+          "key": "average_performance",
+          "label": "Average performance",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "mean color score 0..3 over finalized N"
+        },
+        {
+          "key": "purple_mastery_rate",
+          "label": "Purple mastery",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "Purple / finalized N"
+        },
+        {
+          "key": "clarification_rate",
+          "label": "Clarification rate",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "attempts entering probe flow / finalized N"
+        },
+        {
+          "key": "clarification_depth",
+          "label": "Clarification depth (legacy)",
+          "status": "experimental",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "probe-event count / probed attempts (legacy alias of n depth avg)"
+        },
+        {
+          "key": "n_count",
+          "label": "n count",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "count of finalized attempts where teacher selected Green (2) / entered probe"
+        },
+        {
+          "key": "n_depth_max",
+          "label": "n depth max",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "max probeCount among probed attempts (peak n depth; not session maxProbeCount)"
+        },
+        {
+          "key": "n_depth_avg",
+          "label": "n depth avg",
+          "status": "operational",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "mean probeCount among probed attempts (n depth avg)"
+        },
+        {
+          "key": "awareness_recovery",
+          "label": "Awareness recovery",
+          "status": "experimental",
+          "enabled": true,
+          "minSample": 1,
+          "definition": "probed attempts ending Green or Purple / probed attempts"
+        },
+        {
+          "key": "focus_stability",
+          "label": "Focus stability",
+          "status": "experimental",
+          "enabled": true,
+          "minSample": 2,
+          "definition": "normalized inverse of adjacent score movement per learner"
+        }
+      ],
+      "standaloneTestMetrics": [
+        {
+          "key": "rfc",
+          "unit": "percent",
+          "label": "RFC",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "rfc",
+          "definition": "Warm spectrum records / N_total, shown as a percentage."
+        },
+        {
+          "key": "package_percent",
+          "unit": "percent",
+          "label": "%c/%r",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "avgPercentX",
+          "definition": "Package main %c/%r value. Uses Avg %x: mean normalized 7-color spectrum factor over N_total."
+        },
+        {
+          "key": "legacy_rac",
+          "unit": "percent",
+          "label": "RAC legacy",
+          "custom": false,
+          "status": "operational",
+          "enabled": false,
+          "formula": "legacyRac",
+          "definition": "Legacy cool spectrum records / N_total. This equals 100 - RFC when N_total is greater than zero."
+        },
+        {
+          "key": "avg_cvr",
+          "unit": "ohm",
+          "label": "Avg CVR",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "avgCvr",
+          "definition": "Average CVR across finalized questions in the current filter."
+        },
+        {
+          "key": "avg_cci",
+          "unit": "amp",
+          "label": "Avg CCI",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "avgCci",
+          "definition": "Average CCI across finalized questions in the current filter."
+        },
+        {
+          "key": "avg_cpd",
+          "unit": "volt",
+          "label": "Avg Final CPD",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "avgCpd",
+          "definition": "Average final CPD: mean(CVR x CCI x color factor) across finalized questions."
+        },
+        {
+          "key": "acn",
+          "unit": "number",
+          "label": "ACN",
+          "custom": false,
+          "status": "experimental",
+          "enabled": true,
+          "formula": "acn",
+          "definition": "Configured ACN value from the standalone Tests 1-1 analysis formula."
+        },
+        {
+          "key": "n_total",
+          "unit": "count",
+          "label": "N_total",
+          "custom": false,
+          "status": "operational",
+          "enabled": true,
+          "formula": "nTotal",
+          "definition": "Primary records + probe records in the current filter."
+        }
+      ]
+    },
+    "updated_at": "2026-10-12T16:14:08.569+00:00"
+  }
+]

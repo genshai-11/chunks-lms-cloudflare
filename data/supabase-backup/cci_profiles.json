@@ -1,0 +1,74 @@
+[
+  {
+    "id": "34318313-8cb7-a846-4278-cb3b80cdbfd8",
+    "organization_id": "9d61d048-cbda-4600-8141-4cfd2745cc59",
+    "name": "Chunks Resource CCI",
+    "version_label": "draft-v1",
+    "status": "draft",
+    "description": "Canonical CCI definitions from Chunks Resource.xlsx",
+    "created_by_user_id": null,
+    "created_at": "2026-07-20T11:17:44.281965+00:00",
+    "updated_at": "2026-07-21T00:37:42.161924+00:00",
+    "archived_at": null
+  },
+  {
+    "id": "6f6031ab-5966-56c7-99c9-72ff6b8efe16",
+    "organization_id": "9d61d048-cbda-4600-8141-4cfd2745cc59",
+    "name": "GREEN-TEST-49Q CCI",
+    "version_label": "LIVE",
+    "status": "draft",
+    "description": "CCI definitions from Package-Green-test.xlsx for GREEN-TEST-49Q",
+    "created_by_user_id": null,
+    "created_at": "2026-07-24T14:00:01.881761+00:00",
+    "updated_at": "2026-07-24T14:00:01.881761+00:00",
+    "archived_at": null
+  },
+  {
+    "id": "a1bfddc6-90bc-523a-b49f-8f06bdf7245a",
+    "organization_id": "9d61d048-cbda-4600-8141-4cfd2745cc59",
+    "name": "GREEN-TEST-49Q-V2 CCI",
+    "version_label": "LIVE",
+    "status": "draft",
+    "description": "CCI definitions for GREEN-TEST-49Q-V2",
+    "created_by_user_id": null,
+    "created_at": "2026-07-30T03:12:51.45647+00:00",
+    "updated_at": "2026-07-30T03:12:51.45647+00:00",
+    "archived_at": null
+  },
+  {
+    "id": "e6491f15-6ae3-5805-8610-ac2516330b49",
+    "organization_id": "9d61d048-cbda-4600-8141-4cfd2745cc59",
+    "name": "Level-A-green-test-cpd31v CCI",
+    "version_label": "LIVE",
+    "status": "draft",
+    "description": "CCI definitions for Level-A-green-test-cpd31v",
+    "created_by_user_id": null,
+    "created_at": "2026-07-31T08:07:05.838577+00:00",
+    "updated_at": "2026-07-31T08:07:05.838577+00:00",
+    "archived_at": null
+  },
+  {
+    "id": "78ce4580-81fc-4904-91eb-9bd7d1019a79",
+    "organization_id": "9d61d048-cbda-4600-8141-4cfd2745cc59",
+    "name": "GREEN-TEST-FOCUS-CCI",
+    "version_label": "v1",
+    "status": "active",
+    "description": "CCI metrics for Green Focus test package",
+    "created_by_user_id": null,
+    "created_at": "2026-09-21T15:42:58.86946+00:00",
+    "updated_at": "2026-09-21T15:42:58.86946+00:00",
+    "archived_at": null
+  },
+  {
+    "id": "300205c5-6b84-48d8-ab7a-4a69e8b1889e",
+    "organization_id": "9d61d048-cbda-4600-8141-4cfd2745cc59",
+    "name": "[GREEN (Focus)] Hobbies, Sports & Leisure · 21Q - 12V CCI (mubgqalc)",
+    "version_label": "v1",
+    "status": "draft",
+    "description": "CCI metrics for Green Focus test package: [GREEN (Focus)] Hobbies, Sports & Leisure · 21Q - 12V",
+    "created_by_user_id": null,
+    "created_at": "2026-09-21T16:31:48.935611+00:00",
+    "updated_at": "2026-09-21T16:31:48.935611+00:00",
+    "archived_at": null
+  }
+]

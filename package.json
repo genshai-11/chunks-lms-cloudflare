@@ -1,0 +1,21 @@
+{
+  "name": "chunks-lms-cloudflare",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Chunks-LMS on Cloudflare Free Tier (Hono + D1 + Drizzle ORM + R2 + Workers Static Assets)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm --prefix apps/web run dev",
+    "dev:api": "npm --prefix packages/api run dev",
+    "build": "npm --prefix apps/web run build && npm --prefix packages/api run build",
+    "deploy": "npm --prefix packages/api run deploy",
+    "typecheck": "npm --prefix apps/web run typecheck && npm --prefix packages/api run typecheck",
+    "lint": "npm --prefix apps/web run lint"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

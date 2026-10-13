@@ -1,0 +1,92 @@
+[
+  {
+    "id": "22abf702-cc70-4b84-9da0-62da8f5cc8bd",
+    "user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+    "role": "teacher",
+    "active": true,
+    "granted_by_user_id": null,
+    "created_at": "2026-07-21T00:37:42.161924+00:00",
+    "updated_at": "2026-08-14T14:17:46.607871+00:00",
+    "revoked_at": null
+  },
+  {
+    "id": "f71b5ca7-3a60-41e9-b86d-2f05450ed7b3",
+    "user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+    "role": "admin",
+    "active": true,
+    "granted_by_user_id": null,
+    "created_at": "2026-07-21T00:37:42.161924+00:00",
+    "updated_at": "2026-08-14T14:17:46.607871+00:00",
+    "revoked_at": null
+  },
+  {
+    "id": "bfe7a1d0-79ac-48c5-9c8a-deedce3e885f",
+    "user_id": "278acbe4-4a42-4efe-9d0a-5c730c642144",
+    "role": "teacher",
+    "active": true,
+    "granted_by_user_id": null,
+    "created_at": "2026-10-10T08:37:16.397321+00:00",
+    "updated_at": "2026-10-10T08:37:16.397321+00:00",
+    "revoked_at": null
+  },
+  {
+    "id": "de64f9d1-b654-4c3d-a5e3-ccce9d2e3556",
+    "user_id": "f45b7bd6-f7ae-430d-b9f3-8ded97d40558",
+    "role": "teacher",
+    "active": true,
+    "granted_by_user_id": null,
+    "created_at": "2026-10-10T08:37:18.24684+00:00",
+    "updated_at": "2026-10-10T08:37:18.24684+00:00",
+    "revoked_at": null
+  },
+  {
+    "id": "e5e3ba55-1918-4fcd-9162-a3b0ed618ac0",
+    "user_id": "f2ed76f9-3be3-483e-a9f7-7fedb4cf98f2",
+    "role": "teacher",
+    "active": true,
+    "granted_by_user_id": null,
+    "created_at": "2026-10-10T08:37:20.172606+00:00",
+    "updated_at": "2026-10-10T08:37:20.172606+00:00",
+    "revoked_at": null
+  },
+  {
+    "id": "43a687a0-25cb-47e2-b992-de2886f52ade",
+    "user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+    "role": "admin",
+    "active": true,
+    "granted_by_user_id": null,
+    "created_at": "2026-07-21T00:37:42.161924+00:00",
+    "updated_at": "2026-07-27T10:52:09.279899+00:00",
+    "revoked_at": null
+  },
+  {
+    "id": "a5962c73-15cb-4fbe-bdd3-b1457e1eb9b0",
+    "user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+    "role": "teacher",
+    "active": true,
+    "granted_by_user_id": null,
+    "created_at": "2026-07-21T00:37:42.161924+00:00",
+    "updated_at": "2026-07-27T10:52:09.279899+00:00",
+    "revoked_at": null
+  },
+  {
+    "id": "b90a689e-4125-4992-9700-0c7cc3c18e6b",
+    "user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb0",
+    "role": "admin",
+    "active": true,
+    "granted_by_user_id": null,
+    "created_at": "2026-07-21T00:37:42.161924+00:00",
+    "updated_at": "2026-07-30T03:46:02.22091+00:00",
+    "revoked_at": null
+  },
+  {
+    "id": "fd31d723-0881-4cb3-8bc0-fd8d5563a0b5",
+    "user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb0",
+    "role": "teacher",
+    "active": true,
+    "granted_by_user_id": null,
+    "created_at": "2026-07-21T00:37:42.161924+00:00",
+    "updated_at": "2026-07-30T03:46:02.22091+00:00",
+    "revoked_at": null
+  }
+]

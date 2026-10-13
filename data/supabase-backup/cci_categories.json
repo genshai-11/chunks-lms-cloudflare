@@ -1,0 +1,500 @@
+[
+  {
+    "id": "1b32ad93-d2e8-f1d8-82ef-474c833a8dc3",
+    "profile_id": "34318313-8cb7-a846-4278-cb3b80cdbfd8",
+    "category_order": 1,
+    "label": "Give it a shot",
+    "value": 2,
+    "description": "Linear 1 on 1 as Blow",
+    "metadata": {
+      "source": "Chunks Resource.xlsx",
+      "sourceCciId": "cci-001",
+      "mainCategory": "Blow"
+    },
+    "created_at": "2026-07-20T11:17:44.281965+00:00",
+    "updated_at": "2026-07-20T11:17:44.281965+00:00"
+  },
+  {
+    "id": "98ca54e0-6fd0-7c82-aff7-278d10473bf7",
+    "profile_id": "34318313-8cb7-a846-4278-cb3b80cdbfd8",
+    "category_order": 2,
+    "label": "Go with the flow",
+    "value": 2,
+    "description": "Linear RPD-free as Flow",
+    "metadata": {
+      "source": "Chunks Resource.xlsx",
+      "sourceCciId": "cci-002",
+      "mainCategory": "Flow"
+    },
+    "created_at": "2026-07-20T11:17:44.281965+00:00",
+    "updated_at": "2026-07-20T11:17:44.281965+00:00"
+  },
+  {
+    "id": "4250fc9f-6c6b-5919-c8a0-d869177004c1",
+    "profile_id": "34318313-8cb7-a846-4278-cb3b80cdbfd8",
+    "category_order": 3,
+    "label": "Chunks on the go",
+    "value": 4,
+    "description": "Linear chunking act as Chunks",
+    "metadata": {
+      "source": "Chunks Resource.xlsx",
+      "sourceCciId": "cci-003",
+      "mainCategory": "Chunks"
+    },
+    "created_at": "2026-07-20T11:17:44.281965+00:00",
+    "updated_at": "2026-07-20T11:17:44.281965+00:00"
+  },
+  {
+    "id": "e06c21f7-1f97-c814-248d-59aa38131706",
+    "profile_id": "34318313-8cb7-a846-4278-cb3b80cdbfd8",
+    "category_order": 4,
+    "label": "Freeze",
+    "value": 4,
+    "description": "Freeze your body with RPD-free or 1-on-1 sound",
+    "metadata": {
+      "source": "Chunks Resource.xlsx",
+      "sourceCciId": "cci-004",
+      "mainCategory": null
+    },
+    "created_at": "2026-07-20T11:17:44.281965+00:00",
+    "updated_at": "2026-07-20T11:17:44.281965+00:00"
+  },
+  {
+    "id": "2f632d29-1e18-3a41-65b0-2e898931848f",
+    "profile_id": "34318313-8cb7-a846-4278-cb3b80cdbfd8",
+    "category_order": 5,
+    "label": "Robot",
+    "value": 6,
+    "description": "Move your hands linearly 1-on-1 as Blow",
+    "metadata": {
+      "source": "Chunks Resource.xlsx",
+      "sourceCciId": "cci-005",
+      "mainCategory": "Blow"
+    },
+    "created_at": "2026-07-20T11:17:44.281965+00:00",
+    "updated_at": "2026-07-20T11:17:44.281965+00:00"
+  },
+  {
+    "id": "2c4de384-7206-0118-4b9b-ef61c4f1b4e0",
+    "profile_id": "34318313-8cb7-a846-4278-cb3b80cdbfd8",
+    "category_order": 6,
+    "label": "Taichi",
+    "value": 6,
+    "description": "Move your hands nonstop freely as Flow",
+    "metadata": {
+      "source": "Chunks Resource.xlsx",
+      "sourceCciId": "cci-006",
+      "mainCategory": "Flow"
+    },
+    "created_at": "2026-07-20T11:17:44.281965+00:00",
+    "updated_at": "2026-07-20T11:17:44.281965+00:00"
+  },
+  {
+    "id": "5e43ad61-a3f5-c553-1148-dcc1506e3d6d",
+    "profile_id": "34318313-8cb7-a846-4278-cb3b80cdbfd8",
+    "category_order": 7,
+    "label": "Strike",
+    "value": 8,
+    "description": "Strike a fixed n times as Chunks",
+    "metadata": {
+      "source": "Chunks Resource.xlsx",
+      "sourceCciId": "cci-007",
+      "mainCategory": "Chunks"
+    },
+    "created_at": "2026-07-20T11:17:44.281965+00:00",
+    "updated_at": "2026-07-20T11:17:44.281965+00:00"
+  },
+  {
+    "id": "a102936b-febe-23d4-719c-8802bb5dfce6",
+    "profile_id": "34318313-8cb7-a846-4278-cb3b80cdbfd8",
+    "category_order": 8,
+    "label": "Nuance Work",
+    "value": 8,
+    "description": "Imitation game while maintaining nuances",
+    "metadata": {
+      "source": "Chunks Resource.xlsx",
+      "sourceCciId": "cci-008",
+      "mainCategory": null
+    },
+    "created_at": "2026-07-20T11:17:44.281965+00:00",
+    "updated_at": "2026-07-20T11:17:44.281965+00:00"
+  },
+  {
+    "id": "b58aed0f-10b0-5386-a1b2-1079bc5938de",
+    "profile_id": "6f6031ab-5966-56c7-99c9-72ff6b8efe16",
+    "category_order": 1,
+    "label": "Give it a shot",
+    "value": 2,
+    "description": "Linear 1 on 1 as Blow",
+    "metadata": {
+      "cpd": 2,
+      "source": "Package-Green-test.xlsx",
+      "sourceCciId": "green49q-cci-001",
+      "targetCvrOhm": 1
+    },
+    "created_at": "2026-07-24T14:00:01.881761+00:00",
+    "updated_at": "2026-07-24T14:00:01.881761+00:00"
+  },
+  {
+    "id": "29503b9c-0921-5174-8e49-2c8af073ea36",
+    "profile_id": "6f6031ab-5966-56c7-99c9-72ff6b8efe16",
+    "category_order": 2,
+    "label": "Go with the flow",
+    "value": 2,
+    "description": "Linear RPD-free as Flow",
+    "metadata": {
+      "cpd": 6,
+      "source": "Package-Green-test.xlsx",
+      "sourceCciId": "green49q-cci-002",
+      "targetCvrOhm": 3
+    },
+    "created_at": "2026-07-24T14:00:01.881761+00:00",
+    "updated_at": "2026-07-24T14:00:01.881761+00:00"
+  },
+  {
+    "id": "18892083-46e0-5030-a6ac-d75e81d727ef",
+    "profile_id": "6f6031ab-5966-56c7-99c9-72ff6b8efe16",
+    "category_order": 3,
+    "label": "Chunks on the go",
+    "value": 4,
+    "description": "Linear chunking act as Chunks",
+    "metadata": {
+      "cpd": 20,
+      "source": "Package-Green-test.xlsx",
+      "sourceCciId": "green49q-cci-003",
+      "targetCvrOhm": 5
+    },
+    "created_at": "2026-07-24T14:00:01.881761+00:00",
+    "updated_at": "2026-07-24T14:00:01.881761+00:00"
+  },
+  {
+    "id": "d413be69-5773-54ee-a40f-8d2025791fa1",
+    "profile_id": "6f6031ab-5966-56c7-99c9-72ff6b8efe16",
+    "category_order": 4,
+    "label": "Robot",
+    "value": 4,
+    "description": "Move your hands linearly 1-on-1 as Blow",
+    "metadata": {
+      "cpd": 28,
+      "source": "Package-Green-test.xlsx",
+      "sourceCciId": "green49q-cci-004",
+      "targetCvrOhm": 7
+    },
+    "created_at": "2026-07-24T14:00:01.881761+00:00",
+    "updated_at": "2026-07-24T14:00:01.881761+00:00"
+  },
+  {
+    "id": "f48989a9-7470-5873-a277-dba25f74cc34",
+    "profile_id": "6f6031ab-5966-56c7-99c9-72ff6b8efe16",
+    "category_order": 5,
+    "label": "Taichi",
+    "value": 4,
+    "description": "Move your hands nonstop freely as Flow",
+    "metadata": {
+      "cpd": 36,
+      "source": "Package-Green-test.xlsx",
+      "sourceCciId": "green49q-cci-005",
+      "targetCvrOhm": 9
+    },
+    "created_at": "2026-07-24T14:00:01.881761+00:00",
+    "updated_at": "2026-07-24T14:00:01.881761+00:00"
+  },
+  {
+    "id": "6e7f11df-2763-5fc9-ac71-be0cb0b40343",
+    "profile_id": "6f6031ab-5966-56c7-99c9-72ff6b8efe16",
+    "category_order": 6,
+    "label": "Strike",
+    "value": 6,
+    "description": "Strike a fixed n times as Chunks",
+    "metadata": {
+      "cpd": 66,
+      "source": "Package-Green-test.xlsx",
+      "sourceCciId": "green49q-cci-006",
+      "targetCvrOhm": 11
+    },
+    "created_at": "2026-07-24T14:00:01.881761+00:00",
+    "updated_at": "2026-07-24T14:00:01.881761+00:00"
+  },
+  {
+    "id": "cc2c9724-3657-57ce-8d03-8901683419d1",
+    "profile_id": "6f6031ab-5966-56c7-99c9-72ff6b8efe16",
+    "category_order": 7,
+    "label": "Freeze \n& Nuance Work",
+    "value": 8,
+    "description": "Freeze your body with 1-on-1 or RPD-free sound\nThen imitation game while maintaining nuances",
+    "metadata": {
+      "cpd": 104,
+      "source": "Package-Green-test.xlsx",
+      "sourceCciId": "green49q-cci-007",
+      "targetCvrOhm": 13
+    },
+    "created_at": "2026-07-24T14:00:01.881761+00:00",
+    "updated_at": "2026-07-24T14:00:01.881761+00:00"
+  },
+  {
+    "id": "839ec40d-ef76-5c7d-bfd5-a682183f9749",
+    "profile_id": "a1bfddc6-90bc-523a-b49f-8f06bdf7245a",
+    "category_order": 1,
+    "label": "Give it a shot",
+    "value": 2,
+    "description": "Linear 1 on 1 as Blow",
+    "metadata": {
+      "cpd": 2,
+      "source": "Package-test2.csv",
+      "sourceCciId": "green49q-v2-cci-001",
+      "targetCvrOhm": 1
+    },
+    "created_at": "2026-07-30T03:12:51.45647+00:00",
+    "updated_at": "2026-07-30T03:12:51.45647+00:00"
+  },
+  {
+    "id": "6bec1b5a-75a5-5efc-b02d-69a87ff92af7",
+    "profile_id": "a1bfddc6-90bc-523a-b49f-8f06bdf7245a",
+    "category_order": 2,
+    "label": "Go with the flow",
+    "value": 2,
+    "description": "Linear RPD-free as Flow",
+    "metadata": {
+      "cpd": 6,
+      "source": "Package-test2.csv",
+      "sourceCciId": "green49q-v2-cci-002",
+      "targetCvrOhm": 3
+    },
+    "created_at": "2026-07-30T03:12:51.45647+00:00",
+    "updated_at": "2026-07-30T03:12:51.45647+00:00"
+  },
+  {
+    "id": "57c5ed32-275b-50e1-aba1-a72756266313",
+    "profile_id": "a1bfddc6-90bc-523a-b49f-8f06bdf7245a",
+    "category_order": 3,
+    "label": "Chunks on the go",
+    "value": 4,
+    "description": "Linear chunking act as Chunks",
+    "metadata": {
+      "cpd": 20,
+      "source": "Package-test2.csv",
+      "sourceCciId": "green49q-v2-cci-003",
+      "targetCvrOhm": 5
+    },
+    "created_at": "2026-07-30T03:12:51.45647+00:00",
+    "updated_at": "2026-07-30T03:12:51.45647+00:00"
+  },
+  {
+    "id": "ac188f6a-7b08-56cc-b946-635fef5980c8",
+    "profile_id": "a1bfddc6-90bc-523a-b49f-8f06bdf7245a",
+    "category_order": 4,
+    "label": "Robot",
+    "value": 4,
+    "description": "Move your hands linearly 1-on-1 as Blow",
+    "metadata": {
+      "cpd": 28,
+      "source": "Package-test2.csv",
+      "sourceCciId": "green49q-v2-cci-004",
+      "targetCvrOhm": 7
+    },
+    "created_at": "2026-07-30T03:12:51.45647+00:00",
+    "updated_at": "2026-07-30T03:12:51.45647+00:00"
+  },
+  {
+    "id": "57c1937a-b88a-5136-b074-527f5aae2235",
+    "profile_id": "a1bfddc6-90bc-523a-b49f-8f06bdf7245a",
+    "category_order": 5,
+    "label": "Taichi",
+    "value": 4,
+    "description": "Move your hands nonstop freely as Flow",
+    "metadata": {
+      "cpd": 36,
+      "source": "Package-test2.csv",
+      "sourceCciId": "green49q-v2-cci-005",
+      "targetCvrOhm": 9
+    },
+    "created_at": "2026-07-30T03:12:51.45647+00:00",
+    "updated_at": "2026-07-30T03:12:51.45647+00:00"
+  },
+  {
+    "id": "90c3804a-d1f6-52e5-a81f-8b8bce9fa96c",
+    "profile_id": "a1bfddc6-90bc-523a-b49f-8f06bdf7245a",
+    "category_order": 6,
+    "label": "Strike",
+    "value": 6,
+    "description": "Strike a fixed n times as Chunks",
+    "metadata": {
+      "cpd": 66,
+      "source": "Package-test2.csv",
+      "sourceCciId": "green49q-v2-cci-006",
+      "targetCvrOhm": 11
+    },
+    "created_at": "2026-07-30T03:12:51.45647+00:00",
+    "updated_at": "2026-07-30T03:12:51.45647+00:00"
+  },
+  {
+    "id": "4aa95cbd-f503-5aa1-b365-857118f7cc39",
+    "profile_id": "a1bfddc6-90bc-523a-b49f-8f06bdf7245a",
+    "category_order": 7,
+    "label": "Freeze \n& Nuance Work",
+    "value": 8,
+    "description": "Freeze your body with 1-on-1 or RPD-free sound\nThen imitation game while maintaining nuances",
+    "metadata": {
+      "cpd": 104,
+      "source": "Package-test2.csv",
+      "sourceCciId": "green49q-v2-cci-007",
+      "targetCvrOhm": 13
+    },
+    "created_at": "2026-07-30T03:12:51.45647+00:00",
+    "updated_at": "2026-07-30T03:12:51.45647+00:00"
+  },
+  {
+    "id": "40df4cbe-ee76-5bcc-8b5d-8d4264a54cd6",
+    "profile_id": "e6491f15-6ae3-5805-8610-ac2516330b49",
+    "category_order": 7,
+    "label": "Level A S7 CCI 8A",
+    "value": 8,
+    "description": "Level A Green Test session 7; CVR 7; CPD 56V",
+    "metadata": {
+      "cpd": 56,
+      "source": "Level_A_Green_Test_49_Vocab.xlsx",
+      "sourceCciId": "level-a-cpd31v-cci-007",
+      "targetCvrOhm": 7
+    },
+    "created_at": "2026-07-31T08:07:05.838577+00:00",
+    "updated_at": "2026-07-31T08:07:05.838577+00:00"
+  },
+  {
+    "id": "07eaf9c4-3363-4359-b1ee-afd1c2acfac6",
+    "profile_id": "300205c5-6b84-48d8-ab7a-4a69e8b1889e",
+    "category_order": 1,
+    "label": "Focus Sprint 1",
+    "value": 4,
+    "description": "Sentence Fluidity - Part 1",
+    "metadata": {
+      "cpd": 12,
+      "targetCvrOhm": 3
+    },
+    "created_at": "2026-09-21T16:31:49.538187+00:00",
+    "updated_at": "2026-09-21T16:31:49.538187+00:00"
+  },
+  {
+    "id": "6b815939-bad0-493e-9651-70c46dedc521",
+    "profile_id": "300205c5-6b84-48d8-ab7a-4a69e8b1889e",
+    "category_order": 2,
+    "label": "Focus Sprint 2",
+    "value": 4,
+    "description": "Sentence Fluidity - Part 2",
+    "metadata": {
+      "cpd": 12,
+      "targetCvrOhm": 3
+    },
+    "created_at": "2026-09-21T16:31:49.644169+00:00",
+    "updated_at": "2026-09-21T16:31:49.644169+00:00"
+  },
+  {
+    "id": "294d644f-35b6-47da-9b3b-5ddbcfd233f7",
+    "profile_id": "300205c5-6b84-48d8-ab7a-4a69e8b1889e",
+    "category_order": 3,
+    "label": "Focus Sprint 3",
+    "value": 4,
+    "description": "Sentence Fluidity - Part 3",
+    "metadata": {
+      "cpd": 12,
+      "targetCvrOhm": 3
+    },
+    "created_at": "2026-09-21T16:31:49.744446+00:00",
+    "updated_at": "2026-09-21T16:31:49.744446+00:00"
+  },
+  {
+    "id": "e8680740-ccab-512c-ba4b-85dea27b4faf",
+    "profile_id": "e6491f15-6ae3-5805-8610-ac2516330b49",
+    "category_order": 1,
+    "label": "Level A S1 CCI 2A",
+    "value": 2,
+    "description": "Level A Green Test session 1; CVR 1; CPD 2V",
+    "metadata": {
+      "cpd": 2,
+      "source": "Level_A_Green_Test_49_Vocab.xlsx",
+      "sourceCciId": "level-a-cpd31v-cci-001",
+      "targetCvrOhm": 1
+    },
+    "created_at": "2026-07-31T08:07:05.838577+00:00",
+    "updated_at": "2026-07-31T08:07:05.838577+00:00"
+  },
+  {
+    "id": "f17da793-2c64-502f-a083-110c4ef0f1a1",
+    "profile_id": "e6491f15-6ae3-5805-8610-ac2516330b49",
+    "category_order": 2,
+    "label": "Level A S2 CCI 2A",
+    "value": 2,
+    "description": "Level A Green Test session 2; CVR 2; CPD 4V",
+    "metadata": {
+      "cpd": 4,
+      "source": "Level_A_Green_Test_49_Vocab.xlsx",
+      "sourceCciId": "level-a-cpd31v-cci-002",
+      "targetCvrOhm": 2
+    },
+    "created_at": "2026-07-31T08:07:05.838577+00:00",
+    "updated_at": "2026-07-31T08:07:05.838577+00:00"
+  },
+  {
+    "id": "dc0d4a4f-f23c-573f-aeec-e11a83256b1b",
+    "profile_id": "e6491f15-6ae3-5805-8610-ac2516330b49",
+    "category_order": 3,
+    "label": "Level A S3 CCI 4A",
+    "value": 4,
+    "description": "Level A Green Test session 3; CVR 3; CPD 12V",
+    "metadata": {
+      "cpd": 12,
+      "source": "Level_A_Green_Test_49_Vocab.xlsx",
+      "sourceCciId": "level-a-cpd31v-cci-003",
+      "targetCvrOhm": 3
+    },
+    "created_at": "2026-07-31T08:07:05.838577+00:00",
+    "updated_at": "2026-07-31T08:07:05.838577+00:00"
+  },
+  {
+    "id": "16e84187-8467-5991-8536-170da143a509",
+    "profile_id": "e6491f15-6ae3-5805-8610-ac2516330b49",
+    "category_order": 4,
+    "label": "Level A S4 CCI 4A",
+    "value": 4,
+    "description": "Level A Green Test session 4; CVR 4; CPD 16V",
+    "metadata": {
+      "cpd": 16,
+      "source": "Level_A_Green_Test_49_Vocab.xlsx",
+      "sourceCciId": "level-a-cpd31v-cci-004",
+      "targetCvrOhm": 4
+    },
+    "created_at": "2026-07-31T08:07:05.838577+00:00",
+    "updated_at": "2026-07-31T08:07:05.838577+00:00"
+  },
+  {
+    "id": "d0e57a1b-14fa-5cc8-8959-690eb4470f96",
+    "profile_id": "e6491f15-6ae3-5805-8610-ac2516330b49",
+    "category_order": 5,
+    "label": "Level A S5 CCI 4A",
+    "value": 4,
+    "description": "Level A Green Test session 5; CVR 5; CPD 20V",
+    "metadata": {
+      "cpd": 20,
+      "source": "Level_A_Green_Test_49_Vocab.xlsx",
+      "sourceCciId": "level-a-cpd31v-cci-005",
+      "targetCvrOhm": 5
+    },
+    "created_at": "2026-07-31T08:07:05.838577+00:00",
+    "updated_at": "2026-07-31T08:07:05.838577+00:00"
+  },
+  {
+    "id": "8858e551-5368-5a0d-8f92-367afccf586d",
+    "profile_id": "e6491f15-6ae3-5805-8610-ac2516330b49",
+    "category_order": 6,
+    "label": "Level A S6 CCI 6A",
+    "value": 6,
+    "description": "Level A Green Test session 6; CVR 6; CPD 36V",
+    "metadata": {
+      "cpd": 36,
+      "source": "Level_A_Green_Test_49_Vocab.xlsx",
+      "sourceCciId": "level-a-cpd31v-cci-006",
+      "targetCvrOhm": 6
+    },
+    "created_at": "2026-07-31T08:07:05.838577+00:00",
+    "updated_at": "2026-07-31T08:07:05.838577+00:00"
+  }
+]
