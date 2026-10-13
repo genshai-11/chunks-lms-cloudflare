@@ -33,8 +33,14 @@ authRouter.post('/login', async (c) => {
     user = userByName[0];
   }
 
-  if (!user) {
-    return c.json({ ok: false, error: 'Tài khoản không tồn tại' }, 401);
+  // Fallback alias for 'teacher' to existing teacher account 'maddie'
+  if (!user && cleanId === 'teacher') {
+    const teacherAlias = await db
+      .select()
+      .from(schema.users)
+      .where(eq(schema.users.username, 'maddie'))
+      .limit(1);
+    user = teacherAlias[0];
   }
 
   // Get staff roles
