@@ -4,6 +4,7 @@ import { authRouter } from './routes/auth';
 import { workspaceRouter } from './routes/workspace';
 import { testsRouter } from './routes/tests';
 import { guestRouter } from './routes/guest';
+import { queryRouter } from './routes/query';
 
 type Bindings = {
   DB: D1Database;
@@ -37,6 +38,7 @@ app.route('/api/auth', authRouter);
 app.route('/api/workspace', workspaceRouter);
 app.route('/api', testsRouter);
 app.route('/api/guest', guestRouter);
+app.route('/api', queryRouter);
 
 // Fallback to static assets for SPA routing if ASSETS binding exists
 app.all('*', async (c) => {
