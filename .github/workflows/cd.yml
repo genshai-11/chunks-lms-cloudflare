@@ -1,0 +1,48 @@
+name: CD (Deploy to Cloudflare)
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: cd-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to Cloudflare Edge (chunks-test)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Web App
+        working-directory: apps/web
+        run: npm run build
+
+      - name: Deploy to Cloudflare Worker & Assets
+        working-directory: packages/api
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::warning ::CLOUDFLARE_API_TOKEN is not configured in repository secrets."
+            echo "To enable automated CD deployments, add the following repository secrets in GitHub Settings -> Secrets:"
+            echo "  - CLOUDFLARE_API_TOKEN (Create token at Cloudflare Dashboard -> My Profile -> API Tokens -> Edit Cloudflare Workers)"
+            echo "  - CLOUDFLARE_ACCOUNT_ID (Find in Cloudflare Dashboard -> Workers & Pages overview)"
+            exit 0
+          fi
+          npx wrangler deploy

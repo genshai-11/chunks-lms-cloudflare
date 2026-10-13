@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Typecheck & Build (Web + Worker API)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck Web App
+        working-directory: apps/web
+        run: npm run typecheck
+
+      - name: Typecheck Cloudflare Edge Worker API
+        working-directory: packages/api
+        run: npm run typecheck
+
+      - name: Build Web App
+        working-directory: apps/web
+        run: npm run build
