@@ -5,7 +5,8 @@
  */
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { normalizeCourseSchedule } from '../modules/roster/schedule'
-import type { CourseSchedule, DomainUser, RosterState } from '../modules/roster/types'
+import type { Course, Class, Enrollment, CourseSchedule, DomainUser, RosterState } from '../modules/roster/types'
+import { apiClient } from '../api/client'
 import { createEmptyRoster, isUuid, LOCAL_ORG_ID, newId } from '../modules/roster/seed'
 import type {
   AttendanceStatus,
@@ -406,7 +407,39 @@ export async function loadWorkspaceFromSupabase(options?: {
   | { ok: false; error: string }
 > {
   const sb = db()
-  if (!sb) return { ok: false, error: 'Supabase not configured' }
+  if (!sb) {
+    try {
+      const orgId = options?.organizationId || LOCAL_ORG_ID
+      const res = await apiClient.getWorkspaceSnapshot(orgId)
+      if (res.ok) {
+        const { courses, classes, enrollments, users, learningSessions } = res.data
+        return {
+          ok: true,
+          data: {
+            roster: {
+              organization: { id: orgId, name: 'Chunks Workspace' },
+              courses: (courses as Course[]) ?? [],
+              classes: (classes as Class[]) ?? [],
+              enrollments: (enrollments as Enrollment[]) ?? [],
+              users: (users as DomainUser[]) ?? [],
+            },
+            scheduling: {
+              learningSessions: (learningSessions as LearningSession[]) ?? [],
+              scheduledSessions: [],
+              attendance: [],
+            },
+          },
+          revision: res.data.revision,
+        }
+      }
+    } catch {
+      // ignore and fallback
+    }
+    return {
+      ok: true,
+      data: { roster: createEmptyRoster(), scheduling: emptySchedulingState() },
+    }
+  }
 
   try {
     // Authenticated staff must load only their provisioned organization.
@@ -806,7 +839,20 @@ export async function saveWorkspaceToSupabase(
   options: SaveWorkspaceOptions = {},
 ): Promise<SyncResult> {
   const sb = db()
-  if (!sb) return { ok: false, error: 'Supabase not configured' }
+  if (!sb) {
+    const { roster, scheduling } = normalizeIdsForDb(raw)
+    const orgId = roster.organization.id || LOCAL_ORG_ID
+    const res = await apiClient.syncWorkspaceAtomic({
+      organizationId: orgId,
+      expectedRevision: options.expectedRevision,
+      roster,
+      scheduling,
+    })
+    if (res.ok) {
+      return { ok: true, source: 'supabase', newRevision: res.data.newRevision }
+    }
+    return { ok: false, error: res.error || 'Lỗi đồng bộ Cloudflare D1' }
+  }
 
   const { roster, scheduling } = normalizeIdsForDb(raw)
   const orgId = roster.organization.id
@@ -1336,5 +1382,5 @@ function missingIds(label: string, expected: string[], actual: string[]): string
 }
 
 export function isSupabaseConfigured(): boolean {
-  return getSupabase() !== null
+  return true
 }

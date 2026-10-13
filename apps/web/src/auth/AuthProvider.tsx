@@ -100,10 +100,30 @@ export function AuthChrome({ children }: Props) {
   if (session.authBypass && !session.authEnabled) {
     return (
       <div className="auth-chrome">
-        <span className="meta" title="VITE_AUTH_BYPASS — local/CI only">
-          Staff bypass
-        </span>
-        {children}
+        <details className="auth-account-menu">
+          <summary title="Edge Staff: Quyền Admin & Teacher">
+            <UserRound className="h-4 w-4" aria-hidden />
+            <span>Staff: Admin &amp; Teacher</span>
+          </summary>
+          <div className="auth-account-popover">
+            <strong>{session.displayName || 'Cloudflare Edge Staff'}</strong>
+            <span className="meta auth-role-pill" title="Active roles">
+              admin · teacher · guest
+            </span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', paddingTop: '8px', borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: '8px', fontSize: '0.8rem' }}>
+              <Link to="/admin" style={{ color: '#38bdf8' }}>
+                &rarr; Quản trị Cấp trường (Admin)
+              </Link>
+              <Link to="/teacher" style={{ color: '#4ade80' }}>
+                &rarr; Giảng dạy &amp; Chấm điểm (Teacher)
+              </Link>
+              <Link to="/eval?token=demo" style={{ color: '#facc15' }}>
+                &rarr; Đánh giá Khách (Guest Assessor)
+              </Link>
+            </div>
+            {children}
+          </div>
+        </details>
       </div>
     )
   }

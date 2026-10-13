@@ -24,20 +24,7 @@ function BackendBadge() {
     lastSyncedAt,
     syncNow,
     reloadFromSupabase,
-    supabaseEnabled,
   } = useAppState()
-
-  if (!supabaseEnabled) {
-    return (
-      <span
-        className="backend-badge is-offline"
-        title="Set VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY in web/.env (anon key, not service_role)"
-      >
-        <CloudOff className="h-3.5 w-3.5" aria-hidden />
-        Local only
-      </span>
-    )
-  }
 
   const label =
     backendStatus === 'booting'
@@ -45,15 +32,16 @@ function BackendBadge() {
       : backendStatus === 'syncing'
         ? 'Syncing…'
         : backendStatus === 'online'
-          ? 'Supabase'
+          ? 'Cloudflare D1'
           : backendStatus === 'error'
             ? 'Sync error'
-            : 'Offline'
+            : 'Cloudflare Edge'
 
   const title =
     backendError ??
-    (lastSyncedAt ? `Last sync ${new Date(lastSyncedAt).toLocaleTimeString()}` : 'Supabase')
-
+    (lastSyncedAt
+      ? `Cloudflare D1 đồng bộ lúc ${new Date(lastSyncedAt).toLocaleTimeString()}`
+      : 'Cloudflare D1 (Serverless SQLite)')
   return (
     <div className="backend-cluster">
       <span className={`backend-badge is-${backendStatus}`} title={title}>
@@ -69,12 +57,12 @@ function BackendBadge() {
       <button
         type="button"
         className="backend-icon-btn"
-        title="Reload from Supabase"
+        title="Tải lại từ Cloudflare D1"
         onClick={() => void reloadFromSupabase()}
       >
         <RefreshCw className="h-3.5 w-3.5" aria-hidden />
       </button>
-      <button type="button" className="backend-icon-btn" title="Push now" onClick={() => void syncNow()}>
+      <button type="button" className="backend-icon-btn" title="Đồng bộ Cloudflare D1" onClick={() => void syncNow()}>
         <Cloud className="h-3.5 w-3.5" aria-hidden />
       </button>
     </div>
