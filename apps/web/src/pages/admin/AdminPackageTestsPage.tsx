@@ -43,10 +43,7 @@ import {
   detectPackageKind,
   listCciCategories,
   listCciProfiles,
-  listTestItems,
-  listTestPackageVersions,
   listTestPackages,
-  listTestSections,
   toggleTestPackageActive,
   updateTestItemContent,
   updateTestPackageMetadata,
@@ -550,107 +547,116 @@ export function AdminPackageTestsPage() {
   const activeTitle = allowCustomCode && customTitle ? customTitle : computedTitle
 
   // Load packages catalog
+  // Load packages catalog (Optimized: 5 parallel batch requests instead of 221 waterfall queries)
   const loadPackages = useCallback(async () => {
     setLoading(true)
     try {
-      const res = await listTestPackages()
-      if (!res.ok) {
-        err(res.error)
+      const sb = getSupabase() as any
+      if (!sb) {
+        err('Edge client not ready')
         return
       }
 
-      const summaries: PackageSummary[] = await Promise.all(
-        res.data.map(async (pkg) => {
-          const versionsRes = await listTestPackageVersions(pkg.id)
-          const version = versionsRes.ok ? versionsRes.data[0] ?? null : null
+      const [pkgsRes, versRes, secsRes, itemsRes, varsRes] = await Promise.all([
+        listTestPackages(),
+        sb.from('test_package_versions').select('*').order('published_at', { ascending: false }),
+        sb.from('test_sections').select('*').order('section_order'),
+        sb.from('test_items').select('id, package_version_id, section_id, item_order, measured_cvr'),
+        sb.from('narration_variants').select('id, package_version_id, approval_status, language, narration_target'),
+      ])
 
-          let sections: TestSection[] = []
-          let items: TestItem[] = []
-          let variants: Array<{
-            id: string
-            narration_target: string
-            language: string
-            voice_id: string
-            audio_asset_id: string | null
-            approval_status: string
-            test_item_id: string | null
-            test_section_id: string | null
-            provider_metadata?: any
-          }> = []
-          let audioApproved = 0
+      if (!pkgsRes.ok) {
+        err(pkgsRes.error)
+        return
+      }
 
-          if (version) {
-            const sectionsRes = await listTestSections(version.id)
-            if (sectionsRes.ok) {
-              sections = sectionsRes.data
-              const itemPromises = sections.map((s) => listTestItems(s.id))
-              const itemResults = await Promise.all(itemPromises)
-              items = itemResults.flatMap((r) => (r.ok ? r.data : []))
-            }
+      const allVersions = (versRes.data ?? []) as any[]
+      const allSections = (secsRes.data ?? []) as any[]
+      const allItems = (itemsRes.data ?? []) as any[]
+      const allVariants = (varsRes.data ?? []) as any[]
 
-            const sb = getSupabase() as any
-            if (sb) {
-              const { data: fetchedVariants } = await sb
-                .from('narration_variants')
-                .select(
-                  'id, narration_target, language, voice_id, audio_asset_id, approval_status, test_item_id, test_section_id, provider_metadata',
-                )
-                .eq('package_version_id', version.id)
-              variants = (fetchedVariants ?? []) as any
-              audioApproved = variants.filter(
-                (v) => v.approval_status === 'approved',
-              ).length
-            }
-          }
+      const versionsByPkg = new Map<string, any[]>()
+      for (const v of allVersions) {
+        const list = versionsByPkg.get(v.package_id) || []
+        list.push(v)
+        versionsByPkg.set(v.package_id, list)
+      }
 
-          const testType = detectPackageTestType(pkg)
-          const targetVoltage = extractPackageVoltage(pkg, testType)
-          const questionCount =
-            items.length || Number(pkg.sourceMetadata?.questionCount ?? 21)
+      const sectionsByVer = new Map<string, any[]>()
+      for (const s of allSections) {
+        const list = sectionsByVer.get(s.package_version_id) || []
+        list.push(s)
+        sectionsByVer.set(s.package_version_id, list)
+      }
 
-          const cvrValues = items
-            .map((i) => i.measuredCvr)
-            .filter((c): c is number => c != null && !isNaN(c))
-          const cvrMin = cvrValues.length
-            ? Math.min(...cvrValues)
-            : testType === 'red'
-              ? 4.6
-              : 2.0
-          const cvrMax = cvrValues.length
-            ? Math.max(...cvrValues)
-            : testType === 'red'
-              ? 13.8
-              : 6.0
+      const itemsByVer = new Map<string, any[]>()
+      for (const it of allItems) {
+        const list = itemsByVer.get(it.package_version_id) || []
+        list.push(it)
+        itemsByVer.set(it.package_version_id, list)
+      }
 
-          const isLegacyLive =
-            pkg.title.includes('· LIVE') || version?.versionLabel === 'LIVE'
+      const variantsByVer = new Map<string, any[]>()
+      for (const vr of allVariants) {
+        const list = variantsByVer.get(vr.package_version_id) || []
+        list.push(vr)
+        variantsByVer.set(vr.package_version_id, list)
+      }
 
-          const packageKind = detectPackageKind({
-            title: pkg.title,
-            slug: pkg.slug,
-            sourceMetadata: pkg.sourceMetadata,
-            itemCount: items.length,
-          })
+      const summaries: PackageSummary[] = pkgsRes.data.map((pkg) => {
+        const pVersions = versionsByPkg.get(pkg.id) || []
+        const version = pVersions[0] ? (pVersions[0] as unknown as TestPackageVersion) : null
+        let sections: TestSection[] = []
+        let items: TestItem[] = []
+        let variants: any[] = []
+        let audioApproved = 0
 
-          return {
-            pkg,
-            version,
-            sections,
-            items,
-            variants,
-            testType,
-            targetVoltage,
-            questionCount,
-            cvrMin,
-            cvrMax,
-            audioApprovedCount: audioApproved,
-            audioTotalCount: items.length,
-            isLegacyLive,
-            packageKind,
-            isActive: pkg.sourceMetadata?.is_active !== false,
-          }
-        }),
-      )
+        if (version) {
+          sections = (sectionsByVer.get(version.id) || []) as unknown as TestSection[]
+          items = (itemsByVer.get(version.id) || []).map((it) => ({
+            ...it,
+            measuredCvr: typeof it.measured_cvr === 'number' ? it.measured_cvr : (it.measuredCvr ?? 1),
+          }))
+          variants = variantsByVer.get(version.id) || []
+          audioApproved = variants.filter((v: any) => v.approval_status === 'approved').length
+        }
+
+        const testType = detectPackageTestType(pkg)
+        const targetVoltage = extractPackageVoltage(pkg, testType)
+        const questionCount = items.length || Number(pkg.sourceMetadata?.questionCount ?? 21)
+
+        const cvrValues = items
+          .map((i) => i.measuredCvr)
+          .filter((c): c is number => c != null && !isNaN(c))
+        const cvrMin = cvrValues.length ? Math.min(...cvrValues) : testType === 'red' ? 4.6 : 2.0
+        const cvrMax = cvrValues.length ? Math.max(...cvrValues) : testType === 'red' ? 13.8 : 6.0
+
+        const isLegacyLive = pkg.title.includes('· LIVE') || version?.versionLabel === 'LIVE'
+        const packageKind = detectPackageKind({
+          title: pkg.title,
+          slug: pkg.slug,
+          sourceMetadata: pkg.sourceMetadata,
+          itemCount: items.length,
+        })
+
+        return {
+          pkg,
+          version,
+          sections,
+          items,
+          variants,
+          testType,
+          targetVoltage,
+          questionCount,
+          cvrMin,
+          cvrMax,
+          audioApprovedCount: audioApproved,
+          audioTotalCount: items.length,
+          isLegacyLive,
+          packageKind,
+          isActive: pkg.sourceMetadata?.is_active !== false,
+        }
+      })
 
       setPackageSummaries(summaries)
     } catch (e) {
