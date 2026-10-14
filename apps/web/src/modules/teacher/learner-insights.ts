@@ -84,32 +84,16 @@ export function nextLearnerSessionNumber(input: {
   classId?: string
   enrollments?: { classId: string; learnerUserId: string; status: string }[]
 }): number {
-  const ids = new Set<string>()
-  const effective = effectiveResults(input.ledger)
-
-  for (const record of effective) {
-    if (record.learnerUserId === input.learnerUserId) {
-      ids.add(record.learningSessionId)
-    }
-  }
-
-  for (const session of input.scheduling.learningSessions) {
-    if (session.status !== 'open' && session.status !== 'completed') continue
-    if (input.classId && session.classId !== input.classId) continue
-
-    if (session.participantLearnerIds?.includes(input.learnerUserId)) {
-      ids.add(session.id)
-    } else if (!session.participantLearnerIds || session.participantLearnerIds.length === 0) {
-      const hasResults = effective.some(
-        (r) => r.learningSessionId === session.id && r.learnerUserId === input.learnerUserId
-      )
-      if (hasResults) {
-        ids.add(session.id)
-      }
-    }
-  }
-
-  return ids.size + 1
+  const validSessions = input.scheduling.learningSessions.filter(
+    (s) =>
+      (s.status === 'open' || s.status === 'completed') &&
+      (!input.classId || s.classId === input.classId),
+  )
+  const maxDay = validSessions.reduce((max, s) => {
+    const num = typeof s.sessionNumber === 'number' ? s.sessionNumber : 0
+    return Math.max(max, num)
+  }, 0)
+  return maxDay + 1
 }
 
 export function learnerCurrentSessionNumber(input: {
@@ -118,32 +102,13 @@ export function learnerCurrentSessionNumber(input: {
   learnerUserId: string
   classId?: string
 }): number {
-  const ids = new Set<string>()
-  const effective = effectiveResults(input.ledger)
-
-  for (const record of effective) {
-    if (record.learnerUserId === input.learnerUserId) {
-      ids.add(record.learningSessionId)
-    }
-  }
-
-  for (const session of input.scheduling.learningSessions) {
-    if (session.status !== 'completed') continue
-    if (input.classId && session.classId !== input.classId) continue
-
-    if (session.participantLearnerIds?.includes(input.learnerUserId)) {
-      ids.add(session.id)
-    } else if (!session.participantLearnerIds || session.participantLearnerIds.length === 0) {
-      const hasResults = effective.some(
-        (r) => r.learningSessionId === session.id && r.learnerUserId === input.learnerUserId
-      )
-      if (hasResults) {
-        ids.add(session.id)
-      }
-    }
-  }
-
-  return ids.size + 1
+  const completedSessions = input.scheduling.learningSessions.filter(
+    (s) => s.status === 'completed' && (!input.classId || s.classId === input.classId),
+  )
+  return completedSessions.reduce((max, s) => {
+    const num = typeof s.sessionNumber === 'number' ? s.sessionNumber : 0
+    return Math.max(max, num)
+  }, 0)
 }
 
 export function learnerRfcStats(rows: LearnerSessionSummary[]) {

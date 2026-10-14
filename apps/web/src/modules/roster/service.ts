@@ -571,12 +571,14 @@ export function enrollLearner(
   const otherActive = state.enrollments.filter(
     (e) => e.learnerUserId === learnerUserId && e.classId !== classId && e.status === 'active',
   )
+  let currentEnrollments = state.enrollments
   if (otherActive.length > 0 && !learner.allowMultiClass) {
-    return {
-      ok: false,
-      error:
-        'Learner is already enrolled in another active class. Enable multi-class in Admin settings if needed.',
-    }
+    // Dynamic transfer: seamlessly end old active enrollment so teacher is never blocked
+    currentEnrollments = state.enrollments.map((e) =>
+      e.learnerUserId === learnerUserId && e.classId !== classId && e.status === 'active'
+        ? { ...e, status: 'ended' as const, endedAt: at }
+        : e,
+    )
   }
 
   const activeCount = activeEnrollmentsForClass(state, classId).length
@@ -596,7 +598,7 @@ export function enrollLearner(
       value: reactivated,
       state: {
         ...state,
-        enrollments: state.enrollments.map((e) => (e.id === existing.id ? reactivated : e)),
+        enrollments: currentEnrollments.map((e) => (e.id === existing.id ? reactivated : e)),
       },
     }
   }
@@ -613,7 +615,7 @@ export function enrollLearner(
   return {
     ok: true,
     value: enrollment,
-    state: { ...state, enrollments: [...state.enrollments, enrollment] },
+    state: { ...state, enrollments: [...currentEnrollments, enrollment] },
   }
 }
 

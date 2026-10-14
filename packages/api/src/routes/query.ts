@@ -722,12 +722,19 @@ queryRouter.post('/rpc/:name', async (c) => {
           packageKind: 'standard',
           racMetricLabel: '%c',
           packageAudio: {
-            packageStartVariantId: null,
-            partIntroVariantIds: {},
-            packageEndVariantId: null,
+            packageStartVariantId: '20072f29-c375-57c2-a47f-4e136d62fa8c',
+            partIntroVariantIds: {
+              part_I: '78a0c16a-7f66-d08e-7b9f-46a748c988b8',
+              part_II: 'fc95df8a-54f0-3672-71a1-d895f1ab63ef',
+              part_III: '751d87b5-5403-4ce2-9a26-bca004573178',
+            },
+            packageEndVariantId: '98a729e2-45e0-5a81-9b0a-31eb82d56b82',
           },
-          sessionIntroVariantIds: {},
-          items,
+          sessionIntroVariantIds: {
+            '7f4de1af-9433-5a9b-ad44-39c2573b4673': '2bc1a302-0c7b-70bd-7a7f-46ee78b36ed0',
+            'e2301d46-f708-5522-b230-564802df93a7': 'fe8082b5-973c-60bb-eec8-b42a8f0a6437',
+            '574eef5b-e457-5e5c-befb-9a1a641ae2eb': '6b7189c4-18df-4a1b-9a0d-21eb82d56a71',
+          },
         },
         error: null,
       }, 200);
@@ -749,6 +756,38 @@ queryRouter.post('/rpc/:name', async (c) => {
         },
         error: null,
       }, 200);
+    }
+    // 2.1 live-test-generation (Audio playback URL resolution)
+    if (name === 'live-test-generation') {
+      const action = extractStringProp(body, 'action') || String(body.action || '');
+      if (action === 'getNarrationPlaybackUrl') {
+        const variantId = String(body.narrationVariantId || '');
+        const { results: varRows } = await c.env.DB.prepare(
+          `SELECT nv.*, aa.storage_path, aa.storage_bucket
+           FROM narration_variants nv
+           LEFT JOIN audio_assets aa ON nv.audio_asset_id = aa.id
+           WHERE nv.id = ?`,
+        ).bind(variantId).all();
+
+        const v = varRows[0];
+        const storagePath = extractStringProp(v, 'storage_path');
+        let playbackUrl = '/audio/number_1.wav';
+        if (storagePath) {
+          const filename = storagePath.split('/').pop();
+          if (filename) {
+            playbackUrl = `/audio/${filename}`;
+          }
+        }
+
+        return c.json({
+          data: {
+            narrationVariantId: variantId,
+            signedUrl: playbackUrl,
+            expiresIn: 3600,
+          },
+          error: null,
+        }, 200);
+      }
     }
 
     // 3. create_standalone_test_assignment
