@@ -258,10 +258,65 @@ function createEdgeD1Client() {
         },
       }),
     },
-    channel: () => ({
+    channel: (_name?: string) => ({
       on: () => ({ subscribe: () => ({ unsubscribe: () => {} }) }),
       subscribe: () => ({ unsubscribe: () => {} }),
+      unsubscribe: () => {},
     }),
+    removeChannel: async (_channel?: unknown) => 'ok',
+    removeChannels: async () => [],
+    removeAllChannels: async () => [],
+    getChannels: () => [],
+    functions: {
+      invoke: async (name: string, options?: { body?: unknown }) => {
+        try {
+          const res = await fetch(`/api/rpc/${name}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(options?.body || {}),
+          });
+          const json = (await res.json()) as { data?: unknown; error?: unknown };
+          return { data: json.data ?? json, error: json.error ?? null };
+        } catch (err) {
+          return {
+            data: null,
+            error: { message: err instanceof Error ? err.message : String(err) },
+          };
+        }
+      },
+    },
+    auth: {
+      getUser: async () => {
+        try {
+          const user = JSON.parse(localStorage.getItem('chunks_auth_user') || 'null');
+          return { data: { user }, error: null };
+        } catch {
+          return { data: { user: null }, error: null };
+        }
+      },
+      getSession: async () => {
+        try {
+          const user = JSON.parse(localStorage.getItem('chunks_auth_user') || 'null');
+          const token = localStorage.getItem('chunks_auth_token') || '';
+          return { data: { session: user ? { user, access_token: token } : null }, error: null };
+        } catch {
+          return { data: { session: null }, error: null };
+        }
+      },
+      onAuthStateChange: (cb: (event: string, session: unknown) => void) => {
+        try {
+          const user = JSON.parse(localStorage.getItem('chunks_auth_user') || 'null');
+          cb('INITIAL_SESSION', user ? { user } : null);
+        } catch {
+          cb('INITIAL_SESSION', null);
+        }
+        return { data: { subscription: { unsubscribe: () => {} } } };
+      },
+      signOut: async () => {
+        localStorage.removeItem('chunks_auth_user');
+        localStorage.removeItem('chunks_auth_token');
+      },
+    },
   } as unknown as SupabaseClient<Database>;
 }
 
