@@ -6,6 +6,16 @@ function sanitizeId(id: string): string {
   return id.replace(/[^a-zA-Z0-9_]/g, '');
 }
 
+function sanitizeColumnOrJson(col: string): string {
+  if (col.includes('->>')) {
+    const parts = col.split('->>');
+    const field = sanitizeId(parts[0].trim());
+    const prop = parts[1].trim().replace(/[^a-zA-Z0-9_]/g, '');
+    return `json_extract("${field}", '$.${prop}')`;
+  }
+  return `"${sanitizeId(col)}"`;
+}
+
 function extractStringProp(obj: unknown, prop: string): string | null {
   if (obj && typeof obj === 'object' && prop in obj) {
     const record = obj as Record<string, unknown>;
@@ -369,11 +379,11 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   const eq = body.eq as Record<string, unknown> | undefined;
   if (eq && typeof eq === 'object') {
     for (const [col, val] of Object.entries(eq)) {
-      const cleanCol = sanitizeId(col);
+      const colSql = sanitizeColumnOrJson(col);
       if (val === null || val === undefined) {
-        whereClauses.push(`"${cleanCol}" IS NULL`);
+        whereClauses.push(`${colSql} IS NULL`);
       } else {
-        whereClauses.push(`"${cleanCol}" = ?`);
+        whereClauses.push(`${colSql} = ?`);
         params.push(val);
       }
     }
@@ -383,9 +393,9 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   if (inFilter && typeof inFilter === 'object') {
     for (const [col, list] of Object.entries(inFilter)) {
       if (Array.isArray(list) && list.length > 0) {
-        const cleanCol = sanitizeId(col);
+        const colSql = sanitizeColumnOrJson(col);
         const placeholders = list.map(() => '?').join(', ');
-        whereClauses.push(`"${cleanCol}" IN (${placeholders})`);
+        whereClauses.push(`${colSql} IN (${placeholders})`);
         params.push(...list);
       }
     }
@@ -394,11 +404,11 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   const isFilter = body.is as Record<string, unknown> | undefined;
   if (isFilter && typeof isFilter === 'object') {
     for (const [col, val] of Object.entries(isFilter)) {
-      const cleanCol = sanitizeId(col);
+      const colSql = sanitizeColumnOrJson(col);
       if (val === null || val === 'null' || val === undefined) {
-        whereClauses.push(`"${cleanCol}" IS NULL`);
+        whereClauses.push(`${colSql} IS NULL`);
       } else {
-        whereClauses.push(`"${cleanCol}" IS NOT NULL`);
+        whereClauses.push(`${colSql} IS NOT NULL`);
       }
     }
   }
@@ -406,11 +416,11 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   const neqFilter = body.neq as Record<string, unknown> | undefined;
   if (neqFilter && typeof neqFilter === 'object') {
     for (const [col, val] of Object.entries(neqFilter)) {
-      const cleanCol = sanitizeId(col);
+      const colSql = sanitizeColumnOrJson(col);
       if (val === null || val === 'null') {
-        whereClauses.push(`"${cleanCol}" IS NOT NULL`);
+        whereClauses.push(`${colSql} IS NOT NULL`);
       } else {
-        whereClauses.push(`"${cleanCol}" != ?`);
+        whereClauses.push(`${colSql} != ?`);
         params.push(val);
       }
     }
@@ -419,8 +429,8 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   const likeFilter = body.like as Record<string, unknown> | undefined;
   if (likeFilter && typeof likeFilter === 'object') {
     for (const [col, pattern] of Object.entries(likeFilter)) {
-      const cleanCol = sanitizeId(col);
-      whereClauses.push(`"${cleanCol}" LIKE ?`);
+      const colSql = sanitizeColumnOrJson(col);
+      whereClauses.push(`${colSql} LIKE ?`);
       params.push(String(pattern));
     }
   }
@@ -428,8 +438,8 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   const gtFilter = body.gt as Record<string, unknown> | undefined;
   if (gtFilter && typeof gtFilter === 'object') {
     for (const [col, val] of Object.entries(gtFilter)) {
-      const cleanCol = sanitizeId(col);
-      whereClauses.push(`"${cleanCol}" > ?`);
+      const colSql = sanitizeColumnOrJson(col);
+      whereClauses.push(`${colSql} > ?`);
       params.push(val);
     }
   }
@@ -437,8 +447,8 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   const gteFilter = body.gte as Record<string, unknown> | undefined;
   if (gteFilter && typeof gteFilter === 'object') {
     for (const [col, val] of Object.entries(gteFilter)) {
-      const cleanCol = sanitizeId(col);
-      whereClauses.push(`"${cleanCol}" >= ?`);
+      const colSql = sanitizeColumnOrJson(col);
+      whereClauses.push(`${colSql} >= ?`);
       params.push(val);
     }
   }
@@ -446,8 +456,8 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   const ltFilter = body.lt as Record<string, unknown> | undefined;
   if (ltFilter && typeof ltFilter === 'object') {
     for (const [col, val] of Object.entries(ltFilter)) {
-      const cleanCol = sanitizeId(col);
-      whereClauses.push(`"${cleanCol}" < ?`);
+      const colSql = sanitizeColumnOrJson(col);
+      whereClauses.push(`${colSql} < ?`);
       params.push(val);
     }
   }
@@ -455,8 +465,8 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   const lteFilter = body.lte as Record<string, unknown> | undefined;
   if (lteFilter && typeof lteFilter === 'object') {
     for (const [col, val] of Object.entries(lteFilter)) {
-      const cleanCol = sanitizeId(col);
-      whereClauses.push(`"${cleanCol}" <= ?`);
+      const colSql = sanitizeColumnOrJson(col);
+      whereClauses.push(`${colSql} <= ?`);
       params.push(val);
     }
   }
@@ -464,23 +474,23 @@ function buildWhere(body: Record<string, unknown>): { whereClauses: string[]; pa
   const notFilter = body.not as Record<string, unknown> | undefined;
   if (notFilter && typeof notFilter === 'object') {
     for (const [col, val] of Object.entries(notFilter)) {
-      const cleanCol = sanitizeId(col);
+      const colSql = sanitizeColumnOrJson(col);
       if (val === null || val === 'null' || val === undefined) {
-        whereClauses.push(`"${cleanCol}" IS NOT NULL`);
+        whereClauses.push(`${colSql} IS NOT NULL`);
       } else if (typeof val === 'object' && val !== null) {
         const typedVal = val as { op?: string; val?: unknown };
         if (typedVal.op === 'is' && (typedVal.val === null || typedVal.val === 'null')) {
-          whereClauses.push(`"${cleanCol}" IS NOT NULL`);
+          whereClauses.push(`${colSql} IS NOT NULL`);
         } else if (typedVal.op === 'in' && Array.isArray(typedVal.val) && typedVal.val.length > 0) {
           const placeholders = typedVal.val.map(() => '?').join(', ');
-          whereClauses.push(`"${cleanCol}" NOT IN (${placeholders})`);
+          whereClauses.push(`${colSql} NOT IN (${placeholders})`);
           params.push(...typedVal.val);
         } else if (typedVal.val !== undefined) {
-          whereClauses.push(`"${cleanCol}" != ?`);
+          whereClauses.push(`${colSql} != ?`);
           params.push(typedVal.val);
         }
       } else {
-        whereClauses.push(`"${cleanCol}" != ?`);
+        whereClauses.push(`${colSql} != ?`);
         params.push(val);
       }
     }
@@ -680,12 +690,12 @@ queryRouter.post('/rpc/:name', async (c) => {
       const runId = body.p_run_id as string;
       const assignmentId = body.p_assignment_id as string;
 
-      let run: unknown = null;
+      let run: Record<string, unknown> | null = null;
       if (runId) {
         const { results } = await c.env.DB.prepare(
           'SELECT * FROM standalone_test_runs WHERE id = ?',
         ).bind(runId).all();
-        run = results[0] ?? null;
+        run = (results[0] as Record<string, unknown>) ?? null;
       }
 
       const effectiveAssignmentId = assignmentId || extractStringProp(run, 'assignment_id');
@@ -697,7 +707,58 @@ queryRouter.post('/rpc/:name', async (c) => {
         allRuns = results;
       }
 
-      let items: unknown[] = [];
+      // Determine package version and package title
+      let packageVersionId = 'e0e61415-f370-53ed-a4ab-c4e3c8f57763';
+      let packageTitle = 'G1-56V-0826';
+      if (effectiveAssignmentId) {
+        const { results: assignRows } = await c.env.DB.prepare(
+          `SELECT a.package_version_id, tp.title as package_title
+           FROM standalone_test_assignments a
+           LEFT JOIN test_package_versions tpv ON a.package_version_id = tpv.id
+           LEFT JOIN test_packages tp ON tpv.package_id = tp.id
+           WHERE a.id = ?`,
+        ).bind(effectiveAssignmentId).all();
+        if (assignRows[0]) {
+          const row = assignRows[0] as Record<string, unknown>;
+          if (row.package_version_id) packageVersionId = String(row.package_version_id);
+          if (row.package_title) packageTitle = String(row.package_title);
+        }
+      } else if (run && run.package_version_id) {
+        packageVersionId = String(run.package_version_id);
+      }
+
+      // Query dynamic narration audio variants for this package version
+      const { results: rawVariants } = await c.env.DB.prepare(
+        `SELECT id, narration_target, provider_metadata, test_section_id
+         FROM narration_variants
+         WHERE package_version_id = ? AND approval_status = 'approved' AND audio_asset_id IS NOT NULL`,
+      ).bind(packageVersionId).all();
+
+      let packageStartVariantId: string | null = null;
+      let packageEndVariantId: string | null = null;
+      const partIntroVariantIds: Record<string, string | null> = { '1': null, '2': null, '3': null };
+      const sessionIntroVariantIds: Record<string, string> = {};
+
+      for (const v of rawVariants as Record<string, unknown>[]) {
+        const target = String(v.narration_target || '');
+        if (target === 'package_start' && !packageStartVariantId) {
+          packageStartVariantId = String(v.id);
+        } else if (target === 'package_end' && !packageEndVariantId) {
+          packageEndVariantId = String(v.id);
+        } else if (target === 'part_intro') {
+          try {
+            const meta = typeof v.provider_metadata === 'string' ? JSON.parse(v.provider_metadata) : v.provider_metadata;
+            const partNum = String((meta as Record<string, unknown>)?.part ?? '');
+            if (partNum && ['1', '2', '3'].includes(partNum)) {
+              partIntroVariantIds[partNum] = String(v.id);
+            }
+          } catch {}
+        } else if (target === 'section_intro' && v.test_section_id) {
+          sessionIntroVariantIds[String(v.test_section_id)] = String(v.id);
+        }
+      }
+
+      let items: Record<string, unknown>[] = [];
       if (run) {
         const { results } = await c.env.DB.prepare(
           `SELECT sri.*, ti.prompt_vi, ti.prompt_en, ti.spoken_script_vi, ti.spoken_script_en, 
@@ -711,30 +772,52 @@ queryRouter.post('/rpc/:name', async (c) => {
            WHERE sri.run_id = ?
            ORDER BY sri.item_order`,
         ).bind(runId).all();
-        items = results;
+        items = results as Record<string, unknown>[];
+      }
+
+      // Fallback: If run items are not yet populated in standalone_test_run_items, populate from test_items
+      if (items.length === 0 && run && run.test_section_id) {
+        const { results: secItems } = await c.env.DB.prepare(
+          `SELECT ti.id as test_item_id, ti.item_order, ti.prompt_vi, ti.prompt_en, ti.spoken_script_vi, ti.spoken_script_en,
+                  ti.tc, ti.tl, ti.lc, ti.measured_cvr as cvr
+           FROM test_items ti
+           WHERE ti.section_id = ?
+           ORDER BY ti.item_order`,
+        ).bind(run.test_section_id).all();
+
+        items = (secItems as Record<string, unknown>[]).map((si) => ({
+          id: si.test_item_id,
+          run_id: runId,
+          test_item_id: si.test_item_id,
+          item_order: si.item_order,
+          parent_run_id: runId,
+          session_number: run?.session_number || 1,
+          prompt_language: run?.prompt_language || 'vi',
+          voice_id: run?.voice_id,
+          test_section_id: run?.test_section_id,
+          ...si,
+          attempt_status: 'draft',
+          effective_color: null,
+          entered_probe_flow: false,
+          probe_count: 0,
+          finalized_at: null,
+        }));
       }
 
       return c.json({
         data: {
           runDetails: run,
           allRuns,
-          packageTitle: 'GREEN-TEST-49Q',
-          packageKind: 'standard',
-          racMetricLabel: '%c',
+          packageTitle,
+          packageKind: packageTitle.toLowerCase().includes('mini') ? 'mini' : 'standard',
+          racMetricLabel: packageTitle.toLowerCase().includes('red') ? '%r' : '%c',
           packageAudio: {
-            packageStartVariantId: '20072f29-c375-57c2-a47f-4e136d62fa8c',
-            partIntroVariantIds: {
-              part_I: '78a0c16a-7f66-d08e-7b9f-46a748c988b8',
-              part_II: 'fc95df8a-54f0-3672-71a1-d895f1ab63ef',
-              part_III: '751d87b5-5403-4ce2-9a26-bca004573178',
-            },
-            packageEndVariantId: '98a729e2-45e0-5a81-9b0a-31eb82d56b82',
+            packageStartVariantId,
+            partIntroVariantIds,
+            packageEndVariantId,
           },
-          sessionIntroVariantIds: {
-            '7f4de1af-9433-5a9b-ad44-39c2573b4673': '2bc1a302-0c7b-70bd-7a7f-46ee78b36ed0',
-            'e2301d46-f708-5522-b230-564802df93a7': 'fe8082b5-973c-60bb-eec8-b42a8f0a6437',
-            '574eef5b-e457-5e5c-befb-9a1a641ae2eb': '6b7189c4-18df-4a1b-9a0d-21eb82d56a71',
-          },
+          sessionIntroVariantIds,
+          items,
         },
         error: null,
       }, 200);
@@ -762,16 +845,27 @@ queryRouter.post('/rpc/:name', async (c) => {
       const action = extractStringProp(body, 'action') || String(body.action || '');
       if (action === 'getNarrationPlaybackUrl') {
         const variantId = String(body.narrationVariantId || '');
-        const { results: varRows } = await c.env.DB.prepare(
+        let { results: varRows } = await c.env.DB.prepare(
           `SELECT nv.*, aa.storage_path, aa.storage_bucket
            FROM narration_variants nv
            LEFT JOIN audio_assets aa ON nv.audio_asset_id = aa.id
            WHERE nv.id = ?`,
         ).bind(variantId).all();
 
+        if (varRows.length === 0) {
+          const fallback = await c.env.DB.prepare(
+            `SELECT nv.*, aa.storage_path, aa.storage_bucket
+             FROM narration_variants nv
+             LEFT JOIN audio_assets aa ON nv.audio_asset_id = aa.id
+             WHERE nv.audio_asset_id = ? OR nv.test_item_id = ? OR aa.id = ?
+             LIMIT 1`,
+          ).bind(variantId, variantId, variantId).all();
+          varRows = fallback.results;
+        }
+
         const v = varRows[0];
         const storagePath = extractStringProp(v, 'storage_path');
-        let playbackUrl = '/audio/number_1.wav';
+        let playbackUrl = '/audio/audio_intro_test.wav';
         if (storagePath) {
           const filename = storagePath.split('/').pop();
           if (filename) {
@@ -789,7 +883,6 @@ queryRouter.post('/rpc/:name', async (c) => {
         }, 200);
       }
     }
-
     // 3. create_standalone_test_assignment
     if (name === 'create_standalone_test_assignment') {
       const learnerId = body.p_learner_user_id as string;

@@ -328,8 +328,34 @@ export async function findLatestApprovedNarrationVariant(input: {
         query = query.eq('test_item_id', input.testItemId)
       }
 
-      const { data, error } = await query.maybeSingle()
+      let { data, error } = await query.maybeSingle()
       if (error) return { ok: false, error: error.message }
+
+      // Fallback: If no variant found for requested language, query any approved variant for this target
+      if (!data) {
+        let fallbackQuery = sb
+          .from('narration_variants')
+          .select('id, audio_asset_id, voice_id')
+          .eq('narration_target', input.target)
+          .eq('approval_status', 'approved')
+          .not('audio_asset_id', 'is', null)
+          .order('approved_at', { ascending: false, nullsFirst: false })
+          .order('created_at', { ascending: false })
+          .limit(1)
+
+        if (input.target === 'package_start' || input.target === 'package_end' || input.target === 'part_intro') {
+          if (input.packageVersionId) fallbackQuery = fallbackQuery.eq('package_version_id', input.packageVersionId)
+        } else if (input.target === 'section_intro') {
+          if (input.testSectionId) fallbackQuery = fallbackQuery.eq('test_section_id', input.testSectionId)
+        } else if (input.testItemId) {
+          fallbackQuery = fallbackQuery.eq('test_item_id', input.testItemId)
+        }
+        const fallbackRes = await fallbackQuery.maybeSingle()
+        if (fallbackRes.data) {
+          data = fallbackRes.data
+        }
+      }
+
       return { ok: true, data: data ? { id: data.id, audioAssetId: data.audio_asset_id, voiceId: data.voice_id } : null }
     },
     { ttlMs: 60_000, persist: true },
