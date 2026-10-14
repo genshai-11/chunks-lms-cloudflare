@@ -23,6 +23,25 @@ function extractNumberProp(obj: unknown, prop: string): number | null {
   }
   return null;
 }
+const tableColsCache = new Map<string, Set<string>>();
+
+async function getValidTableColumns(db: D1Database, tableName: string): Promise<Set<string>> {
+  const cached = tableColsCache.get(tableName);
+  if (cached) return cached;
+  try {
+    const { results } = await db.prepare(`PRAGMA table_info("${tableName}")`).all();
+    const cols = new Set<string>();
+    for (const row of results || []) {
+      const colName = extractStringProp(row, 'name');
+      if (colName) cols.add(colName);
+    }
+    tableColsCache.set(tableName, cols);
+    return cols;
+  } catch {
+    return new Set();
+  }
+}
+
 
 interface RelationNode {
   relationName: string;
@@ -541,33 +560,25 @@ queryRouter.post('/query', async (c) => {
       const rowList = Array.isArray(values) ? values : [values];
       if (rowList.length === 0) return c.json({ data: [], error: null }, 200);
 
+      const validCols = await getValidTableColumns(c.env.DB, cleanTable);
       const insertedRows: Record<string, unknown>[] = [];
       for (const row of rowList) {
         const r = row as Record<string, unknown>;
-        const cols = Object.keys(r);
+        const rawCols = Object.keys(r);
+        const cols = validCols.size > 0 ? rawCols.filter((k) => validCols.has(sanitizeId(k))) : rawCols;
+        if (cols.length === 0) continue;
+
         const colNames = cols.map((k) => `"${sanitizeId(k)}"`).join(', ');
         const placeholders = cols.map(() => '?').join(', ');
         const insParams = cols.map((k) => {
           const v = r[k];
+          if (v === undefined) return null;
           return typeof v === 'object' && v !== null ? JSON.stringify(v) : v;
         });
 
-        const sql = `INSERT OR REPLACE INTO "${cleanTable}" (${colNames}) VALUES (${placeholders}) RETURNING *`;
-        try {
-          const { results: insResults } = await c.env.DB.prepare(sql).bind(...insParams).all();
-          if (insResults && insResults[0]) {
-            insertedRows.push(insResults[0] as Record<string, unknown>);
-          } else {
-            insertedRows.push(r);
-          }
-        } catch {
-          await c.env.DB.prepare(
-            `INSERT OR REPLACE INTO "${cleanTable}" (${colNames}) VALUES (${placeholders})`,
-          )
-            .bind(...insParams)
-            .run();
-          insertedRows.push(r);
-        }
+        const sql = `INSERT OR REPLACE INTO "${cleanTable}" (${colNames}) VALUES (${placeholders})`;
+        await c.env.DB.prepare(sql).bind(...insParams).run();
+        insertedRows.push(r);
       }
 
       const data = single ? insertedRows[0] ?? null : Array.isArray(values) ? insertedRows : insertedRows[0] ?? null;
@@ -746,11 +757,16 @@ queryRouter.post('/rpc/:name', async (c) => {
       const packageVersionId = body.p_package_version_id as string;
       const id = crypto.randomUUID();
 
+      const { results: assignRows } = await c.env.DB.prepare(
+        'SELECT COALESCE(MAX(assignment_number), 0) + 1 as next_num FROM standalone_test_assignments',
+      ).all();
+      const nextNum = extractNumberProp(assignRows[0], 'next_num') ?? 1;
+
       await c.env.DB.prepare(
         `INSERT INTO standalone_test_assignments 
-         (id, organization_id, package_version_id, class_id, learner_user_id, assigned_by_user_id, status, created_at)
-         VALUES (?, '9d61d048-cbda-4600-8141-4cfd2745cc59', ?, '44444444-4444-4444-4444-444444444444', ?, '22222222-2222-2222-2222-222222222202', 'assigned', CURRENT_TIMESTAMP)`,
-      ).bind(id, packageVersionId, learnerId).run();
+         (id, organization_id, package_version_id, learner_user_id, assigned_by_user_id, assignment_number, status, assigned_at)
+         VALUES (?, 'a0000000-0000-4000-8000-000000000001', ?, ?, 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', ?, 'assigned', CURRENT_TIMESTAMP)`,
+      ).bind(id, packageVersionId, learnerId, nextNum).run();
 
       return c.json({ data: id, error: null }, 200);
     }

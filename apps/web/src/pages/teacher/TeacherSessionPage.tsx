@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
+  Check,
   Eye,
   Gauge,
   Info,
   Layers,
+  LayoutGrid,
+  List,
   Play,
   Plus,
   Radio,
@@ -65,6 +68,7 @@ export function TeacherSessionPage() {
   const { classRow, teacher } = useTeacherClassContext()
   const [searchParams] = useSearchParams()
   const preselect = searchParams.get('learner')
+  const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards')
 
   const enrolledIds = useMemo(
     () =>
@@ -97,7 +101,7 @@ export function TeacherSessionPage() {
     void syncNow({ scheduling: cleanup.state })
   }, [classRow, roster, scheduling, setScheduling, syncNow])
 
-  // Default multi-select: preselect query learner, else all enrolled
+  // Default selection: preselect query learner if specified, else default to selecting 1 learner (the first one)
   useEffect(() => {
     if (openSession) return
     if (activeLearnerIds.length === 0) {
@@ -107,9 +111,9 @@ export function TeacherSessionPage() {
     if (preselect && activeLearnerIds.includes(preselect)) {
       setSelectedIds([preselect])
     } else {
-      setSelectedIds(enrolledIds)
+      setSelectedIds((prev) => (prev.length > 0 ? prev : [activeLearnerIds[0]]))
     }
-  }, [activeLearnerIds, enrolledIds, preselect, openSession])
+  }, [activeLearnerIds, preselect, openSession])
 
   const totalDays =
     classRow?.schedule?.sessionCount ??
@@ -326,23 +330,59 @@ export function TeacherSessionPage() {
           title="Learners in this session"
           description="Each question maps to exactly one learner (round-robin). 100 Q / 2 HV ≈ 50 each. Multi-column observe uses this list."
           actions={
-            <div className="btn-row">
+            <div className="btn-row flex items-center gap-2">
               <button
                 type="button"
-                className="ghost"
+                className="btn ghost text-xs"
                 onClick={() => setSelectedIds(activeLearnerIds)}
-                disabled={activeLearnerIds.length === 0}
+                disabled={activeLearnerIds.length === 0 || selectedIds.length === activeLearnerIds.length}
               >
-                Select all
+                Chọn cả lớp ({activeLearnerIds.length})
               </button>
               <button
                 type="button"
-                className="ghost"
+                className="btn ghost text-xs"
+                onClick={() => setSelectedIds(activeLearnerIds.slice(0, 1))}
+                disabled={activeLearnerIds.length === 0 || (selectedIds.length === 1 && selectedIds[0] === activeLearnerIds[0])}
+              >
+                Chỉ chọn 1 HV
+              </button>
+              <button
+                type="button"
+                className="btn ghost text-xs"
                 onClick={() => setSelectedIds([])}
                 disabled={selectedIds.length === 0}
               >
-                Clear
+                Bỏ chọn
               </button>
+              <div className="flex items-center rounded-lg bg-slate-800/80 p-0.5 border border-slate-700/60 ml-2">
+                <button
+                  type="button"
+                  onClick={() => setViewMode('cards')}
+                  className={`p-1.5 rounded-md text-xs flex items-center gap-1 ${
+                    viewMode === 'cards'
+                      ? 'bg-sky-500 text-slate-950 font-semibold'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                  title="Xem dạng thẻ (Grid Cards)"
+                >
+                  <LayoutGrid className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">Thẻ</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setViewMode('list')}
+                  className={`p-1.5 rounded-md text-xs flex items-center gap-1 ${
+                    viewMode === 'list'
+                      ? 'bg-sky-500 text-slate-950 font-semibold'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                  title="Xem dạng danh sách (List)"
+                >
+                  <List className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">Danh sách</span>
+                </button>
+              </div>
             </div>
           }
         >
@@ -357,6 +397,55 @@ export function TeacherSessionPage() {
                 </Link>
               }
             />
+          ) : viewMode === 'cards' ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-1">
+              {enrolledIds.map((id) => {
+                const user = roster.users.find((u) => u.id === id)
+                const checked = selectedIds.includes(id)
+                return (
+                  <div
+                    key={id}
+                    onClick={() => toggleLearner(id)}
+                    className={`cursor-pointer rounded-2xl p-4 transition-all flex items-start gap-3 border shadow-sm ${
+                      checked
+                        ? 'border-emerald-500/80 bg-emerald-500/10 shadow-emerald-500/10 ring-1 ring-emerald-500/30'
+                        : 'border-slate-800 bg-slate-900/60 hover:border-slate-700 hover:bg-slate-800/40 text-slate-400'
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => {}}
+                      className="mt-1 h-4 w-4 rounded accent-emerald-500 pointer-events-none"
+                    />
+                    <UserAvatar
+                      name={user?.displayName ?? id}
+                      avatarUrl={user?.avatarUrl}
+                      size="md"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <div className="font-semibold text-sm truncate text-slate-100">
+                        {user?.displayName ?? id}
+                      </div>
+                      <div className="text-xs text-slate-400 truncate mt-0.5">
+                        {user?.email ?? 'Học viên'}
+                      </div>
+                      <div className="mt-2">
+                        {checked ? (
+                          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded-full">
+                            <Check className="h-3 w-3" /> Đã chọn quan sát
+                          </span>
+                        ) : (
+                          <span className="inline-block text-[11px] text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded-full">
+                            Bấm để chọn
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           ) : (
             <ul className="person-list">
               {enrolledIds.map((id) => {
@@ -368,7 +457,6 @@ export function TeacherSessionPage() {
                       <input
                         type="checkbox"
                         checked={checked}
-                        disabled={!checked && selectedIds.length >= 2}
                         onChange={() => toggleLearner(id)}
                       />
                       <UserAvatar
