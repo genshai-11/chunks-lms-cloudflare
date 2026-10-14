@@ -691,7 +691,7 @@ queryRouter.post('/rpc/:name', async (c) => {
         const { results } = await c.env.DB.prepare(
           `SELECT sri.*, ti.prompt_vi, ti.prompt_en, ti.spoken_script_vi, ti.spoken_script_en, 
                   ti.tc, ti.tl, ti.lc, ti.measured_cvr as cvr, sa.id as attempt_id,
-                  sas.status as attempt_status, sas.current_result_color as effective_color,
+                  sas.status as attempt_status, sas.effective_color as effective_color,
                   sas.entered_probe_flow, sas.probe_count, sas.finalized_at
            FROM standalone_test_run_items sri
            LEFT JOIN test_items ti ON sri.test_item_id = ti.id
@@ -775,9 +775,9 @@ queryRouter.post('/rpc/:name', async (c) => {
 
       await c.env.DB.prepare(
         `INSERT OR REPLACE INTO standalone_test_attempt_snapshots
-         (attempt_id, current_result_color, entered_probe_flow, probe_count, is_finalized, updated_at)
-         VALUES (?, ?, ?, 0, 0, CURRENT_TIMESTAMP)`,
-      ).bind(attemptId, color, color === 'yellow' ? 1 : 0).run();
+         (attempt_id, status, provisional_color, effective_color, entered_probe_flow, probe_count, updated_at)
+         VALUES (?, ?, ?, ?, ?, 0, CURRENT_TIMESTAMP)`,
+      ).bind(attemptId, color === 'yellow' ? 'provisional' : 'finalized', color, color, color === 'yellow' ? 1 : 0).run();
 
       return c.json({
         data: {
@@ -799,9 +799,9 @@ queryRouter.post('/rpc/:name', async (c) => {
 
       await c.env.DB.prepare(
         `UPDATE standalone_test_attempt_snapshots
-         SET current_result_color = ?, probe_count = probe_count + 1, is_finalized = ?, updated_at = CURRENT_TIMESTAMP
+         SET status = ?, effective_color = ?, probe_count = probe_count + 1, updated_at = CURRENT_TIMESTAMP
          WHERE attempt_id = ?`,
-      ).bind(nextColor, outcome === 'done' || outcome === 'fail' ? 1 : 0, attemptId).run();
+      ).bind(outcome === 'continue' ? 'provisional' : 'finalized', nextColor, attemptId).run();
 
       return c.json({
         data: {
@@ -814,6 +814,191 @@ queryRouter.post('/rpc/:name', async (c) => {
       }, 200);
     }
 
+    // 6. create_session_question_attempt (Live Observation)
+    if (name === 'create_session_question_attempt') {
+      const sessionId = String(body.p_learning_session_id || '');
+      const teacherId = String(body.p_teacher_user_id || '');
+      const learnerId = String(body.p_learner_user_id || '');
+      const externalRef = body.p_external_ref ? String(body.p_external_ref) : null;
+
+      const { results: seqRows } = await c.env.DB.prepare(
+        'SELECT COALESCE(MAX(sequence_number), 0) + 1 as next_seq FROM session_questions WHERE learning_session_id = ?',
+      ).bind(sessionId).all();
+      const nextSeq = extractNumberProp(seqRows[0], 'next_seq') ?? 1;
+
+      const questionId = crypto.randomUUID();
+      await c.env.DB.prepare(
+        'INSERT INTO session_questions (id, learning_session_id, sequence_number, external_ref) VALUES (?, ?, ?, ?)',
+      ).bind(questionId, sessionId, nextSeq, externalRef).run();
+
+      const attemptId = crypto.randomUUID();
+      await c.env.DB.prepare(
+        'INSERT INTO assessment_attempts (id, learning_session_id, session_question_id, learner_user_id, teacher_user_id) VALUES (?, ?, ?, ?, ?)',
+      ).bind(attemptId, sessionId, questionId, learnerId, teacherId).run();
+
+      await c.env.DB.prepare(
+        'INSERT INTO assessment_attempt_snapshots (attempt_id, status, probe_count, max_probe_count, entered_probe_flow, updated_at) VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)',
+      ).bind(attemptId, 'draft', 0, 5, 0).run();
+
+      return c.json({
+        data: {
+          question: {
+            id: questionId,
+            learning_session_id: sessionId,
+            sequence_number: nextSeq,
+            external_ref: externalRef,
+          },
+          attempt: {
+            id: attemptId,
+            learning_session_id: sessionId,
+            session_question_id: questionId,
+            learner_user_id: learnerId,
+            teacher_user_id: teacherId,
+          },
+        },
+        error: null,
+      }, 200);
+    }
+
+    // 7. record_provisional_result (Live Observation)
+    if (name === 'record_provisional_result') {
+      const attemptId = String(body.p_attempt_id || '');
+      const color = String(body.p_color || '').toLowerCase();
+      const actorId = String(body.p_actor_user_id || '');
+
+      await c.env.DB.prepare(
+        'INSERT INTO assessment_events (id, attempt_id, event_type, payload, actor_user_id, created_at) VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)',
+      ).bind(crypto.randomUUID(), attemptId, 'provisional_recorded', JSON.stringify({ color }), actorId).run();
+
+      let snapStatus = 'finalized';
+      let effectiveColor = color;
+      let enteredProbe = 0;
+      let finalizedAt: string | null = new Date().toISOString();
+
+      if (color === 'green') {
+        snapStatus = 'probe_open';
+        effectiveColor = 'green';
+        enteredProbe = 1;
+        finalizedAt = null;
+      } else {
+        await c.env.DB.prepare(
+          'INSERT INTO assessment_events (id, attempt_id, event_type, payload, actor_user_id, created_at) VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)',
+        ).bind(crypto.randomUUID(), attemptId, 'result_finalized', JSON.stringify({ color }), actorId).run();
+      }
+
+      await c.env.DB.prepare(
+        `INSERT OR REPLACE INTO assessment_attempt_snapshots 
+         (attempt_id, status, provisional_color, effective_color, entered_probe_flow, probe_count, max_probe_count, finalized_at, updated_at)
+         VALUES (?, ?, ?, ?, ?, 0, 5, ?, CURRENT_TIMESTAMP)`,
+      ).bind(attemptId, snapStatus, color, effectiveColor, enteredProbe, finalizedAt).run();
+
+      return c.json({
+        data: {
+          attempt_id: attemptId,
+          status: snapStatus,
+          provisional_color: color,
+          effective_color: effectiveColor,
+          effective_score: color === 'green' ? 1 : color === 'orange' ? 0.5 : 0,
+          probe_count: 0,
+          max_probe_count: 5,
+          entered_probe_flow: Boolean(enteredProbe),
+          finalized_at: finalizedAt,
+          updated_at: new Date().toISOString(),
+        },
+        error: null,
+      }, 200);
+    }
+
+    // 8. resolve_probe (Live Observation)
+    if (name === 'resolve_probe') {
+      const attemptId = String(body.p_attempt_id || '');
+      const outcome = String(body.p_outcome || '').toLowerCase();
+      const actorId = String(body.p_actor_user_id || '');
+
+      const { results: snapRows } = await c.env.DB.prepare(
+        'SELECT * FROM assessment_attempt_snapshots WHERE attempt_id = ?',
+      ).bind(attemptId).all();
+      const existingSnap = snapRows[0] || {};
+      const currentProbeCount = extractNumberProp(existingSnap, 'probe_count') ?? 0;
+
+      let nextColor = 'yellow';
+      let nextStatus = 'finalized';
+      let nextProbeCount = currentProbeCount;
+      let finalizedAt: string | null = new Date().toISOString();
+
+      if (outcome === 'done') {
+        nextColor = 'indigo';
+        nextProbeCount = currentProbeCount + 1;
+      } else if (outcome === 'fail') {
+        nextColor = 'yellow';
+      } else if (outcome === 'continue') {
+        nextColor = 'orange';
+        nextStatus = 'probe_open';
+        nextProbeCount = currentProbeCount + 1;
+        finalizedAt = null;
+      }
+
+      const eventType = outcome === 'fail' ? 'probe_failed' : outcome === 'done' ? 'probe_completed' : 'probe_continued';
+      await c.env.DB.prepare(
+        'INSERT INTO assessment_events (id, attempt_id, event_type, payload, actor_user_id, created_at) VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)',
+      ).bind(crypto.randomUUID(), attemptId, eventType, JSON.stringify({ outcome }), actorId).run();
+
+      if (nextStatus === 'finalized') {
+        await c.env.DB.prepare(
+          'INSERT INTO assessment_events (id, attempt_id, event_type, payload, actor_user_id, created_at) VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)',
+        ).bind(crypto.randomUUID(), attemptId, 'result_finalized', JSON.stringify({ color: nextColor }), actorId).run();
+      }
+
+      await c.env.DB.prepare(
+        `UPDATE assessment_attempt_snapshots 
+         SET status = ?, effective_color = ?, probe_count = ?, finalized_at = ?, updated_at = CURRENT_TIMESTAMP
+         WHERE attempt_id = ?`,
+      ).bind(nextStatus, nextColor, nextProbeCount, finalizedAt, attemptId).run();
+
+      return c.json({
+        data: {
+          attempt_id: attemptId,
+          status: nextStatus,
+          provisional_color: 'green',
+          effective_color: nextColor,
+          effective_score: nextColor === 'indigo' ? 1 : 0.5,
+          probe_count: nextProbeCount,
+          max_probe_count: 5,
+          entered_probe_flow: true,
+          finalized_at: finalizedAt,
+          updated_at: new Date().toISOString(),
+        },
+        error: null,
+      }, 200);
+    }
+
+    // 9. correct_final_result (Live Observation)
+    if (name === 'correct_final_result') {
+      const attemptId = String(body.p_attempt_id || '');
+      const color = String(body.p_color || '').toLowerCase();
+      const reason = String(body.p_reason || 'Corrected');
+      const actorId = String(body.p_actor_user_id || '');
+
+      await c.env.DB.prepare(
+        'INSERT INTO assessment_events (id, attempt_id, event_type, payload, actor_user_id, created_at) VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)',
+      ).bind(crypto.randomUUID(), attemptId, 'result_corrected', JSON.stringify({ color, reason }), actorId).run();
+
+      await c.env.DB.prepare(
+        `UPDATE assessment_attempt_snapshots 
+         SET status = 'corrected', effective_color = ?, updated_at = CURRENT_TIMESTAMP
+         WHERE attempt_id = ?`,
+      ).bind(color, attemptId).run();
+
+      return c.json({
+        data: {
+          attempt_id: attemptId,
+          status: 'corrected',
+          effective_color: color,
+          updated_at: new Date().toISOString(),
+        },
+        error: null,
+      }, 200);
+    }
     return c.json({ data: { success: true }, error: null }, 200);
   } catch (err) {
     console.error('D1 RPC Error for', name, JSON.stringify(body), err);
