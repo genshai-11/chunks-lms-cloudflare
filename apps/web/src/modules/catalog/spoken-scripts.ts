@@ -110,6 +110,9 @@ export function audioTargetStatus(
   if (record.job?.status === 'failed') return 'failed'
   if (record.variant.approvalStatus === 'rejected' || record.variant.approvalStatus === 'archived')
     return 'rejected'
+  if (record.variant.approvalStatus === 'approved' && record.variant.audioAssetId) {
+    return 'approved'
+  }
   if (!currentHash || record.variant.sourceTextHash !== currentHash) return 'stale'
   return record.variant.approvalStatus === 'approved' ? 'approved' : 'generated'
 }
