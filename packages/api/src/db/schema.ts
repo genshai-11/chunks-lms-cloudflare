@@ -69,8 +69,6 @@ export const courses = sqliteTable('courses', {
   code: text('code').notNull(),
   name: text('name').notNull(),
   status: text('status').default('active'),
-  startsOn: text('starts_on'),
-  endsOn: text('ends_on'),
   createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
 });
 
@@ -92,7 +90,7 @@ export const enrollments = sqliteTable('enrollments', {
   classId: text('class_id').notNull().references(() => classes.id),
   learnerUserId: text('learner_user_id').notNull().references(() => users.id),
   status: text('status').default('active'),
-  enrolledAt: text('enrolled_at').default('CURRENT_TIMESTAMP'),
+  startedAt: text('started_at').default('CURRENT_TIMESTAMP'),
 });
 
 // ==========================================

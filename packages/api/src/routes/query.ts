@@ -809,6 +809,42 @@ queryRouter.post('/rpc/:name', async (c) => {
 
       return c.json({ data: id, error: null }, 200);
     }
+    // 3.1 create_teacher_learner_and_enroll
+    if (name === 'create_teacher_learner_and_enroll') {
+      const classId = String(body.p_class_id || '');
+      const displayName = String(body.p_display_name || '').trim();
+      const email = body.p_email ? String(body.p_email).trim() : null;
+      const avatarUrl = body.p_avatar_url ? String(body.p_avatar_url) : null;
+
+      const learnerId = crypto.randomUUID();
+      const enrollmentId = crypto.randomUUID();
+
+      await c.env.DB.prepare(
+        `INSERT INTO users (id, display_name, email, avatar_url, account_status)
+         VALUES (?, ?, ?, ?, 'active')`,
+      ).bind(learnerId, displayName, email, avatarUrl).run();
+
+      await c.env.DB.prepare(
+        `INSERT INTO enrollments (id, class_id, learner_user_id, status, started_at)
+         VALUES (?, ?, ?, 'active', CURRENT_TIMESTAMP)`,
+      ).bind(enrollmentId, classId, learnerId).run();
+
+      await c.env.DB.prepare(
+        `INSERT OR IGNORE INTO organization_memberships (id, organization_id, user_id, role, created_at)
+         VALUES (?, 'a0000000-0000-4000-8000-000000000001', ?, 'learner', CURRENT_TIMESTAMP)`,
+      ).bind(crypto.randomUUID(), learnerId).run();
+
+      return c.json({
+        data: {
+          learnerId,
+          enrollmentId,
+          classId,
+          displayName,
+          email,
+        },
+        error: null,
+      }, 200);
+    }
 
     // 4. record_standalone_provisional_result
     if (name === 'record_standalone_provisional_result') {

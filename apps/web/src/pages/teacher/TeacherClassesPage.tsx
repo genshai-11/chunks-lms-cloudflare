@@ -1,12 +1,13 @@
 import {
+  BookOpen,
+  Eye,
   Pencil,
+  Radio,
   School,
+  Trash2,
   UserPlus,
   Users,
   X,
-  Eye,
-  Play,
-  Trash2,
 } from 'lucide-react'
 import { useMemo, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -434,33 +435,34 @@ export function TeacherClassesPage() {
               <article key={learner.id} className="teacher-learner-card">
                 {/* Main Learner Avatar/Details Link */}
                 <div className="teacher-learner-card-main flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <UserAvatar name={learner.name} avatarUrl={learner.avatarUrl} size="lg" />
-                    <div>
-                      <strong>{learner.name}</strong>
-                      <small className="break-all">{learner.email || 'No email'}</small>
+                  <div className="flex items-center gap-2.5">
+                    <UserAvatar name={learner.name} avatarUrl={learner.avatarUrl} size="md" />
+                    <div className="min-w-0">
+                      <strong className="truncate block">{learner.name}</strong>
+                      <small className="truncate block text-slate-500">{learner.email || 'Học viên'}</small>
                     </div>
                   </div>
                 </div>
 
-                {/* Seated classes list with 'Remove' badge actions (Dynamic teacher controls) */}
-                <div className="flex flex-wrap gap-1 items-center min-h-[26px]">
+                {/* Seated classes list with 'Remove' badge actions */}
+                <div className="flex flex-wrap gap-1.5 items-center min-h-[24px]">
                   {learner.classes.map((cls) => {
                     const enr = learner.enrollments.find((e) => e.classId === cls.id)
                     return (
                       <span
                         key={cls.id}
-                        className="badge bg-slate-100 text-slate-700 flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-lg border border-slate-200/50"
+                        className="badge bg-slate-100 text-slate-800 flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-md border border-slate-200/60"
                       >
+                        <BookOpen className="h-3 w-3 text-slate-500" />
                         <span>{cls.name}</span>
                         {enr && (
                           <button
                             type="button"
-                            className="text-slate-400 hover:text-red-600 border-0 bg-transparent p-0 flex items-center justify-center cursor-pointer transition-colors"
+                            className="text-slate-400 hover:text-rose-600 border-0 bg-transparent p-0 flex items-center justify-center cursor-pointer ml-0.5 transition-colors"
                             onClick={() => handleRemoveEnrollment(learner.name, enr.id, cls.name)}
-                            title={`Remove from ${cls.name}`}
+                            title={`Rút khỏi lớp ${cls.name}`}
                           >
-                            <X className="h-3 w-3" />
+                            <X className="h-2.5 w-2.5" />
                           </button>
                         )}
                       </span>
@@ -468,35 +470,26 @@ export function TeacherClassesPage() {
                   })}
                 </div>
 
-                {/* Mini Stats (sessions & RFC score) */}
-                <div className="teacher-learner-mini-stats">
-                  <span>
-                    <strong>{learner.sessionsCount}</strong>
-                    <small>Sessions</small>
-                  </span>
-                  <span>
-                    <strong>{formatPercent(learner.rfcAvg)}</strong>
-                    <small>RFC Avg</small>
-                  </span>
-                  <span className="flex items-center justify-center">
-                    <Link
-                      to={`/teacher/learner/${encodeURIComponent(learner.id)}`}
-                      className="text-red-700 hover:text-red-800 flex flex-col items-center justify-center h-full w-full"
-                      title="View learner telemetry and historical data"
-                    >
-                      <Eye className="h-4.5 w-4.5 mb-0.5" />
-                      <small className="text-[9px] font-bold text-red-700 tracking-wider">
-                        DETAILS
-                      </small>
-                    </Link>
-                  </span>
+                {/* Minimal Compact Stats */}
+                <div className="flex items-center justify-between text-xs py-1.5 px-2.5 rounded-lg bg-slate-50 border border-slate-100/90 text-slate-600">
+                  <div className="flex items-center gap-3">
+                    <span>Buổi: <strong className="font-mono text-slate-900 font-bold">{learner.sessionsCount}</strong></span>
+                    <span>RFC: <strong className="font-mono text-slate-900 font-bold">{formatPercent(learner.rfcAvg)}</strong></span>
+                  </div>
+                  <Link
+                    to={`/teacher/learner/${encodeURIComponent(learner.id)}`}
+                    className="text-sky-600 hover:text-sky-800 text-[11px] font-bold flex items-center gap-1"
+                    title="Xem hồ sơ chi tiết"
+                  >
+                    <Eye className="h-3.5 w-3.5" /> Chi tiết
+                  </Link>
                 </div>
 
-                {/* Operational Quick Actions (thêm, sửa, xóa learner) */}
-                <div className="btn-row teacher-learner-card-actions my-0 pt-2 border-t border-slate-100">
+                {/* Operational Quick Actions (thêm, sửa, quan sát) */}
+                <div className="flex items-center gap-2 pt-2 border-t border-slate-100 mt-auto">
                   <button
                     type="button"
-                    className="btn ghost flex-1 flex justify-center gap-1.5 text-xs py-1.5"
+                    className="btn ghost flex-1 flex justify-center items-center gap-1 text-xs py-1 min-h-[32px] h-[32px]"
                     onClick={() =>
                       setEditingLearner({
                         id: learner.id,
@@ -506,13 +499,13 @@ export function TeacherClassesPage() {
                       })
                     }
                   >
-                    <Pencil className="h-3.5 w-3.5" aria-hidden />
-                    <span>Edit Profile</span>
+                    <Pencil className="h-3 w-3" aria-hidden />
+                    <span>Sửa</span>
                   </button>
 
                   <Link
                     to={`/teacher/session?learner=${encodeURIComponent(learner.id)}`}
-                    className="btn primary flex-1 flex justify-center gap-1.5 text-xs py-1.5"
+                    className="btn primary flex-1 flex justify-center items-center gap-1 text-xs py-1 min-h-[32px] h-[32px]"
                     onClick={() => {
                       const preferredClassId =
                         selectedClassId !== 'all' && learner.classes.some((cls) => selectedClassIds.includes(cls.id))
@@ -522,10 +515,9 @@ export function TeacherClassesPage() {
                       setActiveClassId(preferredClassId)
                     }}
                   >
-                    <Play className="h-3.5 w-3.5" aria-hidden />
-                    <span>Observe</span>
+                    <Radio className="h-3 w-3" aria-hidden />
+                    <span>Quan sát</span>
                   </Link>
-
                   <button
                     type="button"
                     className="btn ghost danger flex justify-center gap-1.5 px-3 py-1.5 text-xs"
