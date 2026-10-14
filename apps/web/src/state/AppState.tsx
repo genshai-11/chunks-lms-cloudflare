@@ -2,12 +2,14 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } fro
 import type { CaptureSessionState } from '../modules/assessment/session-capture'
 import { createDefaultMetricSettings, type MetricSettingsState } from '../modules/metrics/settings'
 import { appendResult, type ResultRecord } from '../modules/reporting/progress'
-import { createEmptyRoster, LOCAL_ORG_ID } from '../modules/roster/seed'
+import { createEmptyRoster } from '../modules/roster/seed'
 import type { RosterState } from '../modules/roster/types'
 import { emptySchedulingState } from '../modules/scheduling/session-lifecycle'
 import type { SchedulingState } from '../modules/scheduling/types'
 import {
+  computeWorkspaceSignature,
   deleteWorkspaceLearningDataFromSupabase,
+  ensureStableOrg,
   ensureSupabaseStaffWorkspace,
   isSupabaseConfigured,
   loadWorkspaceFromSupabase,
@@ -105,20 +107,6 @@ function syncPhaseError(
   return `[${phase}] ${message}`
 }
 
-function ensureStableOrg(r: RosterState): RosterState {
-  if (r.organization.id === 'org-local' || r.organization.id.startsWith('org-local')) {
-    return {
-      ...r,
-      organization: { ...r.organization, id: LOCAL_ORG_ID },
-      courses: r.courses.map((c) =>
-        c.organizationId === r.organization.id || c.organizationId === 'org-local'
-          ? { ...c, organizationId: LOCAL_ORG_ID }
-          : c,
-      ),
-    }
-  }
-  return r
-}
 
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const staffSession = useStaffSession()
@@ -154,6 +142,9 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   )
   const [activeClassId, setActiveClassIdState] = useState<string | null>(() => loadActiveClassId())
   const [workspaceRevision, setWorkspaceRevision] = useState<number | null>(null)
+  const workspaceRevisionRef = useRef<number | null>(null)
+  workspaceRevisionRef.current = workspaceRevision
+  const lastSyncedSignatureRef = useRef<string>('')
 
   const setActiveLearnerUserId = useCallback((id: string | null) => {
     saveActiveLearnerId(id)
@@ -166,7 +157,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const bootDone = useRef(false)
-  const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const syncTimer = useRef<number | undefined>(undefined)
   const skipNextSync = useRef(false)
   /** After intentional Clear data, allow empty cloud wipe once */
   const allowEmptyWipeOnce = useRef(false)
@@ -261,8 +252,10 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
 
       skipNextSync.current = true
       if (typeof loaded.revision === 'number') {
+        workspaceRevisionRef.current = loaded.revision
         setWorkspaceRevision(loaded.revision)
       }
+      lastSyncedSignatureRef.current = computeWorkspaceSignature(remote)
 
       let authoritativeRoster = remote.roster
       const source = chooseBootstrapSource(wRemote, wLive)
@@ -271,11 +264,15 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         // Signed-out path: prefer cloud; fall back to this browser's cache.
         // Never push local → cloud while signed out.
         if (source === 'cloud' || (source === 'empty' && wRemote === 0 && wLive === 0)) {
+          const finalSched =
+            wRemote > 0 ? mergeScheduling(live.scheduling, remote.scheduling) : remote.scheduling
           setRoster(remote.roster)
-          setScheduling(
-            wRemote > 0 ? mergeScheduling(live.scheduling, remote.scheduling) : remote.scheduling,
-          )
+          setScheduling(finalSched)
           authoritativeRoster = remote.roster
+          lastSyncedSignatureRef.current = computeWorkspaceSignature({
+            roster: remote.roster,
+            scheduling: finalSched,
+          })
         } else if (source === 'local') {
           authoritativeRoster = live.roster
           setRoster(live.roster)
@@ -283,11 +280,17 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         } else {
           setRoster(remote.roster)
           setScheduling(remote.scheduling)
+          lastSyncedSignatureRef.current = computeWorkspaceSignature(remote)
         }
       } else if (source === 'cloud' || wRemote > 0) {
         // Cloud roster authoritative; merge scheduling so open remote sessions survive.
+        const finalSched = mergeScheduling(live.scheduling, remote.scheduling)
         setRoster(remote.roster)
-        setScheduling(mergeScheduling(live.scheduling, remote.scheduling))
+        setScheduling(finalSched)
+        lastSyncedSignatureRef.current = computeWorkspaceSignature({
+          roster: remote.roster,
+          scheduling: finalSched,
+        })
       } else if (source === 'local') {
         // One-time migration from this browser into the empty Supabase Auth workspace.
         authoritativeRoster = live.roster
@@ -297,6 +300,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       } else {
         setRoster(remote.roster)
         setScheduling(remote.scheduling)
+        lastSyncedSignatureRef.current = computeWorkspaceSignature(remote)
       }
 
       // Prefer snapshot projection for ledger (not capture-only append).
@@ -369,14 +373,24 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       return
     }
 
-    if (syncTimer.current) clearTimeout(syncTimer.current)
+    const currentSignature = computeWorkspaceSignature({ roster, scheduling })
+    if (currentSignature === lastSyncedSignatureRef.current) {
+      return
+    }
+
+    clearTimeout(syncTimer.current)
     syncTimer.current = setTimeout(async () => {
-      setBackendStatus('syncing')
       const stable = {
         roster: ensureStableOrg(roster),
         scheduling,
       }
       const normalized = normalizeIdsForDb(stable)
+      const sigToSync = computeWorkspaceSignature(normalized)
+      if (sigToSync === lastSyncedSignatureRef.current) {
+        return
+      }
+
+      setBackendStatus('syncing')
       if (
         normalized.roster.organization.id !== roster.organization.id ||
         normalized.roster.users.some((u, i) => u.id !== roster.users[i]?.id) ||
@@ -390,11 +404,13 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       allowEmptyWipeOnce.current = false
       const result = await saveWorkspaceToSupabase(normalized, {
         allowEmptyWipe: wipe,
-        expectedRevision: workspaceRevision ?? undefined,
+        expectedRevision: workspaceRevisionRef.current ?? undefined,
         canProvision: staffSession.canAccess('admin'),
       })
       if (result.ok) {
+        lastSyncedSignatureRef.current = sigToSync
         if (typeof result.newRevision === 'number') {
+          workspaceRevisionRef.current = result.newRevision
           setWorkspaceRevision(result.newRevision)
         }
         setBackendStatus('online')
@@ -410,7 +426,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     }, 700)
 
     return () => {
-      if (syncTimer.current) clearTimeout(syncTimer.current)
+      clearTimeout(syncTimer.current)
     }
   }, [
     roster,
@@ -418,7 +434,6 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     staffSession.authBypass,
     staffSession.signedIn,
     staffSession.staffRoles.length,
-    workspaceRevision,
   ])
 
   const resetAll = useCallback(() => {
@@ -505,6 +520,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         setBackendError('No staff role — cannot sync')
         return false
       }
+      clearTimeout(syncTimer.current)
+      syncTimer.current = undefined
       setBackendStatus('syncing')
       // Prefer explicit snapshot (caller just mutated scheduling/roster) over stale React state.
       const snapshot = {
@@ -523,15 +540,17 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       const result = await saveWorkspaceToSupabase(normalized, {
         allowEmptyWipe: allowEmptyWipeOnce.current,
         pruneMissing: override?.pruneMissing,
-        expectedRevision: workspaceRevision ?? undefined,
+        expectedRevision: workspaceRevisionRef.current ?? undefined,
         canProvision: staffSession.canAccess('admin'),
       })
       if (result.ok && typeof result.newRevision === 'number') {
+        workspaceRevisionRef.current = result.newRevision
         setWorkspaceRevision(result.newRevision)
       }
       allowEmptyWipeOnce.current = false
       if (result.ok) {
-        const currentTeacherUser = roster.users.find(
+        lastSyncedSignatureRef.current = computeWorkspaceSignature(normalized)
+        const currentTeacherUser = normalized.roster.users.find(
           (u) => Boolean(staffSession.email) && u.email?.toLowerCase() === staffSession.email?.toLowerCase(),
         )
         const verified = await verifyWorkspacePersistence(normalized, {
@@ -557,7 +576,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       staffSession.authBypass,
       staffSession.signedIn,
       staffSession.staffRoles.length,
-      workspaceRevision,
+      staffSession.email,
     ],
   )
 
@@ -585,8 +604,9 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     }
     skipNextSync.current = true
     const remoteRoster = ensureStableOrg(loaded.data.roster)
+    const remoteScheduling = mergeScheduling(liveRef.current.scheduling, loaded.data.scheduling)
     setRoster(remoteRoster)
-    setScheduling(mergeScheduling(liveRef.current.scheduling, loaded.data.scheduling))
+    setScheduling(remoteScheduling)
     setCapture(null)
     const liveLedger = await rebuildLedgerFromCloud(remoteRoster)
     if (liveLedger.ok) setLedger(liveLedger.data)
@@ -598,8 +618,13 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     setBackendError(null)
     setLastSyncedAt(new Date().toISOString())
     if (typeof loaded.revision === 'number') {
+      workspaceRevisionRef.current = loaded.revision
       setWorkspaceRevision(loaded.revision)
     }
+    lastSyncedSignatureRef.current = computeWorkspaceSignature({
+      roster: remoteRoster,
+      scheduling: remoteScheduling,
+    })
   }, [
     staffSession.displayName,
     staffSession.email,

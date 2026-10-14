@@ -35,6 +35,38 @@ export async function ensureSupabaseStaffWorkspace(
   return { ok: true, organizationId: 'a0000000-0000-4000-8000-000000000001' }
 }
 
+export function ensureStableOrg(r: RosterState): RosterState {
+  if (r.organization.id === 'org-local' || r.organization.id.startsWith('org-local')) {
+    return {
+      ...r,
+      organization: { ...r.organization, id: LOCAL_ORG_ID },
+      courses: r.courses.map((c) =>
+        c.organizationId === r.organization.id || c.organizationId === 'org-local'
+          ? { ...c, organizationId: LOCAL_ORG_ID }
+          : c,
+      ),
+    }
+  }
+  return r
+}
+
+export function computeWorkspaceSignature(snapshot: {
+  roster: RosterState
+  scheduling: SchedulingState
+}): string {
+  const stableRoster = ensureStableOrg(snapshot.roster)
+  return JSON.stringify({
+    org: stableRoster.organization,
+    users: stableRoster.users,
+    courses: stableRoster.courses,
+    classes: stableRoster.classes,
+    enrollments: stableRoster.enrollments,
+    scheduledSessions: snapshot.scheduling.scheduledSessions,
+    learningSessions: snapshot.scheduling.learningSessions,
+    attendance: snapshot.scheduling.attendance,
+  })
+}
+
 /** Ensure all domain IDs are UUIDs so Postgres accepts them. */
 export function normalizeIdsForDb(snapshot: WorkspaceSnapshot): WorkspaceSnapshot {
   const idMap = new Map<string, string>()
