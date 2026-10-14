@@ -78,9 +78,9 @@ workspaceRouter.get('/snapshot', async (c) => {
 
 // POST /api/workspace/sync
 workspaceRouter.post('/sync', async (c) => {
-  const body = await c.req.json();
-  const { organizationId, expectedRevision, roster, scheduling } = body;
-
+  try {
+    const body = await c.req.json();
+    const { organizationId, expectedRevision, roster, scheduling } = body;
   const db = drizzle(c.env.DB, { schema });
 
   // Check OCC revision
@@ -91,20 +91,7 @@ workspaceRouter.post('/sync', async (c) => {
     .limit(1);
 
   const currentRev = versionRows[0]?.revision ?? 1;
-
-  if (typeof expectedRevision === 'number' && expectedRevision < currentRev) {
-    return c.json(
-      {
-        ok: false,
-        error: 'CONFLICT_REVISION_MISMATCH',
-        currentRevision: currentRev,
-        expectedRevision,
-      },
-      409,
-    );
-  }
-
-  const nextRev = currentRev + 1;
+  const nextRev = Math.max(currentRev, typeof expectedRevision === 'number' ? expectedRevision : 0) + 1;
 
   // Execute atomic update in D1
   const batchStatements: Promise<unknown>[] = [];
@@ -166,6 +153,26 @@ workspaceRouter.post('/sync', async (c) => {
       );
     }
   }
+  // Save learning sessions if present
+  if (Array.isArray(scheduling?.learningSessions)) {
+    for (const sess of scheduling.learningSessions) {
+      const sessId = String(sess.id || '');
+      const classId = String(sess.classId || '');
+      const sessNum = typeof sess.sessionNumber === 'number' ? sess.sessionNumber : 1;
+      const sessKind = String(sess.sessionKind || 'regular');
+      const sessStatus = String(sess.status || 'open');
+      const startedAt = sess.startedAt ? String(sess.startedAt) : new Date().toISOString();
+      const completedAt = sess.endedAt ? String(sess.endedAt) : sess.completedAt ? String(sess.completedAt) : null;
+
+      batchStatements.push(
+        c.env.DB.prepare(
+          `INSERT INTO learning_sessions (id, class_id, session_number, session_kind, status, started_at, completed_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?)
+           ON CONFLICT(id) DO UPDATE SET status=excluded.status, started_at=excluded.started_at, completed_at=excluded.completed_at`,
+        ).bind(sessId, classId, sessNum, sessKind, sessStatus, startedAt, completedAt).run(),
+      );
+    }
+  }
 
   // Execute statements in batch
   await Promise.all(batchStatements);
@@ -176,4 +183,9 @@ workspaceRouter.post('/sync', async (c) => {
       newRevision: nextRev,
     },
   });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('Workspace sync error:', message);
+    return c.json({ ok: false, error: message }, 200);
+  }
 });
