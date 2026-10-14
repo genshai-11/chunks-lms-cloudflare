@@ -355,14 +355,14 @@ export function TeacherSessionPage() {
               >
                 Bỏ chọn
               </button>
-              <div className="flex items-center rounded-lg bg-slate-800/80 p-0.5 border border-slate-700/60 ml-2">
+              <div className="flex items-center rounded-lg bg-slate-100 p-0.5 border border-slate-200 ml-2">
                 <button
                   type="button"
                   onClick={() => setViewMode('cards')}
-                  className={`p-1.5 rounded-md text-xs flex items-center gap-1 ${
+                  className={`p-1.5 px-2 rounded-md text-xs flex items-center gap-1.5 transition ${
                     viewMode === 'cards'
-                      ? 'bg-sky-500 text-slate-950 font-semibold'
-                      : 'text-slate-400 hover:text-slate-200'
+                      ? 'bg-white text-[#0a0a0a] shadow-xs font-bold border border-slate-200/60'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                   title="Xem dạng thẻ (Grid Cards)"
                 >
@@ -372,10 +372,10 @@ export function TeacherSessionPage() {
                 <button
                   type="button"
                   onClick={() => setViewMode('list')}
-                  className={`p-1.5 rounded-md text-xs flex items-center gap-1 ${
+                  className={`p-1.5 px-2 rounded-md text-xs flex items-center gap-1.5 transition ${
                     viewMode === 'list'
-                      ? 'bg-sky-500 text-slate-950 font-semibold'
-                      : 'text-slate-400 hover:text-slate-200'
+                      ? 'bg-white text-[#0a0a0a] shadow-xs font-bold border border-slate-200/60'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                   title="Xem dạng danh sách (List)"
                 >
@@ -406,37 +406,50 @@ export function TeacherSessionPage() {
                   <div
                     key={id}
                     onClick={() => toggleLearner(id)}
-                    className={`cursor-pointer rounded-2xl p-4 transition-all flex items-start gap-3 border shadow-sm ${
+                    tabIndex={0}
+                    role="checkbox"
+                    aria-checked={checked}
+                    onKeyDown={(e) => {
+                      if (e.key === ' ' || e.key === 'Enter') {
+                        e.preventDefault()
+                        toggleLearner(id)
+                      }
+                    }}
+                    className={`group cursor-pointer rounded-xl p-3.5 transition-all flex items-start gap-3 border shadow-xs outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 ${
                       checked
-                        ? 'border-emerald-500/80 bg-emerald-500/10 shadow-emerald-500/10 ring-1 ring-emerald-500/30'
-                        : 'border-slate-800 bg-slate-900/60 hover:border-slate-700 hover:bg-slate-800/40 text-slate-400'
+                        ? 'border-emerald-600 bg-emerald-50/70 shadow-emerald-500/10'
+                        : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/80'
                     }`}
                   >
-                    <input
-                      type="checkbox"
-                      checked={checked}
-                      onChange={() => {}}
-                      className="mt-1 h-4 w-4 rounded accent-emerald-500 pointer-events-none"
-                    />
+                    <div className="pt-0.5">
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => {}}
+                        aria-hidden="true"
+                        tabIndex={-1}
+                        className="h-4 w-4 rounded border-slate-300 text-emerald-600 accent-emerald-600 pointer-events-none"
+                      />
+                    </div>
                     <UserAvatar
                       name={user?.displayName ?? id}
                       avatarUrl={user?.avatarUrl}
                       size="md"
                     />
                     <div className="flex-1 min-w-0">
-                      <div className="font-semibold text-sm truncate text-slate-100">
+                      <div className="font-bold text-xs truncate text-[#0a0a0a] leading-tight">
                         {user?.displayName ?? id}
                       </div>
-                      <div className="text-xs text-slate-400 truncate mt-0.5">
+                      <div className="text-[11px] text-slate-500 truncate mt-0.5 leading-normal">
                         {user?.email ?? 'Học viên'}
                       </div>
-                      <div className="mt-2">
+                      <div className="mt-2.5 flex items-center gap-1.5">
                         {checked ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded-full">
-                            <Check className="h-3 w-3" /> Đã chọn quan sát
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-800 bg-emerald-100 border border-emerald-300 px-2 py-0.5 rounded-full">
+                            <Check className="h-3 w-3 stroke-[2.5]" /> Đã chọn quan sát
                           </span>
                         ) : (
-                          <span className="inline-block text-[11px] text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded-full">
+                          <span className="inline-flex items-center text-[10px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full group-hover:bg-slate-200/70 transition">
                             Bấm để chọn
                           </span>
                         )}
